@@ -47,7 +47,7 @@ function getAnnouncementIcon(type: string) {
 }
 
 export default function Landing() {
-  const { teams, matches, announcements, updates, tournament } = useTournamentStore();
+  const { teams, matches, announcements, updates } = useTournamentStore();
 
   const liveMatches = useMemo(
     () => matches.filter((m) => m.status === 'live'),

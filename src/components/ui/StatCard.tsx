@@ -1,7 +1,7 @@
-import { type ElementType, type ReactNode, isValidElement } from 'react';
+import { type ComponentType, type ReactNode, isValidElement } from 'react';
 
 interface StatCardProps {
-  icon: ElementType | ReactNode;
+  icon: ComponentType<{ className?: string }> | ReactNode;
   label: string;
   value: string | number;
   color?: string;
@@ -18,13 +18,12 @@ export default function StatCard({ icon: Icon, label, value, color = 'purple' }:
   };
   const c = colorMap[color] || colorMap.purple;
 
-  const isComponent = typeof Icon === 'function' ||
-    (typeof Icon === 'object' && Icon !== null && !isValidElement(Icon));
+  const isComponent = typeof Icon === 'function';
 
   return (
     <div className={`flex items-center gap-4 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-5 shadow-lg ${c.glow}`}>
       <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${c.bg}`}>
-        {isComponent ? <Icon className={`h-6 w-6 ${c.icon}`} /> : Icon}
+        {isComponent ? <Icon className={`h-6 w-6 ${c.icon}`} /> : (Icon as ReactNode)}
       </div>
       <div>
         <p className="text-2xl font-bold text-white">{value}</p>
