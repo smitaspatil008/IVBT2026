@@ -7,7 +7,7 @@ interface StatCardProps {
   color?: string;
 }
 
-export default function StatCard({ icon: Icon, label, value, color = 'purple' }: StatCardProps) {
+export default function StatCard({ icon, label, value, color = 'purple' }: StatCardProps) {
   const colorMap: Record<string, { icon: string; bg: string; glow: string }> = {
     purple: { icon: 'text-violet-400', bg: 'bg-violet-500/10', glow: 'shadow-violet-500/5' },
     blue: { icon: 'text-blue-400', bg: 'bg-blue-500/10', glow: 'shadow-blue-500/5' },
@@ -18,12 +18,20 @@ export default function StatCard({ icon: Icon, label, value, color = 'purple' }:
   };
   const c = colorMap[color] || colorMap.purple;
 
-  const isComponent = typeof Icon === 'function';
+  const isComponent = typeof icon === 'function' || (typeof icon === 'object' && icon !== null && '$$typeof' in (icon as Record<string, unknown>));
+
+  const renderIcon = () => {
+    if (isComponent) {
+      const IconComp = icon as ComponentType<{ className?: string }>;
+      return <IconComp className={`h-6 w-6 ${c.icon}`} />;
+    }
+    return icon as ReactNode;
+  };
 
   return (
     <div className={`flex items-center gap-4 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-5 shadow-lg ${c.glow}`}>
       <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${c.bg}`}>
-        {isComponent ? <Icon className={`h-6 w-6 ${c.icon}`} /> : (Icon as ReactNode)}
+        {renderIcon()}
       </div>
       <div>
         <p className="text-2xl font-bold text-white">{value}</p>
