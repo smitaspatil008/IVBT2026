@@ -1,4 +1,4 @@
-import { type ComponentType, type ReactNode, isValidElement } from 'react';
+import { type ComponentType, type ReactNode } from 'react';
 
 interface StatCardProps {
   icon: ComponentType<{ className?: string }> | ReactNode;
