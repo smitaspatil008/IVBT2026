@@ -48,7 +48,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
         className={`rounded-xl border p-4 transition-shadow hover:shadow-lg ${
           match.status === 'live'
             ? 'border-red-800/50 bg-red-950/30'
-            : 'border-indigo-800/30 bg-[#1a1730]'
+            : 'border-[#1e1b4b]/30 bg-[#12102a]'
         }`}
       >
         {/* Header */}
@@ -57,7 +57,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
           <div className="flex items-center gap-1">
             {match.status === 'live' && <LiveBadge />}
             {match.status === 'completed' && (
-              <span className="rounded-full bg-amber-400/10 px-2 py-0.5 text-xs font-semibold text-amber-400">
+              <span className="rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-semibold text-orange-500">
                 Completed
               </span>
             )}
@@ -78,7 +78,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
               style={{ backgroundColor: teamA?.color ?? '#888' }}
             />
             <div className="min-w-0">
-              <p className={`truncate text-sm font-bold ${match.winner === match.teamAId ? 'text-amber-400' : 'text-white'}`}>
+              <p className={`truncate text-sm font-bold ${match.winner === match.teamAId ? 'text-orange-500' : 'text-white'}`}>
                 {teamA?.name ?? 'TBD'}
               </p>
               <p className="text-xs text-indigo-400/50">
@@ -123,7 +123,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
           {/* Team B */}
           <div className="flex items-center gap-2 flex-1 min-w-0 justify-end text-right">
             <div className="min-w-0">
-              <p className={`truncate text-sm font-bold ${match.winner === match.teamBId ? 'text-amber-400' : 'text-white'}`}>
+              <p className={`truncate text-sm font-bold ${match.winner === match.teamBId ? 'text-orange-500' : 'text-white'}`}>
                 {teamB?.name ?? 'TBD'}
               </p>
               <p className="text-xs text-indigo-400/50">
@@ -199,7 +199,7 @@ export default function Schedule() {
             onClick={() => setActiveTab(tab.value)}
             className={`relative flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
               activeTab === tab.value
-                ? 'bg-indigo-600 text-white shadow'
+                ? 'bg-[#1e1b4b] text-white shadow'
                 : 'text-indigo-300/50 hover:text-indigo-200'
             }`}
           >
@@ -239,11 +239,11 @@ export default function Schedule() {
               >
                 {/* Date Header */}
                 <div className="mb-3 flex items-center gap-2">
-                  <div className="h-px flex-1 bg-indigo-800/30" />
+                  <div className="h-px flex-1 bg-[#1e1b4b]/30" />
                   <span className="shrink-0 rounded-full bg-indigo-950/50 px-3 py-1 text-xs font-semibold text-indigo-300/70">
                     {date}
                   </span>
-                  <div className="h-px flex-1 bg-indigo-800/30" />
+                  <div className="h-px flex-1 bg-[#1e1b4b]/30" />
                 </div>
 
                 <div className="space-y-3">

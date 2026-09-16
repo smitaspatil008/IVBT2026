@@ -25,15 +25,15 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
   };
 
   return (
-    <div className="overflow-hidden rounded-xl border border-indigo-800/30 bg-[#1a1730] shadow-lg">
-      <div className="border-b border-indigo-800/20 px-4 py-3">
+    <div className="overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-lg">
+      <div className="border-b border-[#1e1b4b]/20 px-4 py-3">
         <h3 className="font-bold text-white">{groupName}</h3>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-indigo-800/20 bg-indigo-950/50 text-xs uppercase tracking-wider text-indigo-400/50">
+            <tr className="border-b border-[#1e1b4b]/20 bg-indigo-950/50 text-xs uppercase tracking-wider text-indigo-400/50">
               <th className="px-3 py-2 text-center">#</th>
               <th className="px-3 py-2">Team</th>
               <th className="px-3 py-2 text-center">P</th>
@@ -57,8 +57,8 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
               return (
                 <tr
                   key={row.teamId}
-                  className={`border-b border-indigo-800/10 transition hover:bg-indigo-900/20 ${
-                    qualified ? 'border-l-4 border-l-amber-400' : ''
+                  className={`border-b border-[#1e1b4b]/10 transition hover:bg-[#1e1b4b]/20 ${
+                    qualified ? 'border-l-4 border-l-orange-500' : ''
                   }`}
                 >
                   <td className="px-3 py-2.5 text-center text-indigo-400/40">{idx + 1}</td>
@@ -90,11 +90,11 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
                     {row.pointsConceded}
                   </td>
                   <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
-                    <span className={pd > 0 ? 'text-amber-400' : pd < 0 ? 'text-red-400' : ''}>
+                    <span className={pd > 0 ? 'text-orange-500' : pd < 0 ? 'text-red-400' : ''}>
                       {pd > 0 ? '+' : ''}{pd}
                     </span>
                   </td>
-                  <td className="px-3 py-2.5 text-center font-bold text-amber-400">
+                  <td className="px-3 py-2.5 text-center font-bold text-orange-500">
                     {row.points}
                   </td>
                 </tr>

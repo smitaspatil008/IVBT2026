@@ -65,14 +65,14 @@ export default function Landing() {
       desc: 'Round-robin standings',
       icon: Users,
       to: '/groups',
-      gradient: 'from-violet-600 to-indigo-700',
+      gradient: 'from-[#1e1b4b] to-[#312e81]',
     },
     {
       label: 'Bracket',
       desc: 'Knockout stage',
       icon: Trophy,
       to: '/bracket',
-      gradient: 'from-amber-500 to-orange-600',
+      gradient: 'from-orange-500 to-orange-700',
     },
     {
       label: 'Teams',
@@ -102,21 +102,34 @@ export default function Landing() {
         variants={item}
         className="relative overflow-hidden rounded-2xl px-6 py-16 text-white shadow-2xl md:px-12 md:py-24"
         style={{
-          background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4338ca 60%, #6366f1 100%)',
+          background: 'linear-gradient(135deg, #0a0820 0%, #1e1b4b 40%, #312e81 70%, #1e1b4b 100%)',
         }}
       >
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-amber-400/10 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-violet-400/10 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-indigo-400/5 blur-2xl" />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#1e1b4b]/40 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-orange-400/5 blur-2xl" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="mb-6 flex justify-center"
+          >
+            <img
+              src="/logo.png"
+              alt="IVBT 2026"
+              className="h-32 w-32 rounded-full border-2 border-orange-500/30 shadow-xl shadow-orange-500/10 md:h-40 md:w-40"
+            />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-sm font-medium text-amber-300"
+            transition={{ delay: 0.2 }}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-sm font-medium text-orange-300"
           >
             <span className="text-lg">🏸</span>
             Women's Doubles 2026
@@ -128,7 +141,7 @@ export default function Landing() {
             transition={{ duration: 0.6 }}
             className="font-outfit text-4xl font-extrabold tracking-tight md:text-6xl"
           >
-            <span className="bg-gradient-to-r from-white via-amber-100 to-amber-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-orange-100 to-orange-400 bg-clip-text text-transparent">
               Inspirit Vision
             </span>
             <br />
@@ -170,7 +183,7 @@ export default function Landing() {
           >
             <Link
               to="/live"
-              className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-6 py-3 font-semibold text-gray-900 shadow-lg shadow-amber-400/20 transition hover:bg-amber-300 hover:shadow-xl hover:shadow-amber-400/30"
+              className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-500/30"
             >
               <Zap className="h-5 w-5" />
               View Live
@@ -210,7 +223,7 @@ export default function Landing() {
           label="Completed"
           value={completedMatches.length}
           icon={Trophy}
-          color="amber"
+          color="orange"
         />
       </motion.section>
 
@@ -227,7 +240,7 @@ export default function Landing() {
             </h2>
             <Link
               to="/live"
-              className="flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
+              className="flex items-center gap-1 text-sm font-medium text-orange-500 hover:text-orange-400"
             >
               View All <ChevronRight className="h-4 w-4" />
             </Link>
@@ -282,9 +295,9 @@ export default function Landing() {
               return (
                 <div
                   key={ann.id}
-                  className="flex items-start gap-4 rounded-xl border border-indigo-800/40 bg-[#1a1730] p-4 shadow-sm"
+                  className="flex items-start gap-4 rounded-xl border border-[#1e1b4b]/40 bg-[#12102a] p-4 shadow-sm"
                 >
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600/20 text-indigo-400">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1e1b4b]/40 text-indigo-400">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -292,7 +305,7 @@ export default function Landing() {
                       <h3 className="font-semibold text-white">
                         {ann.title}
                       </h3>
-                      <span className="rounded-full bg-amber-400/10 px-2 py-0.5 text-xs font-medium text-amber-400">
+                      <span className="rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-medium text-orange-500">
                         {ann.type}
                       </span>
                     </div>
@@ -324,7 +337,7 @@ export default function Landing() {
             {updates.map((update) => (
               <div
                 key={update.id}
-                className="min-w-[280px] max-w-[320px] shrink-0 rounded-xl border border-indigo-800/40 bg-[#1a1730] p-4 shadow-sm"
+                className="min-w-[280px] max-w-[320px] shrink-0 rounded-xl border border-[#1e1b4b]/40 bg-[#12102a] p-4 shadow-sm"
               >
                 {update.image && (
                   <img

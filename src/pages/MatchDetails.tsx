@@ -53,7 +53,7 @@ export default function MatchDetails() {
         <p className="mb-6 text-indigo-300/50">Match not found</p>
         <Link
           to="/schedule"
-          className="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"
+          className="flex items-center gap-2 rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Schedule
@@ -90,14 +90,14 @@ export default function MatchDetails() {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-6 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-5 shadow-lg"
+        className="mb-6 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-5 shadow-lg"
       >
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-lg font-bold text-white">{match.round}</h2>
           <div className="flex items-center gap-2">
             {match.status === 'live' && <LiveBadge />}
             {match.status === 'completed' && (
-              <span className="rounded-full bg-amber-400/10 px-2.5 py-0.5 text-xs font-semibold text-amber-400">
+              <span className="rounded-full bg-orange-500/10 px-2.5 py-0.5 text-xs font-semibold text-orange-500">
                 Completed
               </span>
             )}
@@ -148,8 +148,8 @@ export default function MatchDetails() {
           animate={{ opacity: 1, x: 0 }}
           className={`rounded-xl border p-4 ${
             match.winner === match.teamAId
-              ? 'border-amber-400/40 bg-amber-400/5'
-              : 'border-indigo-800/30 bg-[#1a1730]'
+              ? 'border-orange-500/40 bg-orange-500/5'
+              : 'border-[#1e1b4b]/30 bg-[#12102a]'
           }`}
         >
           <div className="mb-3 flex items-center gap-2">
@@ -174,8 +174,8 @@ export default function MatchDetails() {
           animate={{ opacity: 1, x: 0 }}
           className={`rounded-xl border p-4 ${
             match.winner === match.teamBId
-              ? 'border-amber-400/40 bg-amber-400/5'
-              : 'border-indigo-800/30 bg-[#1a1730]'
+              ? 'border-orange-500/40 bg-orange-500/5'
+              : 'border-[#1e1b4b]/30 bg-[#12102a]'
           }`}
         >
           <div className="mb-3 flex items-center gap-2">
@@ -201,7 +201,7 @@ export default function MatchDetails() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-6 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-5"
+          className="mb-6 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-5"
         >
           <h3 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-indigo-400/50">
             Game Scores
@@ -222,8 +222,8 @@ export default function MatchDetails() {
                     isCurrent
                       ? 'border-red-700 bg-red-950/30 ring-2 ring-red-800'
                       : game
-                        ? 'border-indigo-800/30 bg-indigo-950/50'
-                        : 'border-dashed border-indigo-800/20 bg-indigo-950/20'
+                        ? 'border-[#1e1b4b]/30 bg-indigo-950/50'
+                        : 'border-dashed border-[#1e1b4b]/20 bg-indigo-950/20'
                   }`}
                 >
                   <p className="mb-1 text-xs font-semibold uppercase text-indigo-400/40">
@@ -250,7 +250,7 @@ export default function MatchDetails() {
 
       {/* Upcoming state */}
       {match.status === 'upcoming' && (
-        <div className="rounded-xl border border-dashed border-indigo-800/30 py-12 text-center">
+        <div className="rounded-xl border border-dashed border-[#1e1b4b]/30 py-12 text-center">
           <p className="text-lg font-medium text-indigo-300/50">
             Match has not started yet
           </p>

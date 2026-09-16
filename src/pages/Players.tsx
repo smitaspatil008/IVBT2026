@@ -80,8 +80,8 @@ export default function Players() {
           onClick={() => setGroupByTeam(!groupByTeam)}
           className={`inline-flex shrink-0 items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition ${
             groupByTeam
-              ? 'bg-indigo-600 text-white shadow-md'
-              : 'bg-indigo-900/30 text-indigo-300/70 hover:bg-indigo-800/30 border border-indigo-800/20'
+              ? 'bg-[#1e1b4b] text-white shadow-md'
+              : 'bg-[#1e1b4b]/30 text-indigo-300/70 hover:bg-[#1e1b4b]/30 border border-[#1e1b4b]/20'
           }`}
         >
           <User className="h-4 w-4" />

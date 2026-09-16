@@ -11,7 +11,7 @@ function BracketMatch({ match }: { match: Match | undefined }) {
 
   if (!match) {
     return (
-      <div className="w-48 rounded-lg border border-dashed border-indigo-800/30 bg-indigo-950/30 p-3 text-center text-sm text-indigo-400/40">
+      <div className="w-48 rounded-lg border border-dashed border-[#1e1b4b]/30 bg-indigo-950/30 p-3 text-center text-sm text-indigo-400/40">
         TBD
       </div>
     );
@@ -29,8 +29,8 @@ function BracketMatch({ match }: { match: Match | undefined }) {
     <div
       className={`flex items-center justify-between gap-2 rounded px-2 py-1.5 ${
         isWinner
-          ? 'bg-amber-400/10'
-          : 'bg-[#1a1730]'
+          ? 'bg-orange-500/10'
+          : 'bg-[#12102a]'
       }`}
     >
       <div className="flex items-center gap-1.5">
@@ -41,7 +41,7 @@ function BracketMatch({ match }: { match: Match | undefined }) {
         <span
           className={`text-sm font-medium ${
             isWinner
-              ? 'text-amber-400'
+              ? 'text-orange-500'
               : teamId
                 ? 'text-indigo-100'
                 : 'text-indigo-400/40'
@@ -49,13 +49,13 @@ function BracketMatch({ match }: { match: Match | undefined }) {
         >
           {team?.shortName ?? 'TBD'}
         </span>
-        {isWinner && <CheckCircle2 className="h-3.5 w-3.5 text-amber-400" />}
+        {isWinner && <CheckCircle2 className="h-3.5 w-3.5 text-orange-500" />}
       </div>
       <div className="flex gap-1">
         {scores.map((s, i) => (
           <span
             key={i}
-            className="inline-flex h-5 w-6 items-center justify-center rounded bg-indigo-800/30 text-[11px] font-bold text-indigo-200"
+            className="inline-flex h-5 w-6 items-center justify-center rounded bg-[#1e1b4b]/30 text-[11px] font-bold text-indigo-200"
           >
             {s}
           </span>
@@ -65,11 +65,11 @@ function BracketMatch({ match }: { match: Match | undefined }) {
   );
 
   return (
-    <div className="w-48 overflow-hidden rounded-lg border border-indigo-800/30 shadow-sm">
+    <div className="w-48 overflow-hidden rounded-lg border border-[#1e1b4b]/30 shadow-sm">
       <div className="bg-indigo-950/50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-indigo-400/40">
         {match.round}
       </div>
-      <div className="divide-y divide-indigo-800/20">
+      <div className="divide-y divide-[#1e1b4b]/20">
         {renderTeamRow(
           teamA,
           match.teamAId,
@@ -132,7 +132,7 @@ export default function KnockoutBracket() {
         <div className="flex flex-col items-center gap-3">
           <BracketMatch match={final} />
           {champion && (
-            <div className="flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-sm font-bold text-amber-400">
+            <div className="flex items-center gap-1.5 rounded-full bg-orange-500/10 px-3 py-1 text-sm font-bold text-orange-500">
               <span className="text-base">🏆</span> {champion.name}
             </div>
           )}
@@ -196,7 +196,7 @@ export default function KnockoutBracket() {
           <div className="flex flex-col items-start gap-3">
             <BracketMatch match={final} />
             {champion && (
-              <div className="flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-sm font-bold text-amber-400">
+              <div className="flex items-center gap-1.5 rounded-full bg-orange-500/10 px-3 py-1 text-sm font-bold text-orange-500">
                 <span className="text-base">🏆</span> {champion.name}
               </div>
             )}

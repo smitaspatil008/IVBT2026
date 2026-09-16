@@ -38,7 +38,7 @@ export default function CountdownTimer({ targetDate, label }: CountdownTimerProp
   ];
 
   return (
-    <div className="text-center rounded-2xl border border-indigo-800/30 bg-[#1a1730] p-8">
+    <div className="text-center rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-8">
       {label && (
         <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-indigo-300/50">
           {label}
@@ -50,7 +50,7 @@ export default function CountdownTimer({ targetDate, label }: CountdownTimerProp
             key={key}
             className="flex flex-col items-center"
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-b from-indigo-600 to-indigo-800 shadow-lg shadow-indigo-900/50 md:h-20 md:w-20">
+            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-b from-[#1e1b4b] to-[#1e1b4b] shadow-lg shadow-[#1e1b4b]/50 md:h-20 md:w-20">
               <span className="text-2xl font-bold tabular-nums text-white md:text-3xl">
                 {String(timeLeft[key]).padStart(2, '0')}
               </span>

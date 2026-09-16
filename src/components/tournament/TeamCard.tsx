@@ -10,7 +10,7 @@ export default function TeamCard({ team }: TeamCardProps) {
   const teamPlayers = players.filter((p) => p.teamId === team.id);
 
   return (
-    <div className="overflow-hidden rounded-xl border border-indigo-800/30 bg-[#1a1730] shadow-md">
+    <div className="overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-md">
       {/* Color accent stripe */}
       <div className="h-2" style={{ backgroundColor: team.color }} />
 

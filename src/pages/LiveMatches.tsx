@@ -74,7 +74,7 @@ export default function LiveMatches() {
       ) : (
         <motion.div
           variants={item}
-          className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-indigo-800/30 py-20 text-center"
+          className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#1e1b4b]/30 py-20 text-center"
         >
           <Bird className="mb-4 h-16 w-16 text-indigo-700" />
           <h2 className="text-xl font-semibold text-indigo-300/50">
@@ -91,7 +91,7 @@ export default function LiveMatches() {
       {upcomingNext.length > 0 && (
         <motion.section variants={item}>
           <h2 className="mb-4 flex items-center gap-2 text-xl font-bold text-white">
-            <Clock className="h-5 w-5 text-amber-500" />
+            <Clock className="h-5 w-5 text-orange-600" />
             Upcoming Next
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

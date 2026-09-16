@@ -42,13 +42,13 @@ function Modal({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-lg rounded-2xl border border-indigo-800/30 bg-[#1a1730] p-6 shadow-xl max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-lg rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-6 shadow-xl max-h-[90vh] overflow-y-auto"
           >
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-bold text-white">{title}</h3>
               <button
                 onClick={onClose}
-                className="rounded-lg p-1 text-indigo-400/40 hover:bg-indigo-800/30"
+                className="rounded-lg p-1 text-indigo-400/40 hover:bg-[#1e1b4b]/30"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -82,16 +82,16 @@ const inputCls =
   'w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20';
 
 const btnPrimary =
-  'rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 disabled:opacity-50 transition-colors';
+  'rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 disabled:opacity-50 transition-colors';
 const btnSecondary =
-  'rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-indigo-200/70 hover:bg-indigo-800/30 transition-colors';
+  'rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-indigo-200/70 hover:bg-[#1e1b4b]/30 transition-colors';
 
 function ActionCard({
   icon,
   label,
   description,
   onClick,
-  color = 'bg-indigo-900/30',
+  color = 'bg-[#1e1b4b]/30',
 }: {
   icon: React.ReactNode;
   label: string;
@@ -104,7 +104,7 @@ function ActionCard({
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className={`flex flex-col items-center gap-2 rounded-xl border border-indigo-800/30 p-5 text-center shadow-sm transition-shadow hover:shadow-md ${color}`}
+      className={`flex flex-col items-center gap-2 rounded-xl border border-[#1e1b4b]/30 p-5 text-center shadow-sm transition-shadow hover:shadow-md ${color}`}
     >
       <div className="text-3xl">{icon}</div>
       <p className="text-sm font-bold text-white">{label}</p>
@@ -373,7 +373,7 @@ export default function AdminPortal() {
             store.logout();
             toast.success('Logged out');
           }}
-          className="flex items-center gap-1.5 rounded-lg border border-indigo-700/40 px-3 py-2 text-sm font-medium text-indigo-200/70 hover:bg-indigo-800/30"
+          className="flex items-center gap-1.5 rounded-lg border border-indigo-700/40 px-3 py-2 text-sm font-medium text-indigo-200/70 hover:bg-[#1e1b4b]/30"
         >
           <LogOut className="h-4 w-4" />
           Logout
@@ -390,9 +390,9 @@ export default function AdminPortal() {
         ].map((stat) => (
           <div
             key={stat.label}
-            className="flex items-center gap-3 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-4 shadow-sm"
+            className="flex items-center gap-3 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-4 shadow-sm"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600/20 text-indigo-400">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1e1b4b]/40 text-indigo-400">
               {stat.icon}
             </div>
             <div>
@@ -443,7 +443,7 @@ export default function AdminPortal() {
               label="Advance to Knockouts"
               description="Populate QF bracket"
               onClick={handleAdvance}
-              color="bg-amber-900/20"
+              color="bg-orange-900/20"
             />
             <ActionCard
               icon="📢"
@@ -509,7 +509,7 @@ export default function AdminPortal() {
               <Link
                 key={m.id}
                 to={`/umpire/${m.id}`}
-                className="flex items-center justify-between rounded-lg border border-indigo-800/30 p-3 hover:bg-indigo-800/20"
+                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/30 p-3 hover:bg-[#1e1b4b]/20"
                 onClick={close}
               >
                 <span className="text-sm font-medium text-white">
@@ -530,7 +530,7 @@ export default function AdminPortal() {
             {store.teams.map((t) => (
               <div
                 key={t.id}
-                className="flex items-center justify-between rounded-lg border border-indigo-800/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
               >
                 <div className="flex items-center gap-2">
                   <div className="h-4 w-4 rounded-full" style={{ backgroundColor: t.color }} />
@@ -553,7 +553,7 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-indigo-800/20" />
+          <hr className="border-[#1e1b4b]/20" />
 
           <h4 className="text-sm font-semibold text-indigo-200/70">Add Team</h4>
           <Field label="Team Name">
@@ -583,7 +583,7 @@ export default function AdminPortal() {
             {store.players.map((p) => (
               <div
                 key={p.id}
-                className="flex items-center justify-between rounded-lg border border-indigo-800/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
               >
                 <span className="text-sm text-indigo-100">
                   {p.name}{' '}
@@ -604,7 +604,7 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-indigo-800/20" />
+          <hr className="border-[#1e1b4b]/20" />
           <h4 className="text-sm font-semibold text-indigo-200/70">Add Player</h4>
           <Field label="Player Name">
             <input value={playerName} onChange={(e) => setPlayerName(e.target.value)} className={inputCls} placeholder="Full name" />
@@ -668,7 +668,7 @@ export default function AdminPortal() {
             {store.announcements.map((a) => (
               <div
                 key={a.id}
-                className="flex items-center justify-between rounded-lg border border-indigo-800/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
               >
                 <div>
                   <p className="text-sm font-medium text-indigo-100">{a.title}</p>
@@ -687,7 +687,7 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-indigo-800/20" />
+          <hr className="border-[#1e1b4b]/20" />
           <h4 className="text-sm font-semibold text-indigo-200/70">New Announcement</h4>
           <Field label="Title">
             <input value={annTitle} onChange={(e) => setAnnTitle(e.target.value)} className={inputCls} />
@@ -713,7 +713,7 @@ export default function AdminPortal() {
             {store.updates.map((u) => (
               <div
                 key={u.id}
-                className="flex items-center justify-between rounded-lg border border-indigo-800/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
               >
                 <p className="text-sm text-indigo-100 line-clamp-1">{u.text}</p>
                 <button
@@ -729,7 +729,7 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-indigo-800/20" />
+          <hr className="border-[#1e1b4b]/20" />
           <Field label="Update Text">
             <textarea value={updateText} onChange={(e) => setUpdateText(e.target.value)} className={inputCls} rows={3} />
           </Field>
@@ -748,7 +748,7 @@ export default function AdminPortal() {
               {store.gallery.map((g) => (
                 <div
                   key={g.id}
-                  className="flex items-center justify-between rounded-lg border border-indigo-800/20 px-3 py-2"
+                  className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
                 >
                   <div className="flex items-center gap-2">
                     {g.photo && (

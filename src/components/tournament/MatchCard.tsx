@@ -27,7 +27,7 @@ export default function MatchCard({ match }: MatchCardProps) {
         return <LiveBadge />;
       case 'completed':
         return (
-          <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/10 px-2 py-0.5 text-xs font-semibold text-amber-400">
+          <span className="inline-flex items-center gap-1 rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-semibold text-orange-500">
             <CheckCircle2 className="h-3 w-3" /> Completed
           </span>
         );
@@ -44,10 +44,10 @@ export default function MatchCard({ match }: MatchCardProps) {
     <Link to={`/match/${match.id}`}>
       <motion.div
         whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(79, 70, 229, 0.15)' }}
-        className="overflow-hidden rounded-xl border border-indigo-800/30 bg-[#1a1730] shadow-md transition"
+        className="overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-md transition"
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-indigo-800/20 px-4 py-2">
+        <div className="flex items-center justify-between border-b border-[#1e1b4b]/20 px-4 py-2">
           <span className="text-xs font-medium text-indigo-400/60">{match.round}</span>
           {statusBadge()}
         </div>
@@ -64,13 +64,13 @@ export default function MatchCard({ match }: MatchCardProps) {
               <span
                 className={`font-semibold ${
                   match.winner === match.teamAId
-                    ? 'text-amber-400'
+                    ? 'text-orange-500'
                     : 'text-white'
                 }`}
               >
                 {teamA?.shortName ?? 'TBD'}
               </span>
-              {match.winner === match.teamAId && <CheckCircle2 className="h-4 w-4 text-amber-400" />}
+              {match.winner === match.teamAId && <CheckCircle2 className="h-4 w-4 text-orange-500" />}
             </div>
             <div className="flex gap-1.5">
               {(match.games ?? []).map((g, i) => (
@@ -79,7 +79,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                   className={`inline-flex h-7 w-8 items-center justify-center rounded text-xs font-bold ${
                     match.status === 'live' && i === match.currentGame
                       ? 'bg-red-500/20 text-red-400 ring-2 ring-red-500/40'
-                      : 'bg-indigo-800/30 text-indigo-200'
+                      : 'bg-[#1e1b4b]/30 text-indigo-200'
                   }`}
                 >
                   {g.scoreA}
@@ -89,7 +89,7 @@ export default function MatchCard({ match }: MatchCardProps) {
           </div>
 
           {/* Divider */}
-          <div className="my-2 border-t border-dashed border-indigo-800/20" />
+          <div className="my-2 border-t border-dashed border-[#1e1b4b]/20" />
 
           {/* Team B */}
           <div className="flex items-center justify-between">
@@ -101,13 +101,13 @@ export default function MatchCard({ match }: MatchCardProps) {
               <span
                 className={`font-semibold ${
                   match.winner === match.teamBId
-                    ? 'text-amber-400'
+                    ? 'text-orange-500'
                     : 'text-white'
                 }`}
               >
                 {teamB?.shortName ?? 'TBD'}
               </span>
-              {match.winner === match.teamBId && <CheckCircle2 className="h-4 w-4 text-amber-400" />}
+              {match.winner === match.teamBId && <CheckCircle2 className="h-4 w-4 text-orange-500" />}
             </div>
             <div className="flex gap-1.5">
               {(match.games ?? []).map((g, i) => (
@@ -116,7 +116,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                   className={`inline-flex h-7 w-8 items-center justify-center rounded text-xs font-bold ${
                     match.status === 'live' && i === match.currentGame
                       ? 'bg-red-500/20 text-red-400 ring-2 ring-red-500/40'
-                      : 'bg-indigo-800/30 text-indigo-200'
+                      : 'bg-[#1e1b4b]/30 text-indigo-200'
                   }`}
                 >
                   {g.scoreB}
@@ -127,7 +127,7 @@ export default function MatchCard({ match }: MatchCardProps) {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center gap-4 border-t border-indigo-800/20 px-4 py-2 text-xs text-indigo-400/50">
+        <div className="flex items-center gap-4 border-t border-[#1e1b4b]/20 px-4 py-2 text-xs text-indigo-400/50">
           {match.court && (
             <span className="flex items-center gap-1">
               <MapPin className="h-3 w-3" /> {match.court}

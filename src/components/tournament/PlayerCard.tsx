@@ -11,7 +11,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
   const team = teams.find((t) => t.id === player.teamId);
 
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-4 shadow-md">
+    <div className="flex items-center gap-4 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-4 shadow-md">
       {/* Photo or placeholder */}
       {player.photo ? (
         <img
@@ -21,7 +21,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
         />
       ) : (
         <div
-          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-indigo-900/50"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#1e1b4b]/50"
           style={team ? { borderColor: team.color, borderWidth: 2 } : undefined}
         >
           <User className="h-7 w-7 text-indigo-400/40" />

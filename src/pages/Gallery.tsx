@@ -134,7 +134,7 @@ export default function Gallery() {
         {auth.isLoggedIn && (
           <button
             onClick={() => setShowUpload(true)}
-            className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 transition-colors"
+            className="flex items-center gap-1.5 rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 transition-colors"
           >
             <Plus className="h-4 w-4" />
             Upload
@@ -150,8 +150,8 @@ export default function Gallery() {
             onClick={() => setActiveCategory(cat)}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
               activeCategory === cat
-                ? 'bg-indigo-600 text-white shadow'
-                : 'bg-indigo-900/30 text-indigo-300/70 hover:bg-indigo-800/30 border border-indigo-800/20'
+                ? 'bg-[#1e1b4b] text-white shadow'
+                : 'bg-[#1e1b4b]/30 text-indigo-300/70 hover:bg-[#1e1b4b]/30 border border-[#1e1b4b]/20'
             }`}
           >
             {CATEGORY_LABELS[cat]}
@@ -186,7 +186,7 @@ export default function Gallery() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="group relative overflow-hidden rounded-xl border border-indigo-800/30 bg-[#1a1730] shadow-sm"
+                className="group relative overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-sm"
               >
                 {/* Image */}
                 <div className="aspect-square overflow-hidden bg-indigo-950/50">
@@ -205,7 +205,7 @@ export default function Gallery() {
 
                 {/* Info */}
                 <div className="p-3">
-                  <span className={`mb-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${CATEGORY_COLORS[item.category] ?? 'bg-indigo-900/30 text-indigo-400'}`}>
+                  <span className={`mb-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${CATEGORY_COLORS[item.category] ?? 'bg-[#1e1b4b]/30 text-indigo-400'}`}>
                     {item.category}
                   </span>
                   <p className="text-sm font-medium text-indigo-100 line-clamp-2">
@@ -243,13 +243,13 @@ export default function Gallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-md rounded-2xl border border-indigo-800/30 bg-[#1a1730] p-6 shadow-xl"
+              className="w-full max-w-md rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-6 shadow-xl"
             >
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-bold text-white">Upload Photo</h3>
                 <button
                   onClick={() => setShowUpload(false)}
-                  className="rounded-lg p-1 text-indigo-400/40 hover:bg-indigo-800/30"
+                  className="rounded-lg p-1 text-indigo-400/40 hover:bg-[#1e1b4b]/30"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -265,7 +265,7 @@ export default function Gallery() {
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
-                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-indigo-200 file:mr-3 file:rounded file:border-0 file:bg-indigo-600/20 file:px-3 file:py-1 file:text-sm file:font-medium file:text-indigo-300"
+                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-indigo-200 file:mr-3 file:rounded file:border-0 file:bg-[#1e1b4b]/40 file:px-3 file:py-1 file:text-sm file:font-medium file:text-indigo-300"
                   />
                   {preview && (
                     <img
@@ -308,14 +308,14 @@ export default function Gallery() {
                 <div className="flex gap-3 pt-2">
                   <button
                     onClick={() => setShowUpload(false)}
-                    className="flex-1 rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-indigo-200/70 hover:bg-indigo-800/30"
+                    className="flex-1 rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-indigo-200/70 hover:bg-[#1e1b4b]/30"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleUpload}
                     disabled={uploading || !preview}
-                    className="flex-1 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 disabled:opacity-50"
+                    className="flex-1 rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 disabled:opacity-50"
                   >
                     {uploading ? 'Uploading...' : 'Upload'}
                   </button>

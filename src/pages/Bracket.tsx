@@ -46,7 +46,7 @@ export default function Bracket() {
       {/* Page Header */}
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
-          <Trophy className="h-7 w-7 text-amber-400" />
+          <Trophy className="h-7 w-7 text-orange-500" />
           Knockout Stage
         </h1>
         <p className="mt-1 text-sm text-indigo-300/50">
@@ -58,7 +58,7 @@ export default function Bracket() {
       {!hasTeamsAssigned ? (
         <motion.div
           variants={item}
-          className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-indigo-800/30 py-20 text-center"
+          className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#1e1b4b]/30 py-20 text-center"
         >
           <AlertCircle className="mb-4 h-16 w-16 text-indigo-700" />
           <h2 className="text-xl font-semibold text-indigo-300/50">

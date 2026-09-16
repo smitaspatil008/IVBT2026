@@ -67,8 +67,8 @@ export default function Teams() {
             onClick={() => setActiveFilter(tab.key)}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition ${
               activeFilter === tab.key
-                ? 'bg-indigo-600 text-white shadow-md'
-                : 'bg-indigo-900/30 text-indigo-300/70 hover:bg-indigo-800/30 border border-indigo-800/20'
+                ? 'bg-[#1e1b4b] text-white shadow-md'
+                : 'bg-[#1e1b4b]/30 text-indigo-300/70 hover:bg-[#1e1b4b]/30 border border-[#1e1b4b]/20'
             }`}
           >
             {tab.label}

@@ -40,8 +40,8 @@ export default function Login() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-sm"
       >
-        <div className="rounded-2xl border border-indigo-800/30 bg-[#1a1730] p-8 shadow-xl">
-          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600/20">
+        <div className="rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-8 shadow-xl">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#1e1b4b]/40">
             <Lock className="h-8 w-8 text-indigo-400" />
           </div>
 
@@ -104,8 +104,8 @@ export default function Login() {
                   onClick={() => setRole('admin')}
                   className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     role === 'admin'
-                      ? 'border-amber-400/60 bg-amber-400/10 text-amber-400'
-                      : 'border-indigo-700/30 text-indigo-300/50 hover:border-indigo-600/40'
+                      ? 'border-orange-500/60 bg-orange-500/10 text-orange-500'
+                      : 'border-indigo-700/30 text-indigo-300/50 hover:border-[#1e1b4b]/40'
                   }`}
                 >
                   <ShieldCheck className="h-4 w-4" />
@@ -116,8 +116,8 @@ export default function Login() {
                   onClick={() => setRole('umpire')}
                   className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     role === 'umpire'
-                      ? 'border-amber-400/60 bg-amber-400/10 text-amber-400'
-                      : 'border-indigo-700/30 text-indigo-300/50 hover:border-indigo-600/40'
+                      ? 'border-orange-500/60 bg-orange-500/10 text-orange-500'
+                      : 'border-indigo-700/30 text-indigo-300/50 hover:border-[#1e1b4b]/40'
                   }`}
                 >
                   <Eye className="h-4 w-4" />
@@ -129,7 +129,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={pin.length < 6}
-              className="w-full rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-lg bg-[#1e1b4b] px-4 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
             >
               Login
             </button>
