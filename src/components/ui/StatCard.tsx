@@ -1,7 +1,7 @@
-import { type ComponentType, type ReactNode } from 'react';
+import { isValidElement, type ReactNode } from 'react';
 
 interface StatCardProps {
-  icon: ComponentType<{ className?: string }> | ReactNode;
+  icon: React.ComponentType<{ className?: string }> | ReactNode;
   label: string;
   value: string | number;
   color?: string;
@@ -18,20 +18,27 @@ export default function StatCard({ icon, label, value, color = 'purple' }: StatC
   };
   const c = colorMap[color] || colorMap.purple;
 
-  const isComponent = typeof icon === 'function' || (typeof icon === 'object' && icon !== null && '$$typeof' in (icon as Record<string, unknown>));
+  if (isValidElement(icon)) {
+    return (
+      <div className={`flex items-center gap-4 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-5 shadow-lg ${c.glow}`}>
+        <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${c.bg}`}>
+          {icon}
+        </div>
+        <div>
+          <p className="text-2xl font-bold text-white">{value}</p>
+          <p className="text-sm text-indigo-300/50">{label}</p>
+        </div>
+      </div>
+    );
+  }
 
-  const renderIcon = () => {
-    if (isComponent) {
-      const IconComp = icon as ComponentType<{ className?: string }>;
-      return <IconComp className={`h-6 w-6 ${c.icon}`} />;
-    }
-    return icon as ReactNode;
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const IconComp = icon as any;
 
   return (
     <div className={`flex items-center gap-4 rounded-xl border border-indigo-800/30 bg-[#1a1730] p-5 shadow-lg ${c.glow}`}>
       <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${c.bg}`}>
-        {renderIcon()}
+        <IconComp className={`h-6 w-6 ${c.icon}`} />
       </div>
       <div>
         <p className="text-2xl font-bold text-white">{value}</p>
