@@ -19,7 +19,7 @@ function BracketMatchCard({ match, round, isChampion }: {
   const isDone = match.status === 'completed';
   const rc = ROUND_COLORS[round] ?? ROUND_COLORS.sf;
 
-  const renderTeam = (team: typeof teamA, teamId: string, isWinner: boolean, pos: 'top' | 'bottom') => (
+  const renderTeam = (team: typeof teamA, _teamId: string, isWinner: boolean, pos: 'top' | 'bottom') => (
     <div className={`flex items-center justify-between px-2.5 py-2 ${pos === 'top' ? 'border-b border-[#1e1b4b]/30' : ''} ${isWinner && isDone ? 'bg-pink-500/10' : ''}`}>
       <div className="flex items-center gap-2 min-w-0">
         {team ? (
