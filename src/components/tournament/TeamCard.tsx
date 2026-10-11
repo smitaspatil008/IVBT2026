@@ -21,7 +21,7 @@ export default function TeamCard({ team }: TeamCardProps) {
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
             style={{ backgroundColor: team.color }}
           >
-            {team.shortName}
+            {team.name.charAt(0)}
           </div>
           <div>
             <h3 className="font-semibold text-white">{team.name}</h3>

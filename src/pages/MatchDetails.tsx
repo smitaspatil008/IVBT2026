@@ -156,7 +156,7 @@ export default function MatchDetails() {
             <div className="h-10 w-10 rounded-full" style={{ backgroundColor: teamA?.color ?? '#888' }} />
             <div>
               <p className="font-bold text-white">{teamA?.name ?? 'TBD'}</p>
-              <p className="text-xs text-indigo-400/50">{teamA?.shortName ?? '---'}</p>
+              <p className="text-xs text-indigo-400/50">{teamA?.name ?? '---'}</p>
             </div>
           </div>
           <div className="space-y-1">
@@ -182,7 +182,7 @@ export default function MatchDetails() {
             <div className="h-10 w-10 rounded-full" style={{ backgroundColor: teamB?.color ?? '#888' }} />
             <div>
               <p className="font-bold text-white">{teamB?.name ?? 'TBD'}</p>
-              <p className="text-xs text-indigo-400/50">{teamB?.shortName ?? '---'}</p>
+              <p className="text-xs text-indigo-400/50">{teamB?.name ?? '---'}</p>
             </div>
           </div>
           <div className="space-y-1">
@@ -208,7 +208,7 @@ export default function MatchDetails() {
           </h3>
 
           <p className="mb-4 text-center text-sm font-medium text-indigo-200/60">
-            Games: {teamA?.shortName ?? 'A'} {gamesWonA} - {gamesWonB} {teamB?.shortName ?? 'B'}
+            Games: {teamA?.name ?? 'A'} {gamesWonA} - {gamesWonB} {teamB?.name ?? 'B'}
           </p>
 
           <div className="grid grid-cols-3 gap-3">

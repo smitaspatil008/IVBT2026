@@ -33,6 +33,7 @@ import AdminPortal from './pages/AdminPortal';
 import UmpireScreen from './pages/UmpireScreen';
 import Leaderboard from './pages/Leaderboard';
 import Gallery from './pages/Gallery';
+import Rules from './pages/Rules';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -84,6 +85,7 @@ function App() {
           <Route path="/match/:id" element={<MatchDetails />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/rules" element={<Rules />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminPortal />} />
         </Route>

@@ -41,7 +41,7 @@ export default function PlayerCard({ player, delay = 0, onClick }: PlayerCardPro
             className="absolute -bottom-1 -right-1 w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center text-white text-[8px] sm:text-[10px] font-bold border-2 border-[#12102a]"
             style={{ background: team.color }}
           >
-            {team.shortName}
+            {team.name.charAt(0)}
           </div>
         )}
       </div>

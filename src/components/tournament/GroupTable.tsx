@@ -69,7 +69,7 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
                         style={{ backgroundColor: team?.color ?? '#6b7280' }}
                       />
                       <span className="font-medium text-white">
-                        {team?.shortName ?? row.teamId}
+                        {team?.name ?? row.teamId}
                       </span>
                     </div>
                   </td>

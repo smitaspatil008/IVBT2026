@@ -106,7 +106,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
                   className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 rounded-lg flex items-center justify-center text-white text-[10px] font-bold"
                   style={{ backgroundColor: teamA?.color ?? '#333' }}
                 >
-                  {teamA?.shortName?.charAt(0) ?? '?'}
+                  {teamA?.name?.charAt(0) ?? '?'}
                 </div>
                 <div className="min-w-0">
                   <p className={`truncate text-sm font-semibold ${
@@ -153,7 +153,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
                   className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 rounded-lg flex items-center justify-center text-white text-[10px] font-bold"
                   style={{ backgroundColor: teamB?.color ?? '#333' }}
                 >
-                  {teamB?.shortName?.charAt(0) ?? '?'}
+                  {teamB?.name?.charAt(0) ?? '?'}
                 </div>
               </div>
             </div>

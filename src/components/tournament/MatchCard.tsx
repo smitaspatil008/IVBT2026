@@ -68,7 +68,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                     : 'text-white'
                 }`}
               >
-                {teamA?.shortName ?? 'TBD'}
+                {teamA?.name ?? 'TBD'}
               </span>
               {match.winner === match.teamAId && <CheckCircle2 className="h-4 w-4 text-pink-500" />}
             </div>
@@ -105,7 +105,7 @@ export default function MatchCard({ match }: MatchCardProps) {
                     : 'text-white'
                 }`}
               >
-                {teamB?.shortName ?? 'TBD'}
+                {teamB?.name ?? 'TBD'}
               </span>
               {match.winner === match.teamBId && <CheckCircle2 className="h-4 w-4 text-pink-500" />}
             </div>

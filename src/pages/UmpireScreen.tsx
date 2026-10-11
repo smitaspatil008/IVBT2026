@@ -141,7 +141,7 @@ export default function UmpireScreen() {
               style={{ backgroundColor: teamA?.color ?? '#888' }}
             />
             <p className="text-sm font-bold">{teamA?.name ?? 'TBD'}</p>
-            <p className="text-xs text-indigo-400/40">{teamA?.shortName ?? '---'}</p>
+            <p className="text-xs text-indigo-400/40">{teamA?.name ?? '---'}</p>
           </div>
           <div>
             <div
@@ -149,7 +149,7 @@ export default function UmpireScreen() {
               style={{ backgroundColor: teamB?.color ?? '#888' }}
             />
             <p className="text-sm font-bold">{teamB?.name ?? 'TBD'}</p>
-            <p className="text-xs text-indigo-400/40">{teamB?.shortName ?? '---'}</p>
+            <p className="text-xs text-indigo-400/40">{teamB?.name ?? '---'}</p>
           </div>
         </div>
 
@@ -329,9 +329,9 @@ export default function UmpireScreen() {
                     </div>
                     <span className="text-xs text-indigo-400/40">
                       {w === 'A'
-                        ? teamA?.shortName
+                        ? teamA?.name
                         : w === 'B'
-                          ? teamB?.shortName
+                          ? teamB?.name
                           : i === match.currentGame && isLive
                             ? 'LIVE'
                             : ''}

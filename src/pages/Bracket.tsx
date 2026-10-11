@@ -53,7 +53,7 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
                   className="w-5 h-5 rounded flex items-center justify-center text-white text-[8px] font-bold flex-shrink-0"
                   style={{ background: team?.color ?? '#6366f1' }}
                 >
-                  {team?.shortName?.charAt(0) ?? '?'}
+                  {team?.name?.charAt(0) ?? '?'}
                 </span>
                 <span className={`text-xs font-medium truncate ${isLeader ? 'text-pink-300' : 'text-indigo-100'}`}>
                   {team?.name ?? 'TBD'}
@@ -134,7 +134,7 @@ function MatchCard({ match, label, accent, innerRef }: {
             className="w-6 h-6 rounded flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0"
             style={{ background: isWinner && isDone ? '#ec4899' : team.color }}
           >
-            {team.shortName.charAt(0)}
+            {team.name.charAt(0)}
           </span>
           <span className={`text-xs font-medium truncate ${isWinner && isDone ? 'text-pink-400 font-bold' : 'text-indigo-100'}`}>
             {team.name}
@@ -366,7 +366,7 @@ export default function Bracket() {
                     className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold mx-auto mb-2 shadow-lg"
                     style={{ background: champion.color }}
                   >
-                    {champion.shortName}
+                    {champion.name.charAt(0)}
                   </div>
                   <div className="font-bold text-yellow-300">{champion.name}</div>
                   <div className="text-[10px] text-yellow-400/60 font-semibold mt-1 uppercase tracking-widest">Champion</div>
@@ -464,7 +464,7 @@ export default function Bracket() {
                 className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-lg mx-auto mb-3 shadow-lg"
                 style={{ background: champion.color }}
               >
-                {champion.shortName}
+                {champion.name.charAt(0)}
               </div>
               <div className="font-bold text-lg text-yellow-300">{champion.name}</div>
               <div className="text-xs text-yellow-400/60 font-semibold mt-1 uppercase tracking-widest">IVBT 2026 Champion</div>

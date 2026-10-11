@@ -394,28 +394,28 @@ export const useTournamentStore = create<TournamentState>((set, get) => {
 
           games[gi] = current;
 
-          // --- Badminton winning logic ---
+          // --- Badminton winning logic (11-point games) ---
           const { scoreA, scoreB } = current;
           let gamesWonA = 0;
           let gamesWonB = 0;
 
-          // Check if this game is won
-          const gameWon =
-            (scoreA >= 21 && scoreA - scoreB >= 2) ||
-            (scoreB >= 21 && scoreB - scoreA >= 2) ||
-            scoreA === 30 ||
-            scoreB === 30;
+          const isGameWon = (a: number, b: number) =>
+            (a >= 11 && a - b >= 2) ||
+            (b >= 11 && b - a >= 2) ||
+            a === 15 ||
+            b === 15;
+
+          const gameWon = isGameWon(scoreA, scoreB);
 
           if (gameWon) {
-            // Tally games won across all games
             for (let i = 0; i < games.length; i++) {
               const g = games[i];
               const aWon =
-                (g.scoreA >= 21 && g.scoreA - g.scoreB >= 2) ||
-                g.scoreA === 30;
+                (g.scoreA >= 11 && g.scoreA - g.scoreB >= 2) ||
+                g.scoreA === 15;
               const bWon =
-                (g.scoreB >= 21 && g.scoreB - g.scoreA >= 2) ||
-                g.scoreB === 30;
+                (g.scoreB >= 11 && g.scoreB - g.scoreA >= 2) ||
+                g.scoreB === 15;
               if (aWon) gamesWonA++;
               if (bWon) gamesWonB++;
             }

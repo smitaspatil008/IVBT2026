@@ -26,7 +26,7 @@ function BracketMatchCard({ match, round, isChampion }: {
           <>
             <span className="w-6 h-6 rounded text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 shadow-sm"
               style={{ background: isWinner && isDone ? '#ec4899' : team.color }}>
-              {team.shortName.charAt(0)}
+              {team.name.charAt(0)}
             </span>
             <span className={`truncate text-xs sm:text-sm ${isWinner && isDone ? 'font-bold text-pink-400' : 'font-medium text-indigo-100'}`}>
               {team.name}
@@ -109,7 +109,7 @@ export default function KnockoutBracket() {
               <Trophy className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
               <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm mx-auto mb-2 shadow-md"
                 style={{ background: champion.color }}>
-                {champion.shortName}
+                {champion.name.charAt(0)}
               </div>
               <div className="font-bold text-sm text-yellow-300">{champion.name}</div>
               <div className="text-[10px] text-yellow-400/70 font-semibold mt-1 uppercase tracking-wider">Champion</div>

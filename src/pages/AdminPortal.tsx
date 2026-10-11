@@ -535,7 +535,7 @@ export default function AdminPortal() {
                 <div className="flex items-center gap-2">
                   <div className="h-4 w-4 rounded-full" style={{ backgroundColor: t.color }} />
                   <span className="text-sm font-medium text-indigo-100">
-                    {t.name} ({t.shortName})
+                    {t.name}
                   </span>
                 </div>
                 <button

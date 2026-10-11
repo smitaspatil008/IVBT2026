@@ -125,7 +125,7 @@ export default function Leaderboard() {
                                 className="h-5 w-5 shrink-0 rounded flex items-center justify-center text-white text-[8px] font-bold"
                                 style={{ backgroundColor: team?.color ?? '#888' }}
                               >
-                                {team?.shortName?.charAt(0) ?? '?'}
+                                {team?.name?.charAt(0) ?? '?'}
                               </div>
                               <span className={`font-medium ${idx === 0 && completed > 0 ? 'text-pink-300' : 'text-indigo-100'}`}>
                                 {team?.name ?? s.teamId}
@@ -187,7 +187,7 @@ export default function Leaderboard() {
                           className="h-6 w-6 shrink-0 rounded-lg flex items-center justify-center text-white text-[9px] font-bold"
                           style={{ backgroundColor: row.team.color }}
                         >
-                          {row.team.shortName.charAt(0)}
+                          {row.team.name.charAt(0)}
                         </div>
                         <span className="font-medium text-white">{row.team.name}</span>
                       </div>
