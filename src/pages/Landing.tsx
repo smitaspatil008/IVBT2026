@@ -76,7 +76,7 @@ export default function Landing() {
     },
     {
       label: 'Teams',
-      desc: '16 pairs competing',
+      desc: '12 pairs competing',
       icon: Shield,
       to: '/teams',
       gradient: 'from-rose-500 to-pink-600',
@@ -156,7 +156,7 @@ export default function Landing() {
             transition={{ delay: 0.3 }}
             className="mt-4 text-lg text-indigo-200/80 md:text-xl"
           >
-            16 Teams &bull; 32 Players &bull; 2 Days of Glory
+            12 Teams &bull; 24 Players &bull; 2 Days of Glory
           </motion.p>
 
           <motion.div
