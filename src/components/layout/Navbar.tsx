@@ -9,11 +9,11 @@ import { useTournamentStore } from '../../store/tournamentStore';
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/live', label: 'Live' },
-  { to: '/groups', label: 'Groups' },
+  { to: '/players', label: 'Players' },
   { to: '/bracket', label: 'Bracket' },
   { to: '/teams', label: 'Teams' },
   { to: '/schedule', label: 'Schedule' },
-  { to: '/leaderboard', label: 'Leaderboard' },
+  { to: '/gallery', label: 'Gallery' },
 ];
 
 export default function Navbar() {

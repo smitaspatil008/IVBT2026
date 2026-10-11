@@ -1,89 +1,73 @@
-import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Trophy } from 'lucide-react';
 import type { Match } from '../../types';
 import { useTournamentStore } from '../../store/tournamentStore';
 
-function matchesByRound(matches: Match[], keyword: string): Match[] {
-  return matches.filter((m) => m.round.toLowerCase().includes(keyword.toLowerCase()));
-}
+const ROUND_COLORS: Record<string, { bg: string; label: string }> = {
+  sf:    { bg: 'bg-pink-500',   label: 'Semi Finals' },
+  final: { bg: 'bg-yellow-500', label: 'Final' },
+};
 
-function BracketMatch({ match }: { match: Match | undefined }) {
+function BracketMatchCard({ match, round, isChampion }: {
+  match: Match; round: string; isChampion?: boolean;
+}) {
   const teams = useTournamentStore((s) => s.teams);
-
-  if (!match) {
-    return (
-      <div className="w-48 rounded-lg border border-dashed border-[#1e1b4b]/30 bg-indigo-950/30 p-3 text-center text-sm text-indigo-400/40">
-        TBD
-      </div>
-    );
-  }
-
   const teamA = teams.find((t) => t.id === match.teamAId);
   const teamB = teams.find((t) => t.id === match.teamBId);
+  const isLive = match.status === 'live';
+  const isDone = match.status === 'completed';
+  const rc = ROUND_COLORS[round] ?? ROUND_COLORS.sf;
 
-  const renderTeamRow = (
-    team: typeof teamA,
-    teamId: string,
-    scores: number[],
-    isWinner: boolean,
-  ) => (
-    <div
-      className={`flex items-center justify-between gap-2 rounded px-2 py-1.5 ${
-        isWinner
-          ? 'bg-pink-500/10'
-          : 'bg-[#12102a]'
-      }`}
-    >
-      <div className="flex items-center gap-1.5">
-        <span
-          className="inline-block h-2.5 w-2.5 rounded-full"
-          style={{ backgroundColor: team?.color ?? '#9ca3af' }}
-        />
-        <span
-          className={`text-sm font-medium ${
-            isWinner
-              ? 'text-pink-500'
-              : teamId
-                ? 'text-indigo-100'
-                : 'text-indigo-400/40'
-          }`}
-        >
-          {team?.shortName ?? 'TBD'}
-        </span>
-        {isWinner && <CheckCircle2 className="h-3.5 w-3.5 text-pink-500" />}
-      </div>
-      <div className="flex gap-1">
-        {scores.map((s, i) => (
-          <span
-            key={i}
-            className="inline-flex h-5 w-6 items-center justify-center rounded bg-[#1e1b4b]/30 text-[11px] font-bold text-indigo-200"
-          >
-            {s}
-          </span>
-        ))}
+  const renderTeam = (team: typeof teamA, teamId: string, isWinner: boolean, pos: 'top' | 'bottom') => (
+    <div className={`flex items-center justify-between px-2.5 py-2 ${pos === 'top' ? 'border-b border-[#1e1b4b]/30' : ''} ${isWinner && isDone ? 'bg-pink-500/10' : ''}`}>
+      <div className="flex items-center gap-2 min-w-0">
+        {team ? (
+          <>
+            <span className="w-6 h-6 rounded text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 shadow-sm"
+              style={{ background: isWinner && isDone ? '#ec4899' : team.color }}>
+              {team.shortName.charAt(0)}
+            </span>
+            <span className={`truncate text-xs sm:text-sm ${isWinner && isDone ? 'font-bold text-pink-400' : 'font-medium text-indigo-100'}`}>
+              {team.name}
+            </span>
+            {isWinner && <span className="text-pink-400 text-xs">✓</span>}
+          </>
+        ) : (
+          <>
+            <span className="w-6 h-6 rounded bg-[#1e1b4b]/50 text-indigo-400/40 text-[10px] font-bold flex items-center justify-center flex-shrink-0">?</span>
+            <span className="text-indigo-400/40 italic text-xs sm:text-sm">TBD</span>
+          </>
+        )}
       </div>
     </div>
   );
 
+  const matchLink = match.teamAId || match.teamBId ? `/match/${match.id}` : '#';
+
   return (
-    <div className="w-48 overflow-hidden rounded-lg border border-[#1e1b4b]/30 shadow-sm">
-      <div className="bg-indigo-950/50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-indigo-400/40">
-        {match.round}
-      </div>
-      <div className="divide-y divide-[#1e1b4b]/20">
-        {renderTeamRow(
-          teamA,
-          match.teamAId,
-          (match.games ?? []).map((g) => g.scoreA),
-          match.winner === match.teamAId,
-        )}
-        {renderTeamRow(
-          teamB,
-          match.teamBId,
-          (match.games ?? []).map((g) => g.scoreB),
-          match.winner === match.teamBId,
-        )}
-      </div>
-    </div>
+    <Link to={matchLink} className="block w-[160px] sm:w-[220px]">
+      <motion.div
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+        className={`rounded-lg overflow-hidden cursor-pointer transition-shadow ${
+          isDone ? 'ring-1 ring-pink-400/50 shadow-md shadow-pink-500/10' :
+          isLive ? 'ring-2 ring-red-500 shadow-lg shadow-red-500/20' :
+          'ring-1 ring-[#1e1b4b]/40'
+        } ${isChampion ? 'ring-2 ring-yellow-400 shadow-lg shadow-yellow-400/20' : ''}`}
+      >
+        <div className={`px-2.5 py-1 text-[9px] sm:text-[10px] font-bold text-white flex items-center justify-between ${rc.bg}`}>
+          <span>{match.round}</span>
+          {isLive && <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> LIVE</span>}
+          {isDone && !isChampion && <span className="text-white/70">✓</span>}
+          {isChampion && <span>🏆</span>}
+        </div>
+        <div className="bg-[#12102a]">
+          {renderTeam(teamA, match.teamAId, match.winner === match.teamAId, 'top')}
+          {renderTeam(teamB, match.teamBId, match.winner === match.teamBId, 'bottom')}
+        </div>
+      </motion.div>
+    </Link>
   );
 }
 
@@ -91,97 +75,58 @@ export default function KnockoutBracket() {
   const matches = useTournamentStore((s) => s.matches);
   const teams = useTournamentStore((s) => s.teams);
 
-  const qf = matchesByRound(matches, 'quarterfinal');
-  const sf = matchesByRound(matches, 'semifinal');
-  const finals = matchesByRound(matches, 'final').filter(
-    (m) => !m.round.toLowerCase().includes('semifinal'),
-  );
-
-  const qf1 = qf[0];
-  const qf2 = qf[1];
-  const qf3 = qf[2];
-  const qf4 = qf[3];
-  const sf1 = sf[0];
-  const sf2 = sf[1];
-  const final = finals[0];
-
+  const sf1 = matches.find((m) => m.id === 'sf1');
+  const sf2 = matches.find((m) => m.id === 'sf2');
+  const final = matches.find((m) => m.id === 'f1');
   const champion = final?.winner ? teams.find((t) => t.id === final.winner) : null;
 
   return (
     <div className="overflow-x-auto pb-4">
-      {/* Desktop horizontal layout */}
-      <div className="hidden min-w-[900px] items-center justify-center gap-4 lg:flex">
-        <div className="flex flex-col gap-12">
-          <BracketMatch match={qf1} />
-          <BracketMatch match={qf2} />
+      {/* Desktop horizontal bracket */}
+      <div className="hidden sm:flex items-center justify-center gap-4 md:gap-8">
+        {/* Semis column */}
+        <div className="flex flex-col gap-8">
+          {sf1 && <BracketMatchCard match={sf1} round="sf" />}
+          {sf2 && <BracketMatchCard match={sf2} round="sf" />}
         </div>
 
-        <div className="flex flex-col items-center gap-12">
+        {/* Connector lines */}
+        <div className="flex flex-col items-center gap-8">
           <div className="h-px w-8 bg-indigo-700/40" />
           <div className="h-px w-8 bg-indigo-700/40" />
         </div>
 
-        <div className="flex items-center">
-          <BracketMatch match={sf1} />
-        </div>
-
-        <div className="flex items-center">
-          <div className="h-px w-8 bg-indigo-700/40" />
-        </div>
-
-        <div className="flex flex-col items-center gap-3">
-          <BracketMatch match={final} />
+        {/* Final + Champion */}
+        <div className="flex flex-col items-center gap-4">
+          {final && <BracketMatchCard match={final} round="final" isChampion={final.status === 'completed'} />}
           {champion && (
-            <div className="flex items-center gap-1.5 rounded-full bg-pink-500/10 px-3 py-1 text-sm font-bold text-pink-500">
-              <span className="text-base">🏆</span> {champion.name}
-            </div>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, type: 'spring' }}
+              className="w-[160px] sm:w-[220px] rounded-2xl p-4 text-center bg-gradient-to-b from-yellow-500/10 to-amber-500/5 border-2 border-yellow-400/40 shadow-lg shadow-yellow-400/10"
+            >
+              <Trophy className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm mx-auto mb-2 shadow-md"
+                style={{ background: champion.color }}>
+                {champion.shortName}
+              </div>
+              <div className="font-bold text-sm text-yellow-300">{champion.name}</div>
+              <div className="text-[10px] text-yellow-400/70 font-semibold mt-1 uppercase tracking-wider">Champion</div>
+            </motion.div>
           )}
-        </div>
-
-        <div className="flex items-center">
-          <div className="h-px w-8 bg-indigo-700/40" />
-        </div>
-
-        <div className="flex items-center">
-          <BracketMatch match={sf2} />
-        </div>
-
-        <div className="flex flex-col items-center gap-12">
-          <div className="h-px w-8 bg-indigo-700/40" />
-          <div className="h-px w-8 bg-indigo-700/40" />
-        </div>
-
-        <div className="flex flex-col gap-12">
-          <BracketMatch match={qf3} />
-          <BracketMatch match={qf4} />
         </div>
       </div>
 
       {/* Mobile vertical layout */}
-      <div className="space-y-6 lg:hidden">
-        <div>
-          <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-indigo-400/40">
-            Quarterfinals
-          </h4>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <BracketMatch match={qf1} />
-            <BracketMatch match={qf2} />
-            <BracketMatch match={qf3} />
-            <BracketMatch match={qf4} />
-          </div>
-        </div>
-
-        <div className="flex justify-center">
-          <div className="h-6 w-px bg-indigo-700/40" />
-        </div>
-
+      <div className="space-y-6 sm:hidden">
         <div>
           <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-indigo-400/40">
             Semifinals
           </h4>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <BracketMatch match={sf1} />
-            <BracketMatch match={sf2} />
+          <div className="grid grid-cols-1 gap-3">
+            {sf1 && <BracketMatchCard match={sf1} round="sf" />}
+            {sf2 && <BracketMatchCard match={sf2} round="sf" />}
           </div>
         </div>
 
@@ -194,10 +139,10 @@ export default function KnockoutBracket() {
             Final
           </h4>
           <div className="flex flex-col items-start gap-3">
-            <BracketMatch match={final} />
+            {final && <BracketMatchCard match={final} round="final" isChampion={final.status === 'completed'} />}
             {champion && (
-              <div className="flex items-center gap-1.5 rounded-full bg-pink-500/10 px-3 py-1 text-sm font-bold text-pink-500">
-                <span className="text-base">🏆</span> {champion.name}
+              <div className="flex items-center gap-1.5 rounded-full bg-yellow-400/10 px-3 py-1 text-sm font-bold text-yellow-400">
+                <Trophy className="w-4 h-4" /> {champion.name}
               </div>
             )}
           </div>

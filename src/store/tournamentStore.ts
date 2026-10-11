@@ -622,28 +622,24 @@ export const useTournamentStore = create<TournamentState>((set, get) => {
       const state = get();
       const groupIds = state.groups.map((g) => g.id);
 
-      // Collect top 2 from each group (expect groups A, B, C, D)
-      const qualifiers: Record<string, string[]> = {};
+      // Collect top 1 from each group (4 groups → 4 semifinalists)
+      const qualifiers: Record<string, string> = {};
       for (const gid of groupIds) {
         const standings = get().getGroupStandings(gid);
-        qualifiers[gid] = standings.slice(0, 2).map((s) => s.teamId);
+        qualifiers[gid] = standings[0]?.teamId ?? '';
       }
 
-      // Map group letters to indices — assumes groups are named with
-      // ids like 'groupA', 'groupB', etc. or sorted alphabetically.
       const sortedGroupIds = [...groupIds].sort();
-      const gA = qualifiers[sortedGroupIds[0]] ?? [];
-      const gB = qualifiers[sortedGroupIds[1]] ?? [];
-      const gC = qualifiers[sortedGroupIds[2]] ?? [];
-      const gD = qualifiers[sortedGroupIds[3]] ?? [];
+      const gAWinner = qualifiers[sortedGroupIds[0]] ?? '';
+      const gBWinner = qualifiers[sortedGroupIds[1]] ?? '';
+      const gCWinner = qualifiers[sortedGroupIds[2]] ?? '';
+      const gDWinner = qualifiers[sortedGroupIds[3]] ?? '';
 
-      // QF matchups: A1 vs B2, B1 vs A2, C1 vs D2, D1 vs C2
+      // SF matchups: Group A Winner vs Group B Winner, Group C Winner vs Group D Winner
       const assignments: Record<string, { teamAId: string; teamBId: string }> =
         {
-          qf1: { teamAId: gA[0] ?? '', teamBId: gB[1] ?? '' },
-          qf2: { teamAId: gB[0] ?? '', teamBId: gA[1] ?? '' },
-          qf3: { teamAId: gC[0] ?? '', teamBId: gD[1] ?? '' },
-          qf4: { teamAId: gD[0] ?? '', teamBId: gC[1] ?? '' },
+          sf1: { teamAId: gAWinner, teamBId: gBWinner },
+          sf2: { teamAId: gCWinner, teamBId: gDWinner },
         };
 
       set((s) => ({

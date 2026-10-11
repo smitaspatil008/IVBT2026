@@ -347,7 +347,7 @@ export default function AdminPortal() {
   };
 
   const handleAdvance = () => {
-    if (window.confirm('Advance top 2 from each group to knockout stage?')) {
+    if (window.confirm('Advance top team from each group to semifinals?')) {
       store.advanceToKnockouts();
       toast.success('Knockout bracket populated!');
     }

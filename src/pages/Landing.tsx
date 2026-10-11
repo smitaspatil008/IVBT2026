@@ -61,10 +61,10 @@ export default function Landing() {
 
   const navCards = [
     {
-      label: 'Groups',
-      desc: 'Round-robin standings',
+      label: 'Players',
+      desc: '24 athletes competing',
       icon: Users,
-      to: '/groups',
+      to: '/players',
       gradient: 'from-[#1e1b4b] to-[#312e81]',
     },
     {
@@ -82,10 +82,10 @@ export default function Landing() {
       gradient: 'from-rose-500 to-pink-600',
     },
     {
-      label: 'Leaderboard',
-      desc: 'Rankings & stats',
+      label: 'Gallery',
+      desc: 'Tournament photos',
       icon: Award,
-      to: '/leaderboard',
+      to: '/gallery',
       gradient: 'from-cyan-500 to-teal-600',
     },
   ];

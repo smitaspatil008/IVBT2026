@@ -46,7 +46,7 @@ export default function Groups() {
           Group Stage
         </h1>
         <p className="mt-1 text-sm text-indigo-300/50">
-          Round-robin format. Top 2 from each group qualify for knockouts.
+          Round-robin format. Top team from each group qualifies for semifinals.
         </p>
       </motion.div>
 

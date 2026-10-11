@@ -17,13 +17,14 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-type FilterTab = 'all' | 'g1' | 'g2' | 'g3';
+type FilterTab = 'all' | 'g1' | 'g2' | 'g3' | 'g4';
 
 const filterTabs: { key: FilterTab; label: string }[] = [
   { key: 'all', label: 'All' },
   { key: 'g1', label: 'Group A' },
   { key: 'g2', label: 'Group B' },
   { key: 'g3', label: 'Group C' },
+  { key: 'g4', label: 'Group D' },
 ];
 
 export default function Teams() {
