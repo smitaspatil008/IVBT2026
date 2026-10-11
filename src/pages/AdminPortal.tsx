@@ -443,7 +443,7 @@ export default function AdminPortal() {
               label="Advance to Knockouts"
               description="Populate QF bracket"
               onClick={handleAdvance}
-              color="bg-orange-900/20"
+              color="bg-pink-900/20"
             />
             <ActionCard
               icon="📢"

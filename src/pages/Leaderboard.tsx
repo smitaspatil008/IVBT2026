@@ -7,7 +7,7 @@ import { useTournamentStore } from '../store/tournamentStore';
 const RANK_STYLES: Record<number, { bg: string; text: string }> = {
   1: { bg: 'bg-yellow-900/20', text: 'text-yellow-400' },
   2: { bg: 'bg-gray-700/30', text: 'text-gray-300' },
-  3: { bg: 'bg-orange-900/20', text: 'text-orange-400' },
+  3: { bg: 'bg-pink-900/20', text: 'text-pink-400' },
 };
 
 export default function Leaderboard() {
@@ -62,7 +62,7 @@ export default function Leaderboard() {
     <div className="mx-auto max-w-5xl py-8">
       {/* Header */}
       <div className="mb-8 flex items-center gap-3">
-        <Trophy className="h-7 w-7 text-orange-500" />
+        <Trophy className="h-7 w-7 text-pink-500" />
         <h1 className="text-2xl font-bold text-white sm:text-3xl">
           Leaderboard
         </h1>
@@ -133,7 +133,7 @@ export default function Leaderboard() {
                     <td className="px-4 py-3 text-center text-indigo-200/60">{row.played}</td>
                     <td className="px-4 py-3 text-center font-medium text-emerald-400">{row.won}</td>
                     <td className="px-4 py-3 text-center font-medium text-red-400">{row.lost}</td>
-                    <td className="px-4 py-3 text-center font-bold text-orange-500">{row.points}</td>
+                    <td className="px-4 py-3 text-center font-bold text-pink-500">{row.points}</td>
                   </motion.tr>
                 );
               })}
@@ -177,7 +177,7 @@ export default function Leaderboard() {
                       <tr
                         key={s.teamId}
                         className={`border-b border-[#1e1b4b]/10 last:border-0 ${
-                          idx < 2 ? 'bg-orange-500/5' : ''
+                          idx < 2 ? 'bg-pink-500/5' : ''
                         }`}
                       >
                         <td className="px-3 py-2">
@@ -190,7 +190,7 @@ export default function Leaderboard() {
                               {team?.name ?? s.teamId}
                             </span>
                             {idx < 2 && (
-                              <span className="rounded bg-orange-500/10 px-1 py-0.5 text-[10px] font-bold text-orange-500">
+                              <span className="rounded bg-pink-500/10 px-1 py-0.5 text-[10px] font-bold text-pink-500">
                                 Q
                               </span>
                             )}
@@ -199,7 +199,7 @@ export default function Leaderboard() {
                         <td className="px-2 py-2 text-center text-indigo-200/60">{s.played}</td>
                         <td className="px-2 py-2 text-center text-emerald-400">{s.won}</td>
                         <td className="px-2 py-2 text-center text-red-400">{s.lost}</td>
-                        <td className="px-2 py-2 text-center font-bold text-orange-500">{s.points}</td>
+                        <td className="px-2 py-2 text-center font-bold text-pink-500">{s.points}</td>
                       </tr>
                     );
                   })}

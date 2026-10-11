@@ -29,7 +29,7 @@ function BracketMatch({ match }: { match: Match | undefined }) {
     <div
       className={`flex items-center justify-between gap-2 rounded px-2 py-1.5 ${
         isWinner
-          ? 'bg-orange-500/10'
+          ? 'bg-pink-500/10'
           : 'bg-[#12102a]'
       }`}
     >
@@ -41,7 +41,7 @@ function BracketMatch({ match }: { match: Match | undefined }) {
         <span
           className={`text-sm font-medium ${
             isWinner
-              ? 'text-orange-500'
+              ? 'text-pink-500'
               : teamId
                 ? 'text-indigo-100'
                 : 'text-indigo-400/40'
@@ -49,7 +49,7 @@ function BracketMatch({ match }: { match: Match | undefined }) {
         >
           {team?.shortName ?? 'TBD'}
         </span>
-        {isWinner && <CheckCircle2 className="h-3.5 w-3.5 text-orange-500" />}
+        {isWinner && <CheckCircle2 className="h-3.5 w-3.5 text-pink-500" />}
       </div>
       <div className="flex gap-1">
         {scores.map((s, i) => (
@@ -132,7 +132,7 @@ export default function KnockoutBracket() {
         <div className="flex flex-col items-center gap-3">
           <BracketMatch match={final} />
           {champion && (
-            <div className="flex items-center gap-1.5 rounded-full bg-orange-500/10 px-3 py-1 text-sm font-bold text-orange-500">
+            <div className="flex items-center gap-1.5 rounded-full bg-pink-500/10 px-3 py-1 text-sm font-bold text-pink-500">
               <span className="text-base">🏆</span> {champion.name}
             </div>
           )}
@@ -196,7 +196,7 @@ export default function KnockoutBracket() {
           <div className="flex flex-col items-start gap-3">
             <BracketMatch match={final} />
             {champion && (
-              <div className="flex items-center gap-1.5 rounded-full bg-orange-500/10 px-3 py-1 text-sm font-bold text-orange-500">
+              <div className="flex items-center gap-1.5 rounded-full bg-pink-500/10 px-3 py-1 text-sm font-bold text-pink-500">
                 <span className="text-base">🏆</span> {champion.name}
               </div>
             )}

@@ -7,7 +7,7 @@ export default function Footer() {
             <span role="img" aria-label="shuttlecock">
               🏸
             </span>
-            <span className="text-orange-500">Inspirit Vision</span>
+            <span className="text-pink-500">Inspirit Vision</span>
             <span className="text-indigo-300/50 text-sm font-normal">2026</span>
           </div>
 

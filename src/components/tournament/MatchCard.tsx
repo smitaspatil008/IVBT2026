@@ -27,7 +27,7 @@ export default function MatchCard({ match }: MatchCardProps) {
         return <LiveBadge />;
       case 'completed':
         return (
-          <span className="inline-flex items-center gap-1 rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-semibold text-orange-500">
+          <span className="inline-flex items-center gap-1 rounded-full bg-pink-500/10 px-2 py-0.5 text-xs font-semibold text-pink-500">
             <CheckCircle2 className="h-3 w-3" /> Completed
           </span>
         );
@@ -64,13 +64,13 @@ export default function MatchCard({ match }: MatchCardProps) {
               <span
                 className={`font-semibold ${
                   match.winner === match.teamAId
-                    ? 'text-orange-500'
+                    ? 'text-pink-500'
                     : 'text-white'
                 }`}
               >
                 {teamA?.shortName ?? 'TBD'}
               </span>
-              {match.winner === match.teamAId && <CheckCircle2 className="h-4 w-4 text-orange-500" />}
+              {match.winner === match.teamAId && <CheckCircle2 className="h-4 w-4 text-pink-500" />}
             </div>
             <div className="flex gap-1.5">
               {(match.games ?? []).map((g, i) => (
@@ -101,13 +101,13 @@ export default function MatchCard({ match }: MatchCardProps) {
               <span
                 className={`font-semibold ${
                   match.winner === match.teamBId
-                    ? 'text-orange-500'
+                    ? 'text-pink-500'
                     : 'text-white'
                 }`}
               >
                 {teamB?.shortName ?? 'TBD'}
               </span>
-              {match.winner === match.teamBId && <CheckCircle2 className="h-4 w-4 text-orange-500" />}
+              {match.winner === match.teamBId && <CheckCircle2 className="h-4 w-4 text-pink-500" />}
             </div>
             <div className="flex gap-1.5">
               {(match.games ?? []).map((g, i) => (

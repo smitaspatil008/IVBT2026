@@ -97,7 +97,7 @@ export default function MatchDetails() {
           <div className="flex items-center gap-2">
             {match.status === 'live' && <LiveBadge />}
             {match.status === 'completed' && (
-              <span className="rounded-full bg-orange-500/10 px-2.5 py-0.5 text-xs font-semibold text-orange-500">
+              <span className="rounded-full bg-pink-500/10 px-2.5 py-0.5 text-xs font-semibold text-pink-500">
                 Completed
               </span>
             )}
@@ -148,7 +148,7 @@ export default function MatchDetails() {
           animate={{ opacity: 1, x: 0 }}
           className={`rounded-xl border p-4 ${
             match.winner === match.teamAId
-              ? 'border-orange-500/40 bg-orange-500/5'
+              ? 'border-pink-500/40 bg-pink-500/5'
               : 'border-[#1e1b4b]/30 bg-[#12102a]'
           }`}
         >
@@ -174,7 +174,7 @@ export default function MatchDetails() {
           animate={{ opacity: 1, x: 0 }}
           className={`rounded-xl border p-4 ${
             match.winner === match.teamBId
-              ? 'border-orange-500/40 bg-orange-500/5'
+              ? 'border-pink-500/40 bg-pink-500/5'
               : 'border-[#1e1b4b]/30 bg-[#12102a]'
           }`}
         >

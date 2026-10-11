@@ -72,7 +72,7 @@ export default function Landing() {
       desc: 'Knockout stage',
       icon: Trophy,
       to: '/bracket',
-      gradient: 'from-orange-500 to-orange-700',
+      gradient: 'from-pink-500 to-pink-700',
     },
     {
       label: 'Teams',
@@ -106,9 +106,9 @@ export default function Landing() {
         }}
       >
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-pink-500/10 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#1e1b4b]/40 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-orange-400/5 blur-2xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-pink-400/5 blur-2xl" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-3xl text-center">
@@ -121,7 +121,7 @@ export default function Landing() {
             <img
               src="/logo.png"
               alt="IVBT 2026"
-              className="h-32 w-32 rounded-full border-2 border-orange-500/30 shadow-xl shadow-orange-500/10 md:h-40 md:w-40"
+              className="h-32 w-32 rounded-full border-2 border-pink-500/30 shadow-xl shadow-pink-500/10 md:h-40 md:w-40"
             />
           </motion.div>
 
@@ -129,7 +129,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-sm font-medium text-orange-300"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-1.5 text-sm font-medium text-pink-300"
           >
             <span className="text-lg">🏸</span>
             Women's Doubles 2026
@@ -141,7 +141,7 @@ export default function Landing() {
             transition={{ duration: 0.6 }}
             className="font-outfit text-4xl font-extrabold tracking-tight md:text-6xl"
           >
-            <span className="bg-gradient-to-r from-white via-orange-100 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-pink-100 to-pink-400 bg-clip-text text-transparent">
               Inspirit Vision
             </span>
             <br />
@@ -183,7 +183,7 @@ export default function Landing() {
           >
             <Link
               to="/live"
-              className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-500/30"
+              className="inline-flex items-center gap-2 rounded-full bg-pink-500 px-6 py-3 font-semibold text-white shadow-lg shadow-pink-500/20 transition hover:bg-pink-400 hover:shadow-xl hover:shadow-pink-500/30"
             >
               <Zap className="h-5 w-5" />
               View Live
@@ -223,7 +223,7 @@ export default function Landing() {
           label="Completed"
           value={completedMatches.length}
           icon={Trophy}
-          color="orange"
+          color="pink"
         />
       </motion.section>
 
@@ -240,7 +240,7 @@ export default function Landing() {
             </h2>
             <Link
               to="/live"
-              className="flex items-center gap-1 text-sm font-medium text-orange-500 hover:text-orange-400"
+              className="flex items-center gap-1 text-sm font-medium text-pink-500 hover:text-pink-400"
             >
               View All <ChevronRight className="h-4 w-4" />
             </Link>
@@ -305,7 +305,7 @@ export default function Landing() {
                       <h3 className="font-semibold text-white">
                         {ann.title}
                       </h3>
-                      <span className="rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-medium text-orange-500">
+                      <span className="rounded-full bg-pink-500/10 px-2 py-0.5 text-xs font-medium text-pink-500">
                         {ann.type}
                       </span>
                     </div>

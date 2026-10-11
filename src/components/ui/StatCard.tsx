@@ -12,8 +12,10 @@ export default function StatCard({ icon, label, value, color = 'purple' }: StatC
     purple: { icon: 'text-violet-400', bg: 'bg-violet-500/10', glow: 'shadow-violet-500/5' },
     blue: { icon: 'text-blue-400', bg: 'bg-blue-500/10', glow: 'shadow-blue-500/5' },
     red: { icon: 'text-rose-400', bg: 'bg-rose-500/10', glow: 'shadow-rose-500/5' },
-    amber: { icon: 'text-orange-500', bg: 'bg-orange-600/10', glow: 'shadow-orange-600/5' },
-    orange: { icon: 'text-orange-500', bg: 'bg-orange-500/10', glow: 'shadow-orange-500/5' },
+    amber: { icon: 'text-pink-500', bg: 'bg-pink-600/10', glow: 'shadow-pink-600/5' },
+    orange: { icon: 'text-pink-500', bg: 'bg-pink-500/10', glow: 'shadow-pink-500/5' },
+    pink: { icon: 'text-pink-500', bg: 'bg-pink-500/10', glow: 'shadow-pink-500/5' },
+    yellow: { icon: 'text-yellow-500', bg: 'bg-yellow-500/10', glow: 'shadow-yellow-500/5' },
     green: { icon: 'text-emerald-400', bg: 'bg-emerald-500/10', glow: 'shadow-emerald-500/5' },
     emerald: { icon: 'text-emerald-400', bg: 'bg-emerald-500/10', glow: 'shadow-emerald-500/5' },
   };

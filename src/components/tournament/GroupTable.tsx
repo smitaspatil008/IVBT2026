@@ -58,7 +58,7 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
                 <tr
                   key={row.teamId}
                   className={`border-b border-[#1e1b4b]/10 transition hover:bg-[#1e1b4b]/20 ${
-                    qualified ? 'border-l-4 border-l-orange-500' : ''
+                    qualified ? 'border-l-4 border-l-pink-500' : ''
                   }`}
                 >
                   <td className="px-3 py-2.5 text-center text-indigo-400/40">{idx + 1}</td>
@@ -90,11 +90,11 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
                     {row.pointsConceded}
                   </td>
                   <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
-                    <span className={pd > 0 ? 'text-orange-500' : pd < 0 ? 'text-red-400' : ''}>
+                    <span className={pd > 0 ? 'text-pink-500' : pd < 0 ? 'text-red-400' : ''}>
                       {pd > 0 ? '+' : ''}{pd}
                     </span>
                   </td>
-                  <td className="px-3 py-2.5 text-center font-bold text-orange-500">
+                  <td className="px-3 py-2.5 text-center font-bold text-pink-500">
                     {row.points}
                   </td>
                 </tr>

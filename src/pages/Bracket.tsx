@@ -46,7 +46,7 @@ export default function Bracket() {
       {/* Page Header */}
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
-          <Trophy className="h-7 w-7 text-orange-500" />
+          <Trophy className="h-7 w-7 text-pink-500" />
           Knockout Stage
         </h1>
         <p className="mt-1 text-sm text-indigo-300/50">

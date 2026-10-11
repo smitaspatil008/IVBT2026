@@ -127,7 +127,7 @@ export default function UmpireScreen() {
             </span>
           )}
           {match.status === 'completed' && (
-            <span className="mt-2 inline-block rounded-full bg-orange-500/20 px-3 py-1 text-xs font-bold uppercase text-orange-500">
+            <span className="mt-2 inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-bold uppercase text-pink-500">
               Completed
             </span>
           )}
@@ -316,13 +316,13 @@ export default function UmpireScreen() {
                     <span className="text-xs text-indigo-400/40">Game {i + 1}</span>
                     <div className="flex items-center gap-3">
                       <span
-                        className={`text-sm font-bold ${w === 'A' ? 'text-orange-500' : 'text-indigo-200/60'}`}
+                        className={`text-sm font-bold ${w === 'A' ? 'text-pink-500' : 'text-indigo-200/60'}`}
                       >
                         {g.scoreA}
                       </span>
                       <span className="text-indigo-700">-</span>
                       <span
-                        className={`text-sm font-bold ${w === 'B' ? 'text-orange-500' : 'text-indigo-200/60'}`}
+                        className={`text-sm font-bold ${w === 'B' ? 'text-pink-500' : 'text-indigo-200/60'}`}
                       >
                         {g.scoreB}
                       </span>

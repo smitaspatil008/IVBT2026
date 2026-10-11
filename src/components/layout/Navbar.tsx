@@ -54,10 +54,10 @@ export default function Navbar() {
               className="h-11 w-11 rounded-full object-cover transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col leading-none">
-              <span className="text-sm font-bold tracking-wider text-orange-500 font-outfit">
+              <span className="text-sm font-bold tracking-wider text-pink-500 font-outfit">
                 INSPIRIT VISION
               </span>
-              <span className="text-[10px] font-medium tracking-widest text-[#1e1b4b]/70 dark:text-indigo-300/70 uppercase">
+              <span className="text-[10px] font-medium tracking-widest text-yellow-500/70 uppercase">
                 Badminton 2026
               </span>
             </div>
@@ -71,8 +71,8 @@ export default function Navbar() {
                 to={link.to}
                 className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.to)
-                    ? 'text-orange-500 bg-orange-500/10'
-                    : 'text-indigo-200/70 hover:text-orange-400 hover:bg-white/5'
+                    ? 'text-pink-500 bg-pink-500/10'
+                    : 'text-indigo-200/70 hover:text-pink-400 hover:bg-white/5'
                 }`}
               >
                 {link.label}
@@ -90,7 +90,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg text-indigo-300/60 hover:text-orange-500 hover:bg-white/5 transition-colors"
+              className="p-2 rounded-lg text-indigo-300/60 hover:text-pink-500 hover:bg-white/5 transition-colors"
               aria-label="Toggle dark mode"
             >
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -116,7 +116,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen((o) => !o)}
-              className="md:hidden p-2 rounded-lg text-indigo-300/60 hover:text-orange-500 hover:bg-white/5 transition-colors"
+              className="md:hidden p-2 rounded-lg text-indigo-300/60 hover:text-pink-500 hover:bg-white/5 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -142,8 +142,8 @@ export default function Navbar() {
                   to={link.to}
                   className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     isActive(link.to)
-                      ? 'text-orange-500 bg-orange-500/10'
-                      : 'text-indigo-200/70 hover:text-orange-400 hover:bg-white/5'
+                      ? 'text-pink-500 bg-pink-500/10'
+                      : 'text-indigo-200/70 hover:text-pink-400 hover:bg-white/5'
                   }`}
                 >
                   {link.label}
@@ -160,7 +160,7 @@ export default function Navbar() {
                 {auth.isLoggedIn ? (
                   <Link
                     to="/admin"
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-orange-500 bg-orange-500/10"
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-pink-500 bg-pink-500/10"
                   >
                     <Shield className="h-4 w-4" />
                     Admin Panel

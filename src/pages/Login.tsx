@@ -104,7 +104,7 @@ export default function Login() {
                   onClick={() => setRole('admin')}
                   className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     role === 'admin'
-                      ? 'border-orange-500/60 bg-orange-500/10 text-orange-500'
+                      ? 'border-pink-500/60 bg-pink-500/10 text-pink-500'
                       : 'border-indigo-700/30 text-indigo-300/50 hover:border-[#1e1b4b]/40'
                   }`}
                 >
@@ -116,7 +116,7 @@ export default function Login() {
                   onClick={() => setRole('umpire')}
                   className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     role === 'umpire'
-                      ? 'border-orange-500/60 bg-orange-500/10 text-orange-500'
+                      ? 'border-pink-500/60 bg-pink-500/10 text-pink-500'
                       : 'border-indigo-700/30 text-indigo-300/50 hover:border-[#1e1b4b]/40'
                   }`}
                 >

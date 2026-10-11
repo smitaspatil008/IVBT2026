@@ -57,7 +57,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
           <div className="flex items-center gap-1">
             {match.status === 'live' && <LiveBadge />}
             {match.status === 'completed' && (
-              <span className="rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-semibold text-orange-500">
+              <span className="rounded-full bg-pink-500/10 px-2 py-0.5 text-xs font-semibold text-pink-500">
                 Completed
               </span>
             )}
@@ -78,7 +78,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
               style={{ backgroundColor: teamA?.color ?? '#888' }}
             />
             <div className="min-w-0">
-              <p className={`truncate text-sm font-bold ${match.winner === match.teamAId ? 'text-orange-500' : 'text-white'}`}>
+              <p className={`truncate text-sm font-bold ${match.winner === match.teamAId ? 'text-pink-500' : 'text-white'}`}>
                 {teamA?.name ?? 'TBD'}
               </p>
               <p className="text-xs text-indigo-400/50">
@@ -123,7 +123,7 @@ function ScheduleMatchCard({ match }: { match: Match }) {
           {/* Team B */}
           <div className="flex items-center gap-2 flex-1 min-w-0 justify-end text-right">
             <div className="min-w-0">
-              <p className={`truncate text-sm font-bold ${match.winner === match.teamBId ? 'text-orange-500' : 'text-white'}`}>
+              <p className={`truncate text-sm font-bold ${match.winner === match.teamBId ? 'text-pink-500' : 'text-white'}`}>
                 {teamB?.name ?? 'TBD'}
               </p>
               <p className="text-xs text-indigo-400/50">
