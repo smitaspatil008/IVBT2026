@@ -258,24 +258,93 @@ export default function Rules() {
       <motion.div variants={item} className="rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-4 sm:p-6">
         <h2 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Doubles Court Layout</h2>
         <div className="flex justify-center">
-          <svg viewBox="0 0 400 240" className="w-full max-w-md" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="10" width="360" height="220" rx="4" fill="none" stroke="#4f46e5" strokeWidth="2" opacity="0.4" />
-            <line x1="200" y1="10" x2="200" y2="230" stroke="#ec4899" strokeWidth="2" opacity="0.6" />
-            <text x="200" y="125" textAnchor="middle" fill="#ec4899" fontSize="8" opacity="0.7">NET</text>
-            <rect x="20" y="10" width="180" height="110" rx="2" fill="none" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.3" />
-            <rect x="20" y="120" width="180" height="110" rx="2" fill="none" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.3" />
-            <rect x="200" y="10" width="180" height="110" rx="2" fill="none" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.3" />
-            <rect x="200" y="120" width="180" height="110" rx="2" fill="none" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.3" />
-            <line x1="20" y1="55" x2="200" y2="55" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.2" />
-            <line x1="200" y1="55" x2="380" y2="55" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.2" />
-            <line x1="20" y1="185" x2="200" y2="185" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.2" />
-            <line x1="200" y1="185" x2="380" y2="185" stroke="#6366f1" strokeWidth="1" strokeDasharray="4 2" opacity="0.2" />
-            <text x="110" y="38" textAnchor="middle" fill="#818cf8" fontSize="7" opacity="0.5">Right Service Court</text>
-            <text x="110" y="155" textAnchor="middle" fill="#818cf8" fontSize="7" opacity="0.5">Left Service Court</text>
-            <text x="290" y="38" textAnchor="middle" fill="#818cf8" fontSize="7" opacity="0.5">Left Service Court</text>
-            <text x="290" y="155" textAnchor="middle" fill="#818cf8" fontSize="7" opacity="0.5">Right Service Court</text>
-            <text x="100" y="100" textAnchor="middle" fill="#6366f1" fontSize="10" fontWeight="bold" opacity="0.6">TEAM A</text>
-            <text x="300" y="100" textAnchor="middle" fill="#ec4899" fontSize="10" fontWeight="bold" opacity="0.6">TEAM B</text>
+          <svg viewBox="0 0 520 340" className="w-full max-w-lg" xmlns="http://www.w3.org/2000/svg">
+            {/* Court surface */}
+            <rect x="30" y="20" width="460" height="300" rx="2" fill="#1a6b3c" />
+            {/* Outer boundary — doubles sideline */}
+            <rect x="40" y="30" width="440" height="280" fill="none" stroke="white" strokeWidth="2.5" />
+            {/* Singles sidelines */}
+            <line x1="70" y1="30" x2="70" y2="310" stroke="white" strokeWidth="1.5" />
+            <line x1="450" y1="30" x2="450" y2="310" stroke="white" strokeWidth="1.5" />
+            {/* Net — centre line */}
+            <line x1="260" y1="20" x2="260" y2="320" stroke="white" strokeWidth="2.5" />
+            {/* Net posts */}
+            <circle cx="260" cy="25" r="4" fill="#888" stroke="#666" strokeWidth="1" />
+            <circle cx="260" cy="315" r="4" fill="#888" stroke="#666" strokeWidth="1" />
+            {/* Net mesh pattern */}
+            {[35, 55, 75, 95, 115, 135, 155, 175, 195, 215, 235, 255, 275, 295].map((y) => (
+              <line key={y} x1="258" y1={y} x2="262" y2={y} stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
+            ))}
+            {/* Short service lines */}
+            <line x1="40" y1="108" x2="260" y2="108" stroke="white" strokeWidth="1.5" />
+            <line x1="260" y1="108" x2="480" y2="108" stroke="white" strokeWidth="1.5" />
+            <line x1="40" y1="232" x2="260" y2="232" stroke="white" strokeWidth="1.5" />
+            <line x1="260" y1="232" x2="480" y2="232" stroke="white" strokeWidth="1.5" />
+            {/* Long service lines (doubles) */}
+            <line x1="40" y1="55" x2="260" y2="55" stroke="white" strokeWidth="1" />
+            <line x1="260" y1="55" x2="480" y2="55" stroke="white" strokeWidth="1" />
+            <line x1="40" y1="285" x2="260" y2="285" stroke="white" strokeWidth="1" />
+            <line x1="260" y1="285" x2="480" y2="285" stroke="white" strokeWidth="1" />
+            {/* Centre lines (service court dividers) */}
+            <line x1="150" y1="108" x2="150" y2="232" stroke="white" strokeWidth="1.5" />
+            <line x1="370" y1="108" x2="370" y2="232" stroke="white" strokeWidth="1.5" />
+
+            {/* Team A shading */}
+            <rect x="41" y="31" width="218" height="278" fill="rgba(99,102,241,0.12)" />
+            {/* Team B shading */}
+            <rect x="261" y="31" width="218" height="278" fill="rgba(236,72,153,0.12)" />
+
+            {/* Player figures — Team A */}
+            <circle cx="120" cy="145" r="10" fill="#6366f1" opacity="0.9" />
+            <text x="120" y="149" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">1</text>
+            <circle cx="120" cy="210" r="10" fill="#6366f1" opacity="0.9" />
+            <text x="120" y="214" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">2</text>
+            {/* Player figures — Team B */}
+            <circle cx="400" cy="145" r="10" fill="#ec4899" opacity="0.9" />
+            <text x="400" y="149" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">1</text>
+            <circle cx="400" cy="210" r="10" fill="#ec4899" opacity="0.9" />
+            <text x="400" y="214" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">2</text>
+
+            {/* Labels — service courts */}
+            <text x="95" y="85" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8">Long Service</text>
+            <text x="95" y="93" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8">Line (Doubles)</text>
+            <text x="95" y="125" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Right</text>
+            <text x="95" y="135" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+            <text x="95" y="250" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Left</text>
+            <text x="95" y="260" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+            <text x="200" y="125" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Left</text>
+            <text x="200" y="135" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+            <text x="200" y="250" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Right</text>
+            <text x="200" y="260" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+
+            <text x="320" y="125" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Left</text>
+            <text x="320" y="135" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+            <text x="320" y="250" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Right</text>
+            <text x="320" y="260" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+            <text x="425" y="125" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Right</text>
+            <text x="425" y="135" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+            <text x="425" y="250" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Left</text>
+            <text x="425" y="260" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="9" fontWeight="bold">Service Court</text>
+
+            {/* Net label */}
+            <rect x="242" y="164" width="36" height="14" rx="3" fill="rgba(0,0,0,0.5)" />
+            <text x="260" y="174" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">NET</text>
+
+            {/* Team labels at top */}
+            <rect x="80" y="0" width="100" height="18" rx="4" fill="#6366f1" />
+            <text x="130" y="13" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">TEAM A</text>
+            <rect x="340" y="0" width="100" height="18" rx="4" fill="#ec4899" />
+            <text x="390" y="13" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">TEAM B</text>
+
+            {/* Sideline labels */}
+            <text x="55" y="173" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" transform="rotate(-90, 55, 173)">Doubles Sideline</text>
+            <text x="465" y="173" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" transform="rotate(90, 465, 173)">Doubles Sideline</text>
+            <text x="70" y="173" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="6" transform="rotate(-90, 70, 173)">Singles Sideline</text>
+            <text x="450" y="173" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="6" transform="rotate(90, 450, 173)">Singles Sideline</text>
+
+            {/* Short service line label */}
+            <text x="150" y="103" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="7">Short Service Line</text>
+            <text x="370" y="103" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="7">Short Service Line</text>
           </svg>
         </div>
       </motion.div>

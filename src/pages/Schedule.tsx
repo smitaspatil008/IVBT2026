@@ -100,7 +100,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
           {/* Teams row */}
           <div className="flex items-center gap-3">
             {/* Team A */}
-            <div className="flex-1 min-w-0">
+            <div className="shrink-0 w-[30%] sm:w-auto sm:min-w-[160px]">
               <div className="flex items-center gap-2">
                 <div
                   className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 rounded-lg flex items-center justify-center text-white text-[10px] font-bold"
@@ -118,8 +118,8 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
               </div>
             </div>
 
-            {/* Score / VS */}
-            <div className="shrink-0 text-center w-16">
+            {/* Score / VS / Animation */}
+            <div className="flex-1 text-center min-w-[5rem]">
               {isDone && match.games && match.games.length > 0 ? (
                 <div className="flex items-center justify-center gap-1">
                   {match.games.map((g, i) => (
@@ -135,12 +135,72 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
                   </p>
                 </div>
               ) : (
-                <span className="text-xs font-medium text-indigo-400/30">vs</span>
+                <div className="relative h-12 flex items-center justify-center">
+                  <svg viewBox="0 0 120 50" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    {/* Player A - swinging */}
+                    <g className="animate-pulse" style={{ animationDuration: '2s' }}>
+                      {/* Body */}
+                      <circle cx="25" cy="14" r="5" fill="#818cf8" />
+                      <line x1="25" y1="19" x2="25" y2="32" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+                      {/* Legs */}
+                      <line x1="25" y1="32" x2="19" y2="42" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                      <line x1="25" y1="32" x2="31" y2="42" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                      {/* Arm with racket */}
+                      <line x1="25" y1="23" x2="35" y2="16" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round">
+                        <animateTransform attributeName="transform" type="rotate" values="0 25 23;-20 25 23;0 25 23" dur="1.2s" repeatCount="indefinite" />
+                      </line>
+                      {/* Racket */}
+                      <ellipse cx="38" cy="12" rx="4" ry="5" fill="none" stroke="#c084fc" strokeWidth="1.2">
+                        <animateTransform attributeName="transform" type="rotate" values="0 25 23;-20 25 23;0 25 23" dur="1.2s" repeatCount="indefinite" />
+                      </ellipse>
+                      {/* Other arm */}
+                      <line x1="25" y1="23" x2="18" y2="28" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    </g>
+
+                    {/* Shuttlecock flying */}
+                    <g>
+                      <circle cx="60" cy="15" r="2.5" fill="#fbbf24">
+                        <animate attributeName="cx" values="38;82;38" dur="1.2s" repeatCount="indefinite" />
+                        <animate attributeName="cy" values="12;12;12" dur="1.2s" repeatCount="indefinite" />
+                      </circle>
+                      {/* Feathers */}
+                      <line x1="60" y1="17" x2="57" y2="22" stroke="#fbbf24" strokeWidth="0.8" opacity="0.6">
+                        <animate attributeName="x1" values="38;82;38" dur="1.2s" repeatCount="indefinite" />
+                        <animate attributeName="x2" values="35;79;35" dur="1.2s" repeatCount="indefinite" />
+                        <animate attributeName="y1" values="14;14;14" dur="1.2s" repeatCount="indefinite" />
+                        <animate attributeName="y2" values="19;19;19" dur="1.2s" repeatCount="indefinite" />
+                      </line>
+                    </g>
+
+                    {/* Player B - swinging */}
+                    <g className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.6s' }}>
+                      {/* Body */}
+                      <circle cx="95" cy="14" r="5" fill="#f472b6" />
+                      <line x1="95" y1="19" x2="95" y2="32" stroke="#f472b6" strokeWidth="2" strokeLinecap="round" />
+                      {/* Legs */}
+                      <line x1="95" y1="32" x2="89" y2="42" stroke="#f472b6" strokeWidth="1.5" strokeLinecap="round" />
+                      <line x1="95" y1="32" x2="101" y2="42" stroke="#f472b6" strokeWidth="1.5" strokeLinecap="round" />
+                      {/* Arm with racket */}
+                      <line x1="95" y1="23" x2="85" y2="16" stroke="#f472b6" strokeWidth="1.5" strokeLinecap="round">
+                        <animateTransform attributeName="transform" type="rotate" values="0 95 23;20 95 23;0 95 23" dur="1.2s" repeatCount="indefinite" begin="0.6s" />
+                      </line>
+                      {/* Racket */}
+                      <ellipse cx="82" cy="12" rx="4" ry="5" fill="none" stroke="#fb7185" strokeWidth="1.2">
+                        <animateTransform attributeName="transform" type="rotate" values="0 95 23;20 95 23;0 95 23" dur="1.2s" repeatCount="indefinite" begin="0.6s" />
+                      </ellipse>
+                      {/* Other arm */}
+                      <line x1="95" y1="23" x2="102" y2="28" stroke="#f472b6" strokeWidth="1.5" strokeLinecap="round" />
+                    </g>
+
+                    {/* Net */}
+                    <line x1="60" y1="5" x2="60" y2="48" stroke="#4f46e5" strokeWidth="0.8" strokeDasharray="2 2" opacity="0.4" />
+                  </svg>
+                </div>
               )}
             </div>
 
             {/* Team B */}
-            <div className="flex-1 min-w-0">
+            <div className="shrink-0 w-[30%] sm:w-auto sm:min-w-[160px]">
               <div className="flex items-center gap-2 justify-end">
                 <div className="min-w-0 text-right">
                   <p className={`truncate text-sm font-semibold ${
