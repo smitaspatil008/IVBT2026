@@ -67,8 +67,8 @@ export default function MatchDetails() {
   let gamesWonA = 0;
   let gamesWonB = 0;
   for (const g of match.games ?? []) {
-    const aWon = (g.scoreA >= 21 && g.scoreA - g.scoreB >= 2) || g.scoreA === 30;
-    const bWon = (g.scoreB >= 21 && g.scoreB - g.scoreA >= 2) || g.scoreB === 30;
+    const aWon = (g.scoreA >= 11 && g.scoreA - g.scoreB >= 2) || g.scoreA === 15;
+    const bWon = (g.scoreB >= 11 && g.scoreB - g.scoreA >= 2) || g.scoreB === 15;
     if (aWon) gamesWonA++;
     if (bWon) gamesWonB++;
   }

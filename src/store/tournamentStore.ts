@@ -569,11 +569,11 @@ export const useTournamentStore = create<TournamentState>((set, get) => {
           b.pointsConceded += game.scoreA;
 
           const aWonGame =
-            (game.scoreA >= 21 && game.scoreA - game.scoreB >= 2) ||
-            game.scoreA === 30;
+            (game.scoreA >= 11 && game.scoreA - game.scoreB >= 2) ||
+            game.scoreA === 15;
           const bWonGame =
-            (game.scoreB >= 21 && game.scoreB - game.scoreA >= 2) ||
-            game.scoreB === 30;
+            (game.scoreB >= 11 && game.scoreB - game.scoreA >= 2) ||
+            game.scoreB === 15;
 
           if (aWonGame) {
             matchGamesA++;

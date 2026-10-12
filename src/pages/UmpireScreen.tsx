@@ -8,18 +8,18 @@ import { useTournamentStore } from '../store/tournamentStore';
 
 function isGameWon(scoreA: number, scoreB: number): boolean {
   return (
-    (scoreA >= 21 && scoreA - scoreB >= 2) ||
-    (scoreB >= 21 && scoreB - scoreA >= 2) ||
-    scoreA === 30 ||
-    scoreB === 30
+    (scoreA >= 11 && scoreA - scoreB >= 2) ||
+    (scoreB >= 11 && scoreB - scoreA >= 2) ||
+    scoreA === 15 ||
+    scoreB === 15
   );
 }
 
 function gameWinner(scoreA: number, scoreB: number): 'A' | 'B' | null {
   if (!isGameWon(scoreA, scoreB)) return null;
   if (
-    (scoreA >= 21 && scoreA - scoreB >= 2) ||
-    scoreA === 30
+    (scoreA >= 11 && scoreA - scoreB >= 2) ||
+    scoreA === 15
   )
     return 'A';
   return 'B';
