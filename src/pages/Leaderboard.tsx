@@ -15,9 +15,9 @@ const item = {
 
 const GROUP_COLORS: Record<string, string> = {
   g1: '#6366f1',
-  g2: '#ec4899',
+  g2: '#ff167a',
   g3: '#10b981',
-  g4: '#f59e0b',
+  g4: '#ffc857',
 };
 
 export default function Leaderboard() {
@@ -59,10 +59,10 @@ export default function Leaderboard() {
     <motion.div variants={container} initial="hidden" animate="show" className="space-y-6 pb-12">
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
-          <Medal className="h-7 w-7 text-pink-500" />
+          <Medal className="h-7 w-7 text-[#ff167a]" />
           Standings
         </h1>
-        <p className="mt-1 text-sm text-indigo-300/50">
+        <p className="mt-1 text-sm text-[#aab4cc]/50">
           Group stage standings · {totalCompleted} of {matches.length} matches completed
         </p>
       </motion.div>
@@ -77,28 +77,28 @@ export default function Leaderboard() {
             <motion.div
               key={group.id}
               variants={item}
-              className="overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-lg"
+              className="overflow-hidden rounded-xl border border-[#293452]/30 bg-[#111a35] shadow-lg"
             >
               <div
-                className="flex items-center justify-between px-4 py-3 border-b border-[#1e1b4b]/20"
+                className="flex items-center justify-between px-4 py-3 border-b border-[#293452]/20"
                 style={{ background: `${groupColor}10` }}
               >
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full" style={{ background: groupColor }} />
                   <h3 className="text-sm font-bold text-white">{group.name}</h3>
                 </div>
-                <span className="text-[10px] text-indigo-300/50">{completed}/3 played</span>
+                <span className="text-[10px] text-[#aab4cc]/50">{completed}/3 played</span>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#1e1b4b]/20 bg-indigo-950/30">
-                      <th className="px-3 py-2 font-semibold text-indigo-400/50 w-6">#</th>
-                      <th className="px-3 py-2 font-semibold text-indigo-400/50">Team</th>
-                      <th className="px-2 py-2 text-center font-semibold text-indigo-400/50">P</th>
-                      <th className="px-2 py-2 text-center font-semibold text-indigo-400/50">W</th>
-                      <th className="px-2 py-2 text-center font-semibold text-indigo-400/50">L</th>
-                      <th className="px-2 py-2 text-center font-semibold text-indigo-400/50">Pts</th>
+                    <tr className="border-b border-[#293452]/20 bg-indigo-950/30">
+                      <th className="px-3 py-2 font-semibold text-[#7a8aaa]/50 w-6">#</th>
+                      <th className="px-3 py-2 font-semibold text-[#7a8aaa]/50">Team</th>
+                      <th className="px-2 py-2 text-center font-semibold text-[#7a8aaa]/50">P</th>
+                      <th className="px-2 py-2 text-center font-semibold text-[#7a8aaa]/50">W</th>
+                      <th className="px-2 py-2 text-center font-semibold text-[#7a8aaa]/50">L</th>
+                      <th className="px-2 py-2 text-center font-semibold text-[#7a8aaa]/50">Pts</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -108,15 +108,15 @@ export default function Leaderboard() {
                       return (
                         <tr
                           key={s.teamId}
-                          className={`border-b border-[#1e1b4b]/10 last:border-0 ${
-                            idx === 0 ? 'bg-pink-500/5' : ''
+                          className={`border-b border-[#293452]/10 last:border-0 ${
+                            idx === 0 ? 'bg-[#ff167a]/5' : ''
                           }`}
                         >
                           <td className="px-3 py-2.5">
                             {idx === 0 && completed > 0 ? (
-                              <Trophy className="h-3.5 w-3.5 text-yellow-400" />
+                              <Trophy className="h-3.5 w-3.5 text-[#ffc857]" />
                             ) : (
-                              <span className="text-indigo-400/40 text-[10px] font-bold">{idx + 1}</span>
+                              <span className="text-[#7a8aaa]/40 text-[10px] font-bold">{idx + 1}</span>
                             )}
                           </td>
                           <td className="px-3 py-2.5">
@@ -137,7 +137,7 @@ export default function Leaderboard() {
                               )}
                             </div>
                           </td>
-                          <td className="px-2 py-2.5 text-center text-indigo-200/60">{s.played}</td>
+                          <td className="px-2 py-2.5 text-center text-[#aab4cc]/60">{s.played}</td>
                           <td className="px-2 py-2.5 text-center text-emerald-400 font-medium">{s.won}</td>
                           <td className="px-2 py-2.5 text-center text-red-400 font-medium">{s.lost}</td>
                           <td className="px-2 py-2.5 text-center font-bold text-white">{s.points}</td>
@@ -155,30 +155,30 @@ export default function Leaderboard() {
       {/* Overall rankings table */}
       <motion.div variants={item}>
         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-          <Users className="h-5 w-5 text-indigo-400" />
+          <Users className="h-5 w-5 text-[#7a8aaa]" />
           Overall Rankings
         </h2>
-        <div className="overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-lg">
+        <div className="overflow-hidden rounded-xl border border-[#293452]/30 bg-[#111a35] shadow-lg">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-[#1e1b4b]/20 bg-indigo-950/30">
-                  <th className="px-4 py-3 font-semibold text-indigo-400/50 w-10">#</th>
-                  <th className="px-4 py-3 font-semibold text-indigo-400/50">Team</th>
-                  <th className="px-3 py-3 text-center font-semibold text-indigo-400/50">P</th>
-                  <th className="px-3 py-3 text-center font-semibold text-indigo-400/50">W</th>
-                  <th className="px-3 py-3 text-center font-semibold text-indigo-400/50">L</th>
-                  <th className="px-3 py-3 text-center font-semibold text-indigo-400/50">Pts</th>
+                <tr className="border-b border-[#293452]/20 bg-indigo-950/30">
+                  <th className="px-4 py-3 font-semibold text-[#7a8aaa]/50 w-10">#</th>
+                  <th className="px-4 py-3 font-semibold text-[#7a8aaa]/50">Team</th>
+                  <th className="px-3 py-3 text-center font-semibold text-[#7a8aaa]/50">P</th>
+                  <th className="px-3 py-3 text-center font-semibold text-[#7a8aaa]/50">W</th>
+                  <th className="px-3 py-3 text-center font-semibold text-[#7a8aaa]/50">L</th>
+                  <th className="px-3 py-3 text-center font-semibold text-[#7a8aaa]/50">Pts</th>
                 </tr>
               </thead>
               <tbody>
                 {overallRanking.map((row, i) => (
-                  <tr key={row.team.id} className="border-b border-[#1e1b4b]/10 last:border-0">
+                  <tr key={row.team.id} className="border-b border-[#293452]/10 last:border-0">
                     <td className="px-4 py-2.5">
                       {i < 3 ? (
-                        <Trophy className={`h-4 w-4 ${i === 0 ? 'text-yellow-400' : i === 1 ? 'text-gray-400' : 'text-amber-600'}`} />
+                        <Trophy className={`h-4 w-4 ${i === 0 ? 'text-[#ffc857]' : i === 1 ? 'text-gray-400' : 'text-amber-600'}`} />
                       ) : (
-                        <span className="text-indigo-400/40 text-xs">{i + 1}</span>
+                        <span className="text-[#7a8aaa]/40 text-xs">{i + 1}</span>
                       )}
                     </td>
                     <td className="px-4 py-2.5">
@@ -192,10 +192,10 @@ export default function Leaderboard() {
                         <span className="font-medium text-white">{row.team.name}</span>
                       </div>
                     </td>
-                    <td className="px-3 py-2.5 text-center text-indigo-200/60">{row.played}</td>
+                    <td className="px-3 py-2.5 text-center text-[#aab4cc]/60">{row.played}</td>
                     <td className="px-3 py-2.5 text-center font-medium text-emerald-400">{row.won}</td>
                     <td className="px-3 py-2.5 text-center font-medium text-red-400">{row.lost}</td>
-                    <td className="px-3 py-2.5 text-center font-bold text-pink-500">{row.points}</td>
+                    <td className="px-3 py-2.5 text-center font-bold text-[#ff167a]">{row.points}</td>
                   </tr>
                 ))}
               </tbody>
@@ -204,8 +204,8 @@ export default function Leaderboard() {
         </div>
       </motion.div>
 
-      <motion.div variants={item} className="rounded-lg border border-indigo-500/20 bg-indigo-500/5 px-4 py-2.5 text-xs text-indigo-200/60">
-        <span className="font-semibold text-indigo-200/80">Scoring:</span> 2 points for a win, 0 for a loss.
+      <motion.div variants={item} className="rounded-lg border border-[#293452]/20 bg-[#293452]/5 px-4 py-2.5 text-xs text-[#aab4cc]/60">
+        <span className="font-semibold text-[#aab4cc]/80">Scoring:</span> 2 points for a win, 0 for a loss.
         Top team from each group qualifies for semifinals.
       </motion.div>
     </motion.div>

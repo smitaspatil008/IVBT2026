@@ -25,15 +25,15 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
   };
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-lg">
-      <div className="border-b border-[#1e1b4b]/20 px-4 py-3">
+    <div className="overflow-hidden rounded-xl border border-[#293452]/30 bg-[#111a35] shadow-lg">
+      <div className="border-b border-[#293452]/20 px-4 py-3">
         <h3 className="font-bold text-white">{groupName}</h3>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-[#1e1b4b]/20 bg-indigo-950/50 text-xs uppercase tracking-wider text-indigo-400/50">
+            <tr className="border-b border-[#293452]/20 bg-indigo-950/50 text-xs uppercase tracking-wider text-[#7a8aaa]/50">
               <th className="px-3 py-2 text-center">#</th>
               <th className="px-3 py-2">Team</th>
               <th className="px-3 py-2 text-center">P</th>
@@ -57,11 +57,11 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
               return (
                 <tr
                   key={row.teamId}
-                  className={`border-b border-[#1e1b4b]/10 transition hover:bg-[#1e1b4b]/20 ${
+                  className={`border-b border-[#293452]/10 transition hover:bg-[#293452]/20 ${
                     qualified ? 'border-l-4 border-l-pink-500' : ''
                   }`}
                 >
-                  <td className="px-3 py-2.5 text-center text-indigo-400/40">{idx + 1}</td>
+                  <td className="px-3 py-2.5 text-center text-[#7a8aaa]/40">{idx + 1}</td>
                   <td className="px-3 py-2.5">
                     <div className="flex items-center gap-2">
                       <span
@@ -73,28 +73,28 @@ export default function GroupTable({ groupId, groupName }: GroupTableProps) {
                       </span>
                     </div>
                   </td>
-                  <td className="px-3 py-2.5 text-center text-indigo-200/60">{row.played}</td>
-                  <td className="px-3 py-2.5 text-center text-indigo-200/60">{row.won}</td>
-                  <td className="px-3 py-2.5 text-center text-indigo-200/60">{row.lost}</td>
-                  <td className="px-3 py-2.5 text-center text-indigo-200/60">{row.drawn}</td>
-                  <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
+                  <td className="px-3 py-2.5 text-center text-[#aab4cc]/60">{row.played}</td>
+                  <td className="px-3 py-2.5 text-center text-[#aab4cc]/60">{row.won}</td>
+                  <td className="px-3 py-2.5 text-center text-[#aab4cc]/60">{row.lost}</td>
+                  <td className="px-3 py-2.5 text-center text-[#aab4cc]/60">{row.drawn}</td>
+                  <td className="hidden px-3 py-2.5 text-center text-[#aab4cc]/60 md:table-cell">
                     {row.gamesWon}
                   </td>
-                  <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
+                  <td className="hidden px-3 py-2.5 text-center text-[#aab4cc]/60 md:table-cell">
                     {row.gamesLost}
                   </td>
-                  <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
+                  <td className="hidden px-3 py-2.5 text-center text-[#aab4cc]/60 md:table-cell">
                     {row.pointsScored}
                   </td>
-                  <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
+                  <td className="hidden px-3 py-2.5 text-center text-[#aab4cc]/60 md:table-cell">
                     {row.pointsConceded}
                   </td>
-                  <td className="hidden px-3 py-2.5 text-center text-indigo-200/60 md:table-cell">
-                    <span className={pd > 0 ? 'text-pink-500' : pd < 0 ? 'text-red-400' : ''}>
+                  <td className="hidden px-3 py-2.5 text-center text-[#aab4cc]/60 md:table-cell">
+                    <span className={pd > 0 ? 'text-[#ff167a]' : pd < 0 ? 'text-red-400' : ''}>
                       {pd > 0 ? '+' : ''}{pd}
                     </span>
                   </td>
-                  <td className="px-3 py-2.5 text-center font-bold text-pink-500">
+                  <td className="px-3 py-2.5 text-center font-bold text-[#ff167a]">
                     {row.points}
                   </td>
                 </tr>

@@ -21,7 +21,7 @@ export default function PlayerCard({ player, delay = 0, onClick }: PlayerCardPro
       transition={{ delay, duration: 0.3 }}
       whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}
       onClick={onClick}
-      className="rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-3 sm:p-5 flex flex-col items-center text-center cursor-pointer"
+      className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-3 sm:p-5 flex flex-col items-center text-center cursor-pointer"
     >
       <div className="relative mb-2 sm:mb-3">
         <div
@@ -31,14 +31,14 @@ export default function PlayerCard({ player, delay = 0, onClick }: PlayerCardPro
           {player.photo ? (
             <img src={player.photo} alt={player.name} loading="lazy" className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-[#1e1b4b]/50">
-              <User className="w-7 h-7 sm:w-10 sm:h-10 text-indigo-400/40" />
+            <div className="w-full h-full flex items-center justify-center bg-[#293452]/50">
+              <User className="w-7 h-7 sm:w-10 sm:h-10 text-[#7a8aaa]/40" />
             </div>
           )}
         </div>
         {team && (
           <div
-            className="absolute -bottom-1 -right-1 w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center text-white text-[8px] sm:text-[10px] font-bold border-2 border-[#12102a]"
+            className="absolute -bottom-1 -right-1 w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center text-white text-[8px] sm:text-[10px] font-bold border-2 border-[#111a35]"
             style={{ background: team.color }}
           >
             {team.name.charAt(0)}
@@ -49,27 +49,27 @@ export default function PlayerCard({ player, delay = 0, onClick }: PlayerCardPro
       <h3 className="font-semibold text-xs sm:text-sm text-white leading-tight">{player.name}</h3>
       {team && <p className="text-[10px] sm:text-xs mt-0.5 truncate max-w-full" style={{ color: team.color }}>{team.name}</p>}
 
-      <div className="grid grid-cols-3 gap-1 sm:gap-2 w-full mt-2 sm:mt-4 pt-2 sm:pt-4 border-t border-[#1e1b4b]/30">
+      <div className="grid grid-cols-3 gap-1 sm:gap-2 w-full mt-2 sm:mt-4 pt-2 sm:pt-4 border-t border-[#293452]/30">
         <div>
           <div className="font-bold text-sm sm:text-lg text-white">{player.matchesPlayed}</div>
-          <div className="text-[9px] sm:text-[10px] text-indigo-300/50">Played</div>
+          <div className="text-[9px] sm:text-[10px] text-[#aab4cc]/50">Played</div>
         </div>
         <div>
           <div className="font-bold text-sm sm:text-lg text-emerald-400">{player.wins}</div>
-          <div className="text-[9px] sm:text-[10px] text-indigo-300/50">Won</div>
+          <div className="text-[9px] sm:text-[10px] text-[#aab4cc]/50">Won</div>
         </div>
         <div>
           <div className="font-bold text-sm sm:text-lg text-rose-400">{player.losses}</div>
-          <div className="text-[9px] sm:text-[10px] text-indigo-300/50">Lost</div>
+          <div className="text-[9px] sm:text-[10px] text-[#aab4cc]/50">Lost</div>
         </div>
       </div>
 
       <div className="w-full mt-2 sm:mt-3">
         <div className="flex justify-between text-xs mb-1">
-          <span className="text-indigo-300/50">Win Rate</span>
+          <span className="text-[#aab4cc]/50">Win Rate</span>
           <span className="font-semibold text-white">{winPct}%</span>
         </div>
-        <div className="h-1.5 rounded-full bg-[#1e1b4b]/50">
+        <div className="h-1.5 rounded-full bg-[#293452]/50">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${winPct}%` }}

@@ -37,11 +37,11 @@ function getRoundLabel(match: Match): string {
 
 function getRoundColor(match: Match): string {
   if (match.group === 'g1') return '#6366f1';
-  if (match.group === 'g2') return '#ec4899';
+  if (match.group === 'g2') return '#ff167a';
   if (match.group === 'g3') return '#10b981';
-  if (match.group === 'g4') return '#f59e0b';
-  if (match.id.startsWith('sf')) return '#ec4899';
-  if (match.id === 'f1') return '#eab308';
+  if (match.group === 'g4') return '#ffc857';
+  if (match.id.startsWith('sf')) return '#ff167a';
+  if (match.id === 'f1') return '#ffc857';
   return '#6366f1';
 }
 
@@ -64,8 +64,8 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
             isLive
               ? 'border-red-500/50 bg-red-950/20 shadow-md shadow-red-500/10'
               : isDone
-              ? 'border-pink-500/20 bg-[#12102a]'
-              : 'border-[#1e1b4b]/30 bg-[#12102a] hover:border-[#1e1b4b]/60'
+              ? 'border-[#ff167a]/20 bg-[#111a35]'
+              : 'border-[#293452]/30 bg-[#111a35] hover:border-[#293452]/60'
           }`}
         >
           {/* Top row: match number, round label, time, status */}
@@ -77,7 +77,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
               >
                 {roundLabel}
               </span>
-              <span className="text-[10px] text-indigo-400/40 font-medium">
+              <span className="text-[10px] text-[#7a8aaa]/40 font-medium">
                 Match {index + 1}
               </span>
             </div>
@@ -89,7 +89,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
                 </span>
               )}
               {!isLive && !isDone && (
-                <span className="flex items-center gap-1 text-[10px] text-indigo-400/50">
+                <span className="flex items-center gap-1 text-[10px] text-[#7a8aaa]/50">
                   <Clock className="h-3 w-3" />
                   {formatTime(match.scheduledAt)}
                 </span>
@@ -110,7 +110,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
                 </div>
                 <div className="min-w-0">
                   <p className={`truncate text-sm font-semibold ${
-                    isDone && match.winner === match.teamAId ? 'text-pink-400' : 'text-white'
+                    isDone && match.winner === match.teamAId ? 'text-[#ff167a]' : 'text-white'
                   }`}>
                     {teamA?.name ?? 'TBD'}
                   </p>
@@ -123,7 +123,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
               {isDone && match.games && match.games.length > 0 ? (
                 <div className="flex items-center justify-center gap-1">
                   {match.games.map((g, i) => (
-                    <span key={i} className="text-[11px] font-mono font-medium text-indigo-200/60">
+                    <span key={i} className="text-[11px] font-mono font-medium text-[#aab4cc]/60">
                       {g.scoreA}-{g.scoreB}
                     </span>
                   ))}
@@ -204,7 +204,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
               <div className="flex items-center gap-2 justify-end">
                 <div className="min-w-0 text-right">
                   <p className={`truncate text-sm font-semibold ${
-                    isDone && match.winner === match.teamBId ? 'text-pink-400' : 'text-white'
+                    isDone && match.winner === match.teamBId ? 'text-[#ff167a]' : 'text-white'
                   }`}>
                     {teamB?.name ?? 'TBD'}
                   </p>
@@ -221,7 +221,7 @@ function MatchRow({ match, index }: { match: Match; index: number }) {
 
           {/* Footer: court */}
           {match.court && (
-            <div className="mt-2.5 flex items-center gap-1 text-[10px] text-indigo-400/40">
+            <div className="mt-2.5 flex items-center gap-1 text-[10px] text-[#7a8aaa]/40">
               <MapPin className="h-3 w-3" />
               {match.court}
             </div>
@@ -257,10 +257,10 @@ export default function Schedule() {
       {/* Header */}
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
-          <Calendar className="h-7 w-7 text-pink-500" />
+          <Calendar className="h-7 w-7 text-[#ff167a]" />
           Match Schedule
         </h1>
-        <p className="mt-1 text-sm text-indigo-300/50">
+        <p className="mt-1 text-sm text-[#aab4cc]/50">
           {matches.length} matches across 2 days
           {liveCount > 0 && <span className="text-red-400 font-medium"> · {liveCount} live now</span>}
           {doneCount > 0 && <span> · {doneCount} completed</span>}
@@ -270,11 +270,11 @@ export default function Schedule() {
       {/* Day 1 */}
       <motion.div variants={item}>
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex items-center gap-2 rounded-xl bg-[#1e1b4b]/40 px-4 py-2">
-            <Calendar className="h-4 w-4 text-indigo-300" />
+          <div className="flex items-center gap-2 rounded-xl bg-[#293452]/40 px-4 py-2">
+            <Calendar className="h-4 w-4 text-[#aab4cc]" />
             <div>
               <div className="text-sm font-bold text-white">Day 1 — Saturday, 24 Oct</div>
-              <div className="text-[10px] text-indigo-300/50">Group Stage · {day1.length} matches</div>
+              <div className="text-[10px] text-[#aab4cc]/50">Group Stage · {day1.length} matches</div>
             </div>
           </div>
         </div>
@@ -288,11 +288,11 @@ export default function Schedule() {
       {/* Day 2 */}
       <motion.div variants={item}>
         <div className="flex items-center gap-3 mb-4 mt-4">
-          <div className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500/10 to-yellow-500/10 border border-pink-500/20 px-4 py-2">
-            <Trophy className="h-4 w-4 text-yellow-400" />
+          <div className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#ff167a]/10 to-[#ffc857]/10 border border-[#ff167a]/20 px-4 py-2">
+            <Trophy className="h-4 w-4 text-[#ffc857]" />
             <div>
               <div className="text-sm font-bold text-white">Day 2 — Sunday, 25 Oct</div>
-              <div className="text-[10px] text-indigo-300/50">Semifinals & Final · {day2.length} matches</div>
+              <div className="text-[10px] text-[#aab4cc]/50">Semifinals & Final · {day2.length} matches</div>
             </div>
           </div>
         </div>

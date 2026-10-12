@@ -53,10 +53,10 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0a0820]">
+      <div className="min-h-screen flex items-center justify-center bg-[#080d24]">
         <div className="text-center">
-          <div className="inline-block w-12 h-12 border-4 border-[#1e1b4b] border-t-pink-500 rounded-full animate-spin mb-4" />
-          <p className="text-indigo-300/60 font-medium">Loading Tournament...</p>
+          <div className="inline-block w-12 h-12 border-4 border-[#293452] border-t-pink-500 rounded-full animate-spin mb-4" />
+          <p className="text-[#aab4cc]/60 font-medium">Loading Tournament...</p>
         </div>
       </div>
     );

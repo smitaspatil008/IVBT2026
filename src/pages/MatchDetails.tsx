@@ -50,10 +50,10 @@ export default function MatchDetails() {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center px-4">
         <h1 className="mb-2 text-4xl font-bold text-white">404</h1>
-        <p className="mb-6 text-indigo-300/50">Match not found</p>
+        <p className="mb-6 text-[#aab4cc]/50">Match not found</p>
         <Link
           to="/schedule"
-          className="flex items-center gap-2 rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"
+          className="flex items-center gap-2 rounded-lg bg-[#293452] px-4 py-2 text-sm font-medium text-white hover:bg-[#293452]"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Schedule
@@ -80,7 +80,7 @@ export default function MatchDetails() {
       {/* Back */}
       <Link
         to="/schedule"
-        className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-indigo-300/50 hover:text-white"
+        className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-[#aab4cc]/50 hover:text-white"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Schedule
@@ -90,25 +90,25 @@ export default function MatchDetails() {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-6 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-5 shadow-lg"
+        className="mb-6 rounded-xl border border-[#293452]/30 bg-[#111a35] p-5 shadow-lg"
       >
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-lg font-bold text-white">{match.round}</h2>
           <div className="flex items-center gap-2">
             {match.status === 'live' && <LiveBadge />}
             {match.status === 'completed' && (
-              <span className="rounded-full bg-pink-500/10 px-2.5 py-0.5 text-xs font-semibold text-pink-500">
+              <span className="rounded-full bg-[#ff167a]/10 px-2.5 py-0.5 text-xs font-semibold text-[#ff167a]">
                 Completed
               </span>
             )}
             {match.status === 'upcoming' && (
-              <span className="rounded-full bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-300">
+              <span className="rounded-full bg-[#293452]/10 px-2.5 py-0.5 text-xs font-semibold text-[#aab4cc]">
                 Upcoming
               </span>
             )}
           </div>
         </div>
-        <div className="flex items-center gap-2 text-sm text-indigo-400/50">
+        <div className="flex items-center gap-2 text-sm text-[#7a8aaa]/50">
           <MapPin className="h-4 w-4" />
           {match.court}
           <span className="mx-1">|</span>
@@ -148,20 +148,20 @@ export default function MatchDetails() {
           animate={{ opacity: 1, x: 0 }}
           className={`rounded-xl border p-4 ${
             match.winner === match.teamAId
-              ? 'border-pink-500/40 bg-pink-500/5'
-              : 'border-[#1e1b4b]/30 bg-[#12102a]'
+              ? 'border-[#ff167a]/40 bg-[#ff167a]/5'
+              : 'border-[#293452]/30 bg-[#111a35]'
           }`}
         >
           <div className="mb-3 flex items-center gap-2">
             <div className="h-10 w-10 rounded-full" style={{ backgroundColor: teamA?.color ?? '#888' }} />
             <div>
               <p className="font-bold text-white">{teamA?.name ?? 'TBD'}</p>
-              <p className="text-xs text-indigo-400/50">{teamA?.name ?? '---'}</p>
+              <p className="text-xs text-[#7a8aaa]/50">{teamA?.name ?? '---'}</p>
             </div>
           </div>
           <div className="space-y-1">
             {playersA.map((p) => (
-              <p key={p.id} className="text-sm text-indigo-200/60">
+              <p key={p.id} className="text-sm text-[#aab4cc]/60">
                 {p.name}
               </p>
             ))}
@@ -174,20 +174,20 @@ export default function MatchDetails() {
           animate={{ opacity: 1, x: 0 }}
           className={`rounded-xl border p-4 ${
             match.winner === match.teamBId
-              ? 'border-pink-500/40 bg-pink-500/5'
-              : 'border-[#1e1b4b]/30 bg-[#12102a]'
+              ? 'border-[#ff167a]/40 bg-[#ff167a]/5'
+              : 'border-[#293452]/30 bg-[#111a35]'
           }`}
         >
           <div className="mb-3 flex items-center gap-2">
             <div className="h-10 w-10 rounded-full" style={{ backgroundColor: teamB?.color ?? '#888' }} />
             <div>
               <p className="font-bold text-white">{teamB?.name ?? 'TBD'}</p>
-              <p className="text-xs text-indigo-400/50">{teamB?.name ?? '---'}</p>
+              <p className="text-xs text-[#7a8aaa]/50">{teamB?.name ?? '---'}</p>
             </div>
           </div>
           <div className="space-y-1">
             {playersB.map((p) => (
-              <p key={p.id} className="text-sm text-indigo-200/60">
+              <p key={p.id} className="text-sm text-[#aab4cc]/60">
                 {p.name}
               </p>
             ))}
@@ -201,13 +201,13 @@ export default function MatchDetails() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-6 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-5"
+          className="mb-6 rounded-xl border border-[#293452]/30 bg-[#111a35] p-5"
         >
-          <h3 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-indigo-400/50">
+          <h3 className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-[#7a8aaa]/50">
             Game Scores
           </h3>
 
-          <p className="mb-4 text-center text-sm font-medium text-indigo-200/60">
+          <p className="mb-4 text-center text-sm font-medium text-[#aab4cc]/60">
             Games: {teamA?.name ?? 'A'} {gamesWonA} - {gamesWonB} {teamB?.name ?? 'B'}
           </p>
 
@@ -222,11 +222,11 @@ export default function MatchDetails() {
                     isCurrent
                       ? 'border-red-700 bg-red-950/30 ring-2 ring-red-800'
                       : game
-                        ? 'border-[#1e1b4b]/30 bg-indigo-950/50'
-                        : 'border-dashed border-[#1e1b4b]/20 bg-indigo-950/20'
+                        ? 'border-[#293452]/30 bg-indigo-950/50'
+                        : 'border-dashed border-[#293452]/20 bg-indigo-950/20'
                   }`}
                 >
-                  <p className="mb-1 text-xs font-semibold uppercase text-indigo-400/40">
+                  <p className="mb-1 text-xs font-semibold uppercase text-[#7a8aaa]/40">
                     Game {gi + 1}
                     {isCurrent && (
                       <span className="ml-1 text-red-400">LIVE</span>
@@ -250,11 +250,11 @@ export default function MatchDetails() {
 
       {/* Upcoming state */}
       {match.status === 'upcoming' && (
-        <div className="rounded-xl border border-dashed border-[#1e1b4b]/30 py-12 text-center">
-          <p className="text-lg font-medium text-indigo-300/50">
+        <div className="rounded-xl border border-dashed border-[#293452]/30 py-12 text-center">
+          <p className="text-lg font-medium text-[#aab4cc]/50">
             Match has not started yet
           </p>
-          <p className="mt-1 text-sm text-indigo-400/40">
+          <p className="mt-1 text-sm text-[#7a8aaa]/40">
             Check back when it goes live!
           </p>
         </div>

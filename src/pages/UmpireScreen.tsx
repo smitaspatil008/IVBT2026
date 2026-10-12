@@ -86,9 +86,9 @@ export default function UmpireScreen() {
 
   if (!match) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#0a0820] px-4 text-white">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-[#080d24] px-4 text-white">
         <h1 className="mb-2 text-3xl font-bold">Match not found</h1>
-        <Link to="/admin" className="text-indigo-400 hover:underline">
+        <Link to="/admin" className="text-[#7a8aaa] hover:underline">
           Back to Admin
         </Link>
       </div>
@@ -105,21 +105,21 @@ export default function UmpireScreen() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0820] text-white">
+    <div className="min-h-screen bg-[#080d24] text-white">
       <div className="mx-auto max-w-lg px-4 py-6">
         {/* Back */}
         <Link
           to="/admin"
-          className="mb-4 inline-flex items-center gap-1.5 text-sm text-indigo-300/50 hover:text-white"
+          className="mb-4 inline-flex items-center gap-1.5 text-sm text-[#aab4cc]/50 hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Admin
         </Link>
 
         {/* Match Header */}
-        <div className="mb-6 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-4 text-center">
-          <p className="text-sm font-semibold text-indigo-400">{match.round}</p>
-          <p className="text-xs text-indigo-400/40">{match.court}</p>
+        <div className="mb-6 rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 text-center">
+          <p className="text-sm font-semibold text-[#7a8aaa]">{match.round}</p>
+          <p className="text-xs text-[#7a8aaa]/40">{match.court}</p>
           {isLive && (
             <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-xs font-bold uppercase">
               <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-white" />
@@ -127,7 +127,7 @@ export default function UmpireScreen() {
             </span>
           )}
           {match.status === 'completed' && (
-            <span className="mt-2 inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-bold uppercase text-pink-500">
+            <span className="mt-2 inline-block rounded-full bg-[#ff167a]/20 px-3 py-1 text-xs font-bold uppercase text-[#ff167a]">
               Completed
             </span>
           )}
@@ -141,7 +141,7 @@ export default function UmpireScreen() {
               style={{ backgroundColor: teamA?.color ?? '#888' }}
             />
             <p className="text-sm font-bold">{teamA?.name ?? 'TBD'}</p>
-            <p className="text-xs text-indigo-400/40">{teamA?.name ?? '---'}</p>
+            <p className="text-xs text-[#7a8aaa]/40">{teamA?.name ?? '---'}</p>
           </div>
           <div>
             <div
@@ -149,13 +149,13 @@ export default function UmpireScreen() {
               style={{ backgroundColor: teamB?.color ?? '#888' }}
             />
             <p className="text-sm font-bold">{teamB?.name ?? 'TBD'}</p>
-            <p className="text-xs text-indigo-400/40">{teamB?.name ?? '---'}</p>
+            <p className="text-xs text-[#7a8aaa]/40">{teamB?.name ?? '---'}</p>
           </div>
         </div>
 
         {/* Games Won Summary */}
-        <div className="mb-6 rounded-lg border border-[#1e1b4b]/30 bg-[#12102a] p-3 text-center">
-          <p className="text-xs uppercase tracking-wide text-indigo-400/40">Match Score</p>
+        <div className="mb-6 rounded-lg border border-[#293452]/30 bg-[#111a35] p-3 text-center">
+          <p className="text-xs uppercase tracking-wide text-[#7a8aaa]/40">Match Score</p>
           <p className="text-2xl font-bold">
             <span style={{ color: teamA?.color }}>{gamesWon.a}</span>
             <span className="mx-2 text-indigo-700">-</span>
@@ -175,15 +175,15 @@ export default function UmpireScreen() {
                 disabled={isFuture}
                 className={`flex-1 rounded-lg py-2 text-sm font-semibold transition-colors ${
                   isCurrent
-                    ? 'bg-[#1e1b4b] text-white'
+                    ? 'bg-[#293452] text-white'
                     : game
-                      ? 'bg-[#1e1b4b]/30 text-indigo-300'
+                      ? 'bg-[#293452]/30 text-[#aab4cc]'
                       : 'bg-indigo-950/30 text-indigo-700 cursor-not-allowed'
                 }`}
               >
                 Game {gi + 1}
                 {game && !isCurrent && (
-                  <span className="ml-1 text-xs text-indigo-400/40">
+                  <span className="ml-1 text-xs text-[#7a8aaa]/40">
                     ({game.scoreA}-{game.scoreB})
                   </span>
                 )}
@@ -199,7 +199,7 @@ export default function UmpireScreen() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="mb-4 rounded-lg bg-[#1e1b4b] p-3 text-center text-sm font-bold"
+              className="mb-4 rounded-lg bg-[#293452] p-3 text-center text-sm font-bold"
             >
               {gameWonMessage}
             </motion.div>
@@ -234,9 +234,9 @@ export default function UmpireScreen() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-6"
+            className="mb-6 rounded-xl border border-[#293452]/30 bg-[#111a35] p-6"
           >
-            <p className="mb-4 text-center text-xs uppercase tracking-wide text-indigo-400/40">
+            <p className="mb-4 text-center text-xs uppercase tracking-wide text-[#7a8aaa]/40">
               Game {match.currentGame + 1}
             </p>
 
@@ -252,7 +252,7 @@ export default function UmpireScreen() {
                 <div className="flex justify-center gap-3">
                   <button
                     onClick={() => incrementScore(match.id, 'A')}
-                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#1e1b4b] text-2xl font-bold text-white shadow-lg active:scale-95 transition-transform hover:bg-indigo-500"
+                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#293452] text-2xl font-bold text-white shadow-lg active:scale-95 transition-transform hover:bg-[#293452]"
                   >
                     +
                   </button>
@@ -279,7 +279,7 @@ export default function UmpireScreen() {
                 <div className="flex justify-center gap-3">
                   <button
                     onClick={() => incrementScore(match.id, 'B')}
-                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#1e1b4b] text-2xl font-bold text-white shadow-lg active:scale-95 transition-transform hover:bg-indigo-500"
+                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#293452] text-2xl font-bold text-white shadow-lg active:scale-95 transition-transform hover:bg-[#293452]"
                   >
                     +
                   </button>
@@ -297,8 +297,8 @@ export default function UmpireScreen() {
 
         {/* Completed Games Summary */}
         {match.games && match.games.length > 0 && (
-          <div className="rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-4">
-            <h4 className="mb-3 text-center text-xs uppercase tracking-wide text-indigo-400/40">
+          <div className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-4">
+            <h4 className="mb-3 text-center text-xs uppercase tracking-wide text-[#7a8aaa]/40">
               All Games
             </h4>
             <div className="space-y-2">
@@ -309,25 +309,25 @@ export default function UmpireScreen() {
                     key={i}
                     className={`flex items-center justify-between rounded-lg px-4 py-2 ${
                       i === match.currentGame && isLive
-                        ? 'bg-[#1e1b4b]/40 border border-[#1e1b4b]/30'
+                        ? 'bg-[#293452]/40 border border-[#293452]/30'
                         : 'bg-indigo-950/50'
                     }`}
                   >
-                    <span className="text-xs text-indigo-400/40">Game {i + 1}</span>
+                    <span className="text-xs text-[#7a8aaa]/40">Game {i + 1}</span>
                     <div className="flex items-center gap-3">
                       <span
-                        className={`text-sm font-bold ${w === 'A' ? 'text-pink-500' : 'text-indigo-200/60'}`}
+                        className={`text-sm font-bold ${w === 'A' ? 'text-[#ff167a]' : 'text-[#aab4cc]/60'}`}
                       >
                         {g.scoreA}
                       </span>
                       <span className="text-indigo-700">-</span>
                       <span
-                        className={`text-sm font-bold ${w === 'B' ? 'text-pink-500' : 'text-indigo-200/60'}`}
+                        className={`text-sm font-bold ${w === 'B' ? 'text-[#ff167a]' : 'text-[#aab4cc]/60'}`}
                       >
                         {g.scoreB}
                       </span>
                     </div>
-                    <span className="text-xs text-indigo-400/40">
+                    <span className="text-xs text-[#7a8aaa]/40">
                       {w === 'A'
                         ? teamA?.name
                         : w === 'B'
@@ -346,12 +346,12 @@ export default function UmpireScreen() {
         {/* Match already completed */}
         {match.status === 'completed' && (
           <div className="mt-6 text-center">
-            <p className="text-sm text-indigo-400/40">
+            <p className="text-sm text-[#7a8aaa]/40">
               This match has been completed.
             </p>
             <Link
               to={`/match/${match.id}`}
-              className="mt-2 inline-block text-sm text-indigo-400 hover:underline"
+              className="mt-2 inline-block text-sm text-[#7a8aaa] hover:underline"
             >
               View match details
             </Link>

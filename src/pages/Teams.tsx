@@ -48,10 +48,10 @@ export default function Teams() {
       {/* Page Header */}
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
-          <Shield className="h-7 w-7 text-indigo-400" />
+          <Shield className="h-7 w-7 text-[#7a8aaa]" />
           Teams
         </h1>
-        <p className="mt-1 text-sm text-indigo-300/50">
+        <p className="mt-1 text-sm text-[#aab4cc]/50">
           {teams.length} teams competing in the tournament.
         </p>
       </motion.div>
@@ -67,8 +67,8 @@ export default function Teams() {
             onClick={() => setActiveFilter(tab.key)}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition ${
               activeFilter === tab.key
-                ? 'bg-[#1e1b4b] text-white shadow-md'
-                : 'bg-[#1e1b4b]/30 text-indigo-300/70 hover:bg-[#1e1b4b]/30 border border-[#1e1b4b]/20'
+                ? 'bg-[#293452] text-white shadow-md'
+                : 'bg-[#293452]/30 text-[#aab4cc]/70 hover:bg-[#293452]/30 border border-[#293452]/20'
             }`}
           >
             {tab.label}
@@ -91,7 +91,7 @@ export default function Teams() {
       {filteredTeams.length === 0 && (
         <motion.div
           variants={item}
-          className="py-12 text-center text-indigo-300/50"
+          className="py-12 text-center text-[#aab4cc]/50"
         >
           No teams found for this filter.
         </motion.div>

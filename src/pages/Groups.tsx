@@ -45,7 +45,7 @@ export default function Groups() {
         <h1 className="text-2xl font-bold text-white md:text-3xl">
           Group Stage
         </h1>
-        <p className="mt-1 text-sm text-indigo-300/50">
+        <p className="mt-1 text-sm text-[#aab4cc]/50">
           Round-robin format. Top team from each group qualifies for semifinals.
         </p>
       </motion.div>
@@ -61,8 +61,8 @@ export default function Groups() {
             onClick={() => setActiveGroup(group.id)}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition ${
               activeGroup === group.id
-                ? 'bg-[#1e1b4b] text-white shadow-md'
-                : 'bg-[#1e1b4b]/30 text-indigo-300/70 hover:bg-[#1e1b4b]/30 border border-[#1e1b4b]/20'
+                ? 'bg-[#293452] text-white shadow-md'
+                : 'bg-[#293452]/30 text-[#aab4cc]/70 hover:bg-[#293452]/30 border border-[#293452]/20'
             }`}
           >
             {group.name}

@@ -12,10 +12,10 @@ export default function StatCard({ icon, label, value, color = 'purple' }: StatC
     purple: { icon: 'text-violet-400', bg: 'bg-violet-500/10', glow: 'shadow-violet-500/5' },
     blue: { icon: 'text-blue-400', bg: 'bg-blue-500/10', glow: 'shadow-blue-500/5' },
     red: { icon: 'text-rose-400', bg: 'bg-rose-500/10', glow: 'shadow-rose-500/5' },
-    amber: { icon: 'text-pink-500', bg: 'bg-pink-600/10', glow: 'shadow-pink-600/5' },
-    orange: { icon: 'text-pink-500', bg: 'bg-pink-500/10', glow: 'shadow-pink-500/5' },
-    pink: { icon: 'text-pink-500', bg: 'bg-pink-500/10', glow: 'shadow-pink-500/5' },
-    yellow: { icon: 'text-yellow-500', bg: 'bg-yellow-500/10', glow: 'shadow-yellow-500/5' },
+    amber: { icon: 'text-[#ff167a]', bg: 'bg-pink-600/10', glow: 'shadow-pink-600/5' },
+    orange: { icon: 'text-[#ff167a]', bg: 'bg-[#ff167a]/10', glow: 'shadow-[#ff167a]/5' },
+    pink: { icon: 'text-[#ff167a]', bg: 'bg-[#ff167a]/10', glow: 'shadow-[#ff167a]/5' },
+    yellow: { icon: 'text-[#ffc857]', bg: 'bg-[#ffc857]/10', glow: 'shadow-yellow-500/5' },
     green: { icon: 'text-emerald-400', bg: 'bg-emerald-500/10', glow: 'shadow-emerald-500/5' },
     emerald: { icon: 'text-emerald-400', bg: 'bg-emerald-500/10', glow: 'shadow-emerald-500/5' },
   };
@@ -23,13 +23,13 @@ export default function StatCard({ icon, label, value, color = 'purple' }: StatC
 
   if (isValidElement(icon)) {
     return (
-      <div className={`flex items-center gap-4 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-5 shadow-lg ${c.glow}`}>
+      <div className={`flex items-center gap-4 rounded-xl border border-[#293452]/30 bg-[#111a35] p-5 shadow-lg ${c.glow}`}>
         <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${c.bg}`}>
           {icon}
         </div>
         <div>
           <p className="text-2xl font-bold text-white">{value}</p>
-          <p className="text-sm text-indigo-300/50">{label}</p>
+          <p className="text-sm text-[#aab4cc]/50">{label}</p>
         </div>
       </div>
     );
@@ -39,13 +39,13 @@ export default function StatCard({ icon, label, value, color = 'purple' }: StatC
   const IconComp = icon as any;
 
   return (
-    <div className={`flex items-center gap-4 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-5 shadow-lg ${c.glow}`}>
+    <div className={`flex items-center gap-4 rounded-xl border border-[#293452]/30 bg-[#111a35] p-5 shadow-lg ${c.glow}`}>
       <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${c.bg}`}>
         <IconComp className={`h-6 w-6 ${c.icon}`} />
       </div>
       <div>
         <p className="text-2xl font-bold text-white">{value}</p>
-        <p className="text-sm text-indigo-300/50">{label}</p>
+        <p className="text-sm text-[#aab4cc]/50">{label}</p>
       </div>
     </div>
   );

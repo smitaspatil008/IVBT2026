@@ -74,13 +74,13 @@ export default function LiveMatches() {
       ) : (
         <motion.div
           variants={item}
-          className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#1e1b4b]/30 py-20 text-center"
+          className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#293452]/30 py-20 text-center"
         >
           <Bird className="mb-4 h-16 w-16 text-indigo-700" />
-          <h2 className="text-xl font-semibold text-indigo-300/50">
+          <h2 className="text-xl font-semibold text-[#aab4cc]/50">
             No Live Matches
           </h2>
-          <p className="mt-2 max-w-sm text-sm text-indigo-400/40">
+          <p className="mt-2 max-w-sm text-sm text-[#7a8aaa]/40">
             There are no matches being played right now. Check the schedule for
             upcoming matches.
           </p>

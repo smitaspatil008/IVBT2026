@@ -27,13 +27,13 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
   const getTeam = (id: string) => teams.find((t) => t.id === id);
 
   return (
-    <div className="rounded-xl border border-[#1e1b4b]/40 bg-[#12102a] overflow-hidden w-full">
-      <div className="px-3 py-2 bg-[#1e1b4b]/40 flex items-center justify-between">
+    <div className="rounded-xl border border-[#293452]/40 bg-[#111a35] overflow-hidden w-full">
+      <div className="px-3 py-2 bg-[#293452]/40 flex items-center justify-between">
         <span className="text-sm font-bold text-white">{groupName}</span>
-        <span className="text-[10px] text-indigo-300/50">{completed}/{total} played</span>
+        <span className="text-[10px] text-[#aab4cc]/50">{completed}/{total} played</span>
       </div>
 
-      <div className="divide-y divide-[#1e1b4b]/20">
+      <div className="divide-y divide-[#293452]/20">
         {standings.map((s, i) => {
           const team = getTeam(s.teamId);
           const isLeader = i === 0 && completed > 0;
@@ -43,12 +43,12 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
               key={s.teamId}
               ref={isFirst ? qualifyRef : undefined}
               className={`flex items-center justify-between px-3 py-2 ${
-                isLeader ? 'bg-pink-500/5 border-l-2 border-pink-500' :
-                isFirst ? 'border-l-2 border-indigo-500/30' : ''
+                isLeader ? 'bg-[#ff167a]/5 border-l-2 border-[#ff167a]' :
+                isFirst ? 'border-l-2 border-[#293452]/30' : ''
               }`}
             >
               <div className="flex items-center gap-2 min-w-0">
-                <span className="text-[10px] font-bold text-indigo-400/40 w-3">{i + 1}</span>
+                <span className="text-[10px] font-bold text-[#7a8aaa]/40 w-3">{i + 1}</span>
                 <span
                   className="w-5 h-5 rounded flex items-center justify-center text-white text-[8px] font-bold flex-shrink-0"
                   style={{ background: team?.color ?? '#6366f1' }}
@@ -59,7 +59,7 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
                   {team?.name ?? 'TBD'}
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-[10px] text-indigo-300/50 flex-shrink-0">
+              <div className="flex items-center gap-3 text-[10px] text-[#aab4cc]/50 flex-shrink-0">
                 <span>{s.played}P</span>
                 <span className="text-emerald-400">{s.won}W</span>
                 <span className="text-red-400">{s.lost}L</span>
@@ -70,7 +70,7 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
         })}
       </div>
 
-      <div className="border-t border-[#1e1b4b]/30 px-3 py-2 space-y-1">
+      <div className="border-t border-[#293452]/30 px-3 py-2 space-y-1">
         {groupMatches.map((m) => {
           const tA = getTeam(m.teamAId);
           const tB = getTeam(m.teamBId);
@@ -80,16 +80,16 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
             <Link
               key={m.id}
               to={`/match/${m.id}`}
-              className={`flex items-center justify-between rounded-lg px-2 py-1 text-[10px] transition hover:bg-[#1e1b4b]/30 ${
-                isLive ? 'bg-red-500/10 ring-1 ring-red-500/30' : isDone ? 'bg-[#1e1b4b]/10' : ''
+              className={`flex items-center justify-between rounded-lg px-2 py-1 text-[10px] transition hover:bg-[#293452]/30 ${
+                isLive ? 'bg-red-500/10 ring-1 ring-red-500/30' : isDone ? 'bg-[#293452]/10' : ''
               }`}
             >
               <div className="flex items-center gap-1.5 min-w-0 flex-1">
-                <span className={`font-semibold truncate ${isDone && m.winner === m.teamAId ? 'text-pink-400' : 'text-indigo-200/70'}`}>
+                <span className={`font-semibold truncate ${isDone && m.winner === m.teamAId ? 'text-[#ff167a]' : 'text-[#aab4cc]/70'}`}>
                   {tA?.name ?? '?'}
                 </span>
-                <span className="text-indigo-400/30 flex-shrink-0">vs</span>
-                <span className={`font-semibold truncate ${isDone && m.winner === m.teamBId ? 'text-pink-400' : 'text-indigo-200/70'}`}>
+                <span className="text-[#7a8aaa]/30 flex-shrink-0">vs</span>
+                <span className={`font-semibold truncate ${isDone && m.winner === m.teamBId ? 'text-[#ff167a]' : 'text-[#aab4cc]/70'}`}>
                   {tB?.name ?? '?'}
                 </span>
               </div>
@@ -100,7 +100,7 @@ function MiniGroup({ groupId, groupName, qualifyRef }: {
               )}
               {isDone && <span className="text-emerald-400 font-medium flex-shrink-0">Done</span>}
               {!isDone && !isLive && (
-                <span className="text-indigo-400/30 flex-shrink-0">
+                <span className="text-[#7a8aaa]/30 flex-shrink-0">
                   {new Date(m.scheduledAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
                 </span>
               )}
@@ -127,24 +127,24 @@ function MatchCard({ match, label, accent, innerRef }: {
   const hasTeams = match.teamAId || match.teamBId;
 
   const renderSide = (team: typeof teamA, isWinner: boolean) => (
-    <div className={`flex items-center gap-2 px-3 py-2 ${isWinner && isDone ? 'bg-pink-500/10' : ''}`}>
+    <div className={`flex items-center gap-2 px-3 py-2 ${isWinner && isDone ? 'bg-[#ff167a]/10' : ''}`}>
       {team ? (
         <>
           <span
             className="w-6 h-6 rounded flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0"
-            style={{ background: isWinner && isDone ? '#ec4899' : team.color }}
+            style={{ background: isWinner && isDone ? '#ff167a' : team.color }}
           >
             {team.name.charAt(0)}
           </span>
-          <span className={`text-xs font-medium truncate ${isWinner && isDone ? 'text-pink-400 font-bold' : 'text-indigo-100'}`}>
+          <span className={`text-xs font-medium truncate ${isWinner && isDone ? 'text-[#ff167a] font-bold' : 'text-indigo-100'}`}>
             {team.name}
           </span>
-          {isWinner && isDone && <span className="text-pink-400 text-xs ml-auto flex-shrink-0">✓</span>}
+          {isWinner && isDone && <span className="text-[#ff167a] text-xs ml-auto flex-shrink-0">✓</span>}
         </>
       ) : (
         <>
-          <span className="w-6 h-6 rounded bg-[#1e1b4b]/50 text-indigo-400/30 text-[9px] font-bold flex items-center justify-center flex-shrink-0">?</span>
-          <span className="text-indigo-400/30 italic text-xs">TBD</span>
+          <span className="w-6 h-6 rounded bg-[#293452]/50 text-[#7a8aaa]/30 text-[9px] font-bold flex items-center justify-center flex-shrink-0">?</span>
+          <span className="text-[#7a8aaa]/30 italic text-xs">TBD</span>
         </>
       )}
     </div>
@@ -157,8 +157,8 @@ function MatchCard({ match, label, accent, innerRef }: {
           whileHover={hasTeams ? { scale: 1.02 } : undefined}
           className={`rounded-xl overflow-hidden border transition-shadow ${
             isLive ? 'border-red-500 shadow-lg shadow-red-500/20' :
-            isDone ? 'border-pink-400/30 shadow-md shadow-pink-500/10' :
-            'border-[#1e1b4b]/40'
+            isDone ? 'border-pink-400/30 shadow-md shadow-[#ff167a]/10' :
+            'border-[#293452]/40'
           }`}
         >
           <div className={`px-3 py-1.5 text-[10px] font-bold text-white flex items-center justify-between ${accent}`}>
@@ -172,7 +172,7 @@ function MatchCard({ match, label, accent, innerRef }: {
               </span>
             )}
           </div>
-          <div className="bg-[#12102a] divide-y divide-[#1e1b4b]/20">
+          <div className="bg-[#111a35] divide-y divide-[#293452]/20">
             {renderSide(teamA, match.winner === match.teamAId)}
             {renderSide(teamB, match.winner === match.teamBId)}
           </div>
@@ -220,10 +220,10 @@ function BracketConnectors({ wrapperRef, points }: {
     <svg className="absolute inset-0 pointer-events-none" style={{ width: '100%', height: '100%' }}>
       <defs>
         <marker id="arrowPink" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#ec4899" strokeWidth="1.5" />
+          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#ff167a" strokeWidth="1.5" />
         </marker>
         <marker id="arrowGold" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#eab308" strokeWidth="1.5" />
+          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#ffc857" strokeWidth="1.5" />
         </marker>
       </defs>
       {lines.map((l, i) => {
@@ -269,12 +269,12 @@ export default function Bracket() {
   const finalRef = useRef<HTMLDivElement>(null);
 
   const connectorPoints = useMemo(() => [
-    { from: gARef, to: sf1Ref, color: '#ec4899' },
-    { from: gBRef, to: sf1Ref, color: '#ec4899' },
-    { from: gCRef, to: sf2Ref, color: '#ec4899' },
-    { from: gDRef, to: sf2Ref, color: '#ec4899' },
-    { from: sf1Ref, to: finalRef, color: '#eab308' },
-    { from: sf2Ref, to: finalRef, color: '#eab308' },
+    { from: gARef, to: sf1Ref, color: '#ff167a' },
+    { from: gBRef, to: sf1Ref, color: '#ff167a' },
+    { from: gCRef, to: sf2Ref, color: '#ff167a' },
+    { from: gDRef, to: sf2Ref, color: '#ff167a' },
+    { from: sf1Ref, to: finalRef, color: '#ffc857' },
+    { from: sf2Ref, to: finalRef, color: '#ffc857' },
   ], []);
 
   return (
@@ -282,36 +282,36 @@ export default function Bracket() {
       {/* Header */}
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
-          <Trophy className="h-7 w-7 text-pink-500" />
+          <Trophy className="h-7 w-7 text-[#ff167a]" />
           Tournament Bracket
         </h1>
-        <p className="mt-1 text-sm text-indigo-300/50">
+        <p className="mt-1 text-sm text-[#aab4cc]/50">
           4 Groups → 4 Winners → Semifinals → Final → Champion
         </p>
       </motion.div>
 
       {/* Progress flow pills */}
       <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 text-xs">
-        <span className="px-3 py-1.5 rounded-full bg-[#1e1b4b]/50 text-indigo-200 font-medium">
+        <span className="px-3 py-1.5 rounded-full bg-[#293452]/50 text-[#aab4cc] font-medium">
           Group Stage ({groupsDone}/{groupMatches.length})
         </span>
-        <ChevronRight className="w-4 h-4 text-indigo-400/30" />
-        <span className={`px-3 py-1.5 rounded-full font-medium ${allGroupsDone ? 'bg-pink-500/20 text-pink-300' : 'bg-[#1e1b4b]/30 text-indigo-400/40'}`}>
+        <ChevronRight className="w-4 h-4 text-[#7a8aaa]/30" />
+        <span className={`px-3 py-1.5 rounded-full font-medium ${allGroupsDone ? 'bg-[#ff167a]/20 text-pink-300' : 'bg-[#293452]/30 text-[#7a8aaa]/40'}`}>
           Semifinals
         </span>
-        <ChevronRight className="w-4 h-4 text-indigo-400/30" />
-        <span className={`px-3 py-1.5 rounded-full font-medium ${sf1?.status === 'completed' && sf2?.status === 'completed' ? 'bg-yellow-400/20 text-yellow-300' : 'bg-[#1e1b4b]/30 text-indigo-400/40'}`}>
+        <ChevronRight className="w-4 h-4 text-[#7a8aaa]/30" />
+        <span className={`px-3 py-1.5 rounded-full font-medium ${sf1?.status === 'completed' && sf2?.status === 'completed' ? 'bg-[#ffc857]/20 text-[#ffc857]' : 'bg-[#293452]/30 text-[#7a8aaa]/40'}`}>
           Final
         </span>
-        <ChevronRight className="w-4 h-4 text-indigo-400/30" />
-        <span className={`px-3 py-1.5 rounded-full font-medium ${champion ? 'bg-yellow-400/20 text-yellow-300' : 'bg-[#1e1b4b]/30 text-indigo-400/40'}`}>
+        <ChevronRight className="w-4 h-4 text-[#7a8aaa]/30" />
+        <span className={`px-3 py-1.5 rounded-full font-medium ${champion ? 'bg-[#ffc857]/20 text-[#ffc857]' : 'bg-[#293452]/30 text-[#7a8aaa]/40'}`}>
           🏆 Champion
         </span>
       </motion.div>
 
       {/* Tiebreaker info */}
-      <motion.div variants={item} className="rounded-lg border border-indigo-500/20 bg-indigo-500/5 px-4 py-2.5 text-xs text-indigo-200/60">
-        <span className="font-semibold text-indigo-200/80">Tiebreaker rule:</span> In case of a tie in group stage, a decider match (1 set, 11 points) will determine the group winner.
+      <motion.div variants={item} className="rounded-lg border border-[#293452]/20 bg-[#293452]/5 px-4 py-2.5 text-xs text-[#aab4cc]/60">
+        <span className="font-semibold text-[#aab4cc]/80">Tiebreaker rule:</span> In case of a tie in group stage, a decider match (1 set, 11 points) will determine the group winner.
       </motion.div>
 
       {/* ═══════════ DESKTOP GRAPHICAL BRACKET ═══════════ */}
@@ -322,7 +322,7 @@ export default function Bracket() {
           <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-x-8 items-start">
             {/* Column 1: Groups */}
             <div className="space-y-4">
-              <div className="text-xs font-semibold uppercase tracking-wider text-indigo-400/40 mb-2">Group Stage — Sat, 24 Oct</div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#7a8aaa]/40 mb-2">Group Stage — Sat, 24 Oct</div>
               <MiniGroup groupId="g1" groupName="Group A" qualifyRef={gARef} />
               <MiniGroup groupId="g2" groupName="Group B" qualifyRef={gBRef} />
               <MiniGroup groupId="g3" groupName="Group C" qualifyRef={gCRef} />
@@ -334,15 +334,15 @@ export default function Bracket() {
 
             {/* Column 3: Semifinals */}
             <div className="flex flex-col justify-center min-h-full space-y-6 py-20">
-              <div className="text-xs font-semibold uppercase tracking-wider text-indigo-400/40 mb-2">Semifinals — Sun, 25 Oct</div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#7a8aaa]/40 mb-2">Semifinals — Sun, 25 Oct</div>
               <div>
-                <div className="text-[10px] text-pink-400/60 mb-1 font-medium">Winner A vs Winner B</div>
-                <MatchCard match={sf1} label="Semi-Final 1" accent="bg-pink-500" innerRef={sf1Ref} />
+                <div className="text-[10px] text-[#ff167a]/60 mb-1 font-medium">Winner A vs Winner B</div>
+                <MatchCard match={sf1} label="Semi-Final 1" accent="bg-[#ff167a]" innerRef={sf1Ref} />
               </div>
               <div className="h-8" />
               <div>
-                <div className="text-[10px] text-pink-400/60 mb-1 font-medium">Winner C vs Winner D</div>
-                <MatchCard match={sf2} label="Semi-Final 2" accent="bg-pink-500" innerRef={sf2Ref} />
+                <div className="text-[10px] text-[#ff167a]/60 mb-1 font-medium">Winner C vs Winner D</div>
+                <MatchCard match={sf2} label="Semi-Final 2" accent="bg-[#ff167a]" innerRef={sf2Ref} />
               </div>
             </div>
 
@@ -351,30 +351,30 @@ export default function Bracket() {
 
             {/* Column 5: Final + Champion */}
             <div className="flex flex-col justify-center min-h-full space-y-6 py-48">
-              <div className="text-xs font-semibold uppercase tracking-wider text-indigo-400/40 mb-2">Final — Sun, 25 Oct</div>
-              <MatchCard match={final} label="Grand Final" accent="bg-gradient-to-r from-yellow-500 to-amber-500" innerRef={finalRef} />
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#7a8aaa]/40 mb-2">Final — Sun, 25 Oct</div>
+              <MatchCard match={final} label="Grand Final" accent="bg-gradient-to-r from-[#ffc857] to-amber-500" innerRef={finalRef} />
 
               {champion ? (
                 <motion.div
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
-                  className="rounded-2xl p-5 text-center bg-gradient-to-b from-yellow-500/10 via-amber-500/5 to-transparent border-2 border-yellow-400/30 shadow-xl shadow-yellow-400/10"
+                  className="rounded-2xl p-5 text-center bg-gradient-to-b from-[#ffc857]/10 via-amber-500/5 to-transparent border-2 border-[#ffc857]/30 shadow-xl shadow-[#ffc857]/10"
                 >
-                  <Trophy className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
+                  <Trophy className="w-10 h-10 text-[#ffc857] mx-auto mb-2" />
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold mx-auto mb-2 shadow-lg"
                     style={{ background: champion.color }}
                   >
                     {champion.name.charAt(0)}
                   </div>
-                  <div className="font-bold text-yellow-300">{champion.name}</div>
-                  <div className="text-[10px] text-yellow-400/60 font-semibold mt-1 uppercase tracking-widest">Champion</div>
+                  <div className="font-bold text-[#ffc857]">{champion.name}</div>
+                  <div className="text-[10px] text-[#ffc857]/60 font-semibold mt-1 uppercase tracking-widest">Champion</div>
                 </motion.div>
               ) : (
-                <div className="rounded-2xl p-5 text-center border-2 border-dashed border-[#1e1b4b]/30">
+                <div className="rounded-2xl p-5 text-center border-2 border-dashed border-[#293452]/30">
                   <Trophy className="w-8 h-8 text-indigo-700 mx-auto mb-2" />
-                  <div className="text-sm font-semibold text-indigo-300/40">Champion TBD</div>
+                  <div className="text-sm font-semibold text-[#aab4cc]/40">Champion TBD</div>
                 </div>
               )}
             </div>
@@ -387,9 +387,9 @@ export default function Bracket() {
         {/* Groups */}
         <motion.div variants={item}>
           <h2 className="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span className="w-5 h-5 rounded bg-[#1e1b4b] text-indigo-200 text-[10px] font-bold flex items-center justify-center">1</span>
+            <span className="w-5 h-5 rounded bg-[#293452] text-[#aab4cc] text-[10px] font-bold flex items-center justify-center">1</span>
             Group Stage
-            <span className="text-[10px] font-normal text-indigo-300/50 ml-1">Sat, 24 Oct</span>
+            <span className="text-[10px] font-normal text-[#aab4cc]/50 ml-1">Sat, 24 Oct</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
             <MiniGroup groupId="g1" groupName="Group A" />
@@ -401,52 +401,52 @@ export default function Bracket() {
 
         {/* Connector */}
         <div className="flex flex-col items-center py-1">
-          <div className="w-px h-4 bg-gradient-to-b from-[#1e1b4b]/40 to-pink-500/40" />
-          <div className="w-6 h-6 rounded-full bg-pink-500/10 border border-pink-500/30 flex items-center justify-center">
-            <ChevronRight className="w-3 h-3 text-pink-400 rotate-90" />
+          <div className="w-px h-4 bg-gradient-to-b from-[#293452]/40 to-[#ff167a]/40" />
+          <div className="w-6 h-6 rounded-full bg-[#ff167a]/10 border border-[#ff167a]/30 flex items-center justify-center">
+            <ChevronRight className="w-3 h-3 text-[#ff167a] rotate-90" />
           </div>
-          <span className="text-[9px] text-pink-400/60 mt-1 font-medium">Group Winners advance</span>
-          <div className="w-px h-4 bg-gradient-to-b from-pink-500/40 to-[#1e1b4b]/40" />
+          <span className="text-[9px] text-[#ff167a]/60 mt-1 font-medium">Group Winners advance</span>
+          <div className="w-px h-4 bg-gradient-to-b from-[#ff167a]/40 to-[#293452]/40" />
         </div>
 
         {/* Semifinals */}
         <motion.div variants={item}>
           <h2 className="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span className="w-5 h-5 rounded bg-pink-500 text-white text-[10px] font-bold flex items-center justify-center">2</span>
+            <span className="w-5 h-5 rounded bg-[#ff167a] text-white text-[10px] font-bold flex items-center justify-center">2</span>
             Semifinals
-            <span className="text-[10px] font-normal text-indigo-300/50 ml-1">Sun, 25 Oct</span>
+            <span className="text-[10px] font-normal text-[#aab4cc]/50 ml-1">Sun, 25 Oct</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
             <div>
-              <div className="text-[10px] text-pink-400/60 mb-1 font-medium">Winner A vs Winner B</div>
-              <MatchCard match={sf1} label="Semi-Final 1" accent="bg-pink-500" />
+              <div className="text-[10px] text-[#ff167a]/60 mb-1 font-medium">Winner A vs Winner B</div>
+              <MatchCard match={sf1} label="Semi-Final 1" accent="bg-[#ff167a]" />
             </div>
             <div>
-              <div className="text-[10px] text-pink-400/60 mb-1 font-medium">Winner C vs Winner D</div>
-              <MatchCard match={sf2} label="Semi-Final 2" accent="bg-pink-500" />
+              <div className="text-[10px] text-[#ff167a]/60 mb-1 font-medium">Winner C vs Winner D</div>
+              <MatchCard match={sf2} label="Semi-Final 2" accent="bg-[#ff167a]" />
             </div>
           </div>
         </motion.div>
 
         {/* Connector */}
         <div className="flex flex-col items-center py-1">
-          <div className="w-px h-4 bg-gradient-to-b from-[#1e1b4b]/40 to-yellow-500/40" />
-          <div className="w-6 h-6 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center">
-            <ChevronRight className="w-3 h-3 text-yellow-400 rotate-90" />
+          <div className="w-px h-4 bg-gradient-to-b from-[#293452]/40 to-[#ffc857]/40" />
+          <div className="w-6 h-6 rounded-full bg-[#ffc857]/10 border border-[#ffc857]/30 flex items-center justify-center">
+            <ChevronRight className="w-3 h-3 text-[#ffc857] rotate-90" />
           </div>
-          <span className="text-[9px] text-yellow-400/60 mt-1 font-medium">Winners advance</span>
-          <div className="w-px h-4 bg-gradient-to-b from-yellow-500/40 to-[#1e1b4b]/40" />
+          <span className="text-[9px] text-[#ffc857]/60 mt-1 font-medium">Winners advance</span>
+          <div className="w-px h-4 bg-gradient-to-b from-[#ffc857]/40 to-[#293452]/40" />
         </div>
 
         {/* Final */}
         <motion.div variants={item}>
           <h2 className="text-base font-bold text-white mb-1 flex items-center gap-2">
-            <span className="w-5 h-5 rounded bg-yellow-500 text-white text-[10px] font-bold flex items-center justify-center">3</span>
+            <span className="w-5 h-5 rounded bg-[#ffc857] text-white text-[10px] font-bold flex items-center justify-center">3</span>
             Grand Final
-            <span className="text-[10px] font-normal text-indigo-300/50 ml-1">Sun, 25 Oct</span>
+            <span className="text-[10px] font-normal text-[#aab4cc]/50 ml-1">Sun, 25 Oct</span>
           </h2>
           <div className="max-w-sm mt-3">
-            <MatchCard match={final} label="Grand Final" accent="bg-gradient-to-r from-yellow-500 to-amber-500" />
+            <MatchCard match={final} label="Grand Final" accent="bg-gradient-to-r from-[#ffc857] to-amber-500" />
           </div>
         </motion.div>
 
@@ -457,25 +457,25 @@ export default function Bracket() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
-              className="rounded-2xl p-6 text-center bg-gradient-to-b from-yellow-500/10 via-amber-500/5 to-transparent border-2 border-yellow-400/30 shadow-xl shadow-yellow-400/10 max-w-xs w-full"
+              className="rounded-2xl p-6 text-center bg-gradient-to-b from-[#ffc857]/10 via-amber-500/5 to-transparent border-2 border-[#ffc857]/30 shadow-xl shadow-[#ffc857]/10 max-w-xs w-full"
             >
-              <Trophy className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
+              <Trophy className="w-12 h-12 text-[#ffc857] mx-auto mb-3" />
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-lg mx-auto mb-3 shadow-lg"
                 style={{ background: champion.color }}
               >
                 {champion.name.charAt(0)}
               </div>
-              <div className="font-bold text-lg text-yellow-300">{champion.name}</div>
-              <div className="text-xs text-yellow-400/60 font-semibold mt-1 uppercase tracking-widest">IVBT 2026 Champion</div>
+              <div className="font-bold text-lg text-[#ffc857]">{champion.name}</div>
+              <div className="text-xs text-[#ffc857]/60 font-semibold mt-1 uppercase tracking-widest">IVBT 2026 Champion</div>
             </motion.div>
           </motion.div>
         ) : (
           <motion.div variants={item} className="flex flex-col items-center py-4">
-            <div className="rounded-2xl p-5 text-center border-2 border-dashed border-[#1e1b4b]/30 max-w-xs w-full">
+            <div className="rounded-2xl p-5 text-center border-2 border-dashed border-[#293452]/30 max-w-xs w-full">
               <Trophy className="w-8 h-8 text-indigo-700 mx-auto mb-2" />
-              <div className="text-sm font-semibold text-indigo-300/40">Champion TBD</div>
-              <div className="text-[10px] text-indigo-400/30 mt-1">Will be decided after the Final</div>
+              <div className="text-sm font-semibold text-[#aab4cc]/40">Champion TBD</div>
+              <div className="text-[10px] text-[#7a8aaa]/30 mt-1">Will be decided after the Final</div>
             </div>
           </motion.div>
         )}

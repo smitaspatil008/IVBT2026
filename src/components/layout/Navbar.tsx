@@ -44,7 +44,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-[#1e1b4b]/40 bg-[#0a0820]/95 backdrop-blur-xl shadow-lg shadow-[#1e1b4b]/20">
+    <nav className="sticky top-0 z-50 border-b border-[#293452]/40 bg-[#080d24]/95 backdrop-blur-xl shadow-lg shadow-[#293452]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
@@ -55,10 +55,10 @@ export default function Navbar() {
               className="h-11 w-11 rounded-full object-cover transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col leading-none">
-              <span className="text-sm font-bold tracking-wider text-pink-500 font-outfit">
+              <span className="text-sm font-bold tracking-wider text-[#ff167a] font-outfit">
                 INSPIRIT VISION
               </span>
-              <span className="text-[10px] font-medium tracking-widest text-yellow-500/70 uppercase">
+              <span className="text-[10px] font-medium tracking-widest text-[#ffc857]/70 uppercase">
                 Badminton 2026
               </span>
             </div>
@@ -72,8 +72,8 @@ export default function Navbar() {
                 to={link.to}
                 className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.to)
-                    ? 'text-pink-500 bg-pink-500/10'
-                    : 'text-indigo-200/70 hover:text-pink-400 hover:bg-white/5'
+                    ? 'text-[#ff167a] bg-[#ff167a]/10'
+                    : 'text-[#aab4cc]/70 hover:text-[#ff167a] hover:bg-white/5'
                 }`}
               >
                 {link.label}
@@ -91,7 +91,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg text-indigo-300/60 hover:text-pink-500 hover:bg-white/5 transition-colors"
+              className="p-2 rounded-lg text-[#aab4cc]/60 hover:text-[#ff167a] hover:bg-white/5 transition-colors"
               aria-label="Toggle dark mode"
             >
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -100,7 +100,7 @@ export default function Navbar() {
             {auth.isLoggedIn ? (
               <Link
                 to="/admin"
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e1b4b] text-white text-sm font-medium hover:bg-[#2d2a5e] transition-colors"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#293452] text-white text-sm font-medium hover:bg-[#354563] transition-colors"
               >
                 <Shield className="h-4 w-4" />
                 Admin
@@ -108,7 +108,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/login"
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#1e1b4b]/50 text-indigo-200 text-sm font-medium hover:bg-[#1e1b4b]/30 hover:border-[#1e1b4b] transition-colors"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#293452]/50 text-[#aab4cc] text-sm font-medium hover:bg-[#293452]/30 hover:border-[#293452] transition-colors"
               >
                 <LogIn className="h-4 w-4" />
                 Login
@@ -117,7 +117,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen((o) => !o)}
-              className="md:hidden p-2 rounded-lg text-indigo-300/60 hover:text-pink-500 hover:bg-white/5 transition-colors"
+              className="md:hidden p-2 rounded-lg text-[#aab4cc]/60 hover:text-[#ff167a] hover:bg-white/5 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -134,7 +134,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden border-t border-[#1e1b4b]/30 bg-[#0a0820]"
+            className="md:hidden overflow-hidden border-t border-[#293452]/30 bg-[#080d24]"
           >
             <div className="px-4 py-3 space-y-1">
               {navLinks.map((link) => (
@@ -143,8 +143,8 @@ export default function Navbar() {
                   to={link.to}
                   className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     isActive(link.to)
-                      ? 'text-pink-500 bg-pink-500/10'
-                      : 'text-indigo-200/70 hover:text-pink-400 hover:bg-white/5'
+                      ? 'text-[#ff167a] bg-[#ff167a]/10'
+                      : 'text-[#aab4cc]/70 hover:text-[#ff167a] hover:bg-white/5'
                   }`}
                 >
                   {link.label}
@@ -157,11 +157,11 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <div className="pt-2 border-t border-[#1e1b4b]/30">
+              <div className="pt-2 border-t border-[#293452]/30">
                 {auth.isLoggedIn ? (
                   <Link
                     to="/admin"
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-pink-500 bg-pink-500/10"
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-[#ff167a] bg-[#ff167a]/10"
                   >
                     <Shield className="h-4 w-4" />
                     Admin Panel
@@ -169,7 +169,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     to="/login"
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-indigo-200/70 hover:bg-white/5"
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium text-[#aab4cc]/70 hover:bg-white/5"
                   >
                     <LogIn className="h-4 w-4" />
                     Login

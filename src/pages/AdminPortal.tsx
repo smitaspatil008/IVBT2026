@@ -42,13 +42,13 @@ function Modal({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-lg rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-6 shadow-xl max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-lg rounded-2xl border border-[#293452]/30 bg-[#111a35] p-6 shadow-xl max-h-[90vh] overflow-y-auto"
           >
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-bold text-white">{title}</h3>
               <button
                 onClick={onClose}
-                className="rounded-lg p-1 text-indigo-400/40 hover:bg-[#1e1b4b]/30"
+                className="rounded-lg p-1 text-[#7a8aaa]/40 hover:bg-[#293452]/30"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -70,7 +70,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-sm font-medium text-indigo-200/70">
+      <label className="mb-1.5 block text-sm font-medium text-[#aab4cc]/70">
         {label}
       </label>
       {children}
@@ -79,19 +79,19 @@ function Field({
 }
 
 const inputCls =
-  'w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20';
+  'w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white focus:border-[#293452] focus:outline-none focus:ring-2 focus:ring-indigo-500/20';
 
 const btnPrimary =
-  'rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 disabled:opacity-50 transition-colors';
+  'rounded-lg bg-[#293452] px-4 py-2 text-sm font-medium text-white shadow hover:bg-[#293452] disabled:opacity-50 transition-colors';
 const btnSecondary =
-  'rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-indigo-200/70 hover:bg-[#1e1b4b]/30 transition-colors';
+  'rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-[#aab4cc]/70 hover:bg-[#293452]/30 transition-colors';
 
 function ActionCard({
   icon,
   label,
   description,
   onClick,
-  color = 'bg-[#1e1b4b]/30',
+  color = 'bg-[#293452]/30',
 }: {
   icon: React.ReactNode;
   label: string;
@@ -104,11 +104,11 @@ function ActionCard({
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className={`flex flex-col items-center gap-2 rounded-xl border border-[#1e1b4b]/30 p-5 text-center shadow-sm transition-shadow hover:shadow-md ${color}`}
+      className={`flex flex-col items-center gap-2 rounded-xl border border-[#293452]/30 p-5 text-center shadow-sm transition-shadow hover:shadow-md ${color}`}
     >
       <div className="text-3xl">{icon}</div>
       <p className="text-sm font-bold text-white">{label}</p>
-      <p className="text-xs text-indigo-300/50">{description}</p>
+      <p className="text-xs text-[#aab4cc]/50">{description}</p>
     </motion.button>
   );
 }
@@ -358,12 +358,12 @@ export default function AdminPortal() {
       {/* Header */}
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Shield className="h-7 w-7 text-indigo-400" />
+          <Shield className="h-7 w-7 text-[#7a8aaa]" />
           <div>
             <h1 className="text-2xl font-bold text-white">
               Admin Portal
             </h1>
-            <p className="text-sm text-indigo-300/50">
+            <p className="text-sm text-[#aab4cc]/50">
               Logged in as {store.auth.role}
             </p>
           </div>
@@ -373,7 +373,7 @@ export default function AdminPortal() {
             store.logout();
             toast.success('Logged out');
           }}
-          className="flex items-center gap-1.5 rounded-lg border border-indigo-700/40 px-3 py-2 text-sm font-medium text-indigo-200/70 hover:bg-[#1e1b4b]/30"
+          className="flex items-center gap-1.5 rounded-lg border border-indigo-700/40 px-3 py-2 text-sm font-medium text-[#aab4cc]/70 hover:bg-[#293452]/30"
         >
           <LogOut className="h-4 w-4" />
           Logout
@@ -390,14 +390,14 @@ export default function AdminPortal() {
         ].map((stat) => (
           <div
             key={stat.label}
-            className="flex items-center gap-3 rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] p-4 shadow-sm"
+            className="flex items-center gap-3 rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 shadow-sm"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1e1b4b]/40 text-indigo-400">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#293452]/40 text-[#7a8aaa]">
               {stat.icon}
             </div>
             <div>
               <p className="text-xl font-bold text-white">{stat.value}</p>
-              <p className="text-xs text-indigo-300/50">{stat.label}</p>
+              <p className="text-xs text-[#aab4cc]/50">{stat.label}</p>
             </div>
           </div>
         ))}
@@ -500,7 +500,7 @@ export default function AdminPortal() {
 
       <Modal open={modal === 'scoring'} onClose={close} title="Live Scoring">
         {liveMatches.length === 0 ? (
-          <p className="py-4 text-center text-sm text-indigo-300/50">
+          <p className="py-4 text-center text-sm text-[#aab4cc]/50">
             No live matches right now.
           </p>
         ) : (
@@ -509,7 +509,7 @@ export default function AdminPortal() {
               <Link
                 key={m.id}
                 to={`/umpire/${m.id}`}
-                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/30 p-3 hover:bg-[#1e1b4b]/20"
+                className="flex items-center justify-between rounded-lg border border-[#293452]/30 p-3 hover:bg-[#293452]/20"
                 onClick={close}
               >
                 <span className="text-sm font-medium text-white">
@@ -530,7 +530,7 @@ export default function AdminPortal() {
             {store.teams.map((t) => (
               <div
                 key={t.id}
-                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#293452]/20 px-3 py-2"
               >
                 <div className="flex items-center gap-2">
                   <div className="h-4 w-4 rounded-full" style={{ backgroundColor: t.color }} />
@@ -545,7 +545,7 @@ export default function AdminPortal() {
                       toast.success('Team deleted');
                     }
                   }}
-                  className="text-indigo-400/40 hover:text-red-400"
+                  className="text-[#7a8aaa]/40 hover:text-red-400"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -553,9 +553,9 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-[#1e1b4b]/20" />
+          <hr className="border-[#293452]/20" />
 
-          <h4 className="text-sm font-semibold text-indigo-200/70">Add Team</h4>
+          <h4 className="text-sm font-semibold text-[#aab4cc]/70">Add Team</h4>
           <Field label="Team Name">
             <input value={teamName} onChange={(e) => setTeamName(e.target.value)} className={inputCls} placeholder="e.g., Thunderbolts" />
           </Field>
@@ -583,11 +583,11 @@ export default function AdminPortal() {
             {store.players.map((p) => (
               <div
                 key={p.id}
-                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#293452]/20 px-3 py-2"
               >
                 <span className="text-sm text-indigo-100">
                   {p.name}{' '}
-                  <span className="text-indigo-400/40">
+                  <span className="text-[#7a8aaa]/40">
                     ({getTeamName(p.teamId)})
                   </span>
                 </span>
@@ -596,7 +596,7 @@ export default function AdminPortal() {
                     store.deletePlayer(p.id);
                     toast.success('Player deleted');
                   }}
-                  className="text-indigo-400/40 hover:text-red-400"
+                  className="text-[#7a8aaa]/40 hover:text-red-400"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -604,8 +604,8 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-[#1e1b4b]/20" />
-          <h4 className="text-sm font-semibold text-indigo-200/70">Add Player</h4>
+          <hr className="border-[#293452]/20" />
+          <h4 className="text-sm font-semibold text-[#aab4cc]/70">Add Player</h4>
           <Field label="Player Name">
             <input value={playerName} onChange={(e) => setPlayerName(e.target.value)} className={inputCls} placeholder="Full name" />
           </Field>
@@ -668,18 +668,18 @@ export default function AdminPortal() {
             {store.announcements.map((a) => (
               <div
                 key={a.id}
-                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#293452]/20 px-3 py-2"
               >
                 <div>
                   <p className="text-sm font-medium text-indigo-100">{a.title}</p>
-                  <p className="text-xs text-indigo-400/40 line-clamp-1">{a.body}</p>
+                  <p className="text-xs text-[#7a8aaa]/40 line-clamp-1">{a.body}</p>
                 </div>
                 <button
                   onClick={() => {
                     store.deleteAnnouncement(a.id);
                     toast.success('Deleted');
                   }}
-                  className="text-indigo-400/40 hover:text-red-400"
+                  className="text-[#7a8aaa]/40 hover:text-red-400"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -687,8 +687,8 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-[#1e1b4b]/20" />
-          <h4 className="text-sm font-semibold text-indigo-200/70">New Announcement</h4>
+          <hr className="border-[#293452]/20" />
+          <h4 className="text-sm font-semibold text-[#aab4cc]/70">New Announcement</h4>
           <Field label="Title">
             <input value={annTitle} onChange={(e) => setAnnTitle(e.target.value)} className={inputCls} />
           </Field>
@@ -713,7 +713,7 @@ export default function AdminPortal() {
             {store.updates.map((u) => (
               <div
                 key={u.id}
-                className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[#293452]/20 px-3 py-2"
               >
                 <p className="text-sm text-indigo-100 line-clamp-1">{u.text}</p>
                 <button
@@ -721,7 +721,7 @@ export default function AdminPortal() {
                     store.deleteUpdate(u.id);
                     toast.success('Deleted');
                   }}
-                  className="text-indigo-400/40 hover:text-red-400"
+                  className="text-[#7a8aaa]/40 hover:text-red-400"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -729,7 +729,7 @@ export default function AdminPortal() {
             ))}
           </div>
 
-          <hr className="border-[#1e1b4b]/20" />
+          <hr className="border-[#293452]/20" />
           <Field label="Update Text">
             <textarea value={updateText} onChange={(e) => setUpdateText(e.target.value)} className={inputCls} rows={3} />
           </Field>
@@ -740,7 +740,7 @@ export default function AdminPortal() {
       <Modal open={modal === 'gallery'} onClose={close} title="Gallery Management">
         <div className="space-y-2">
           {store.gallery.length === 0 ? (
-            <p className="py-4 text-center text-sm text-indigo-300/50">
+            <p className="py-4 text-center text-sm text-[#aab4cc]/50">
               No photos yet. Upload from the Gallery page.
             </p>
           ) : (
@@ -748,7 +748,7 @@ export default function AdminPortal() {
               {store.gallery.map((g) => (
                 <div
                   key={g.id}
-                  className="flex items-center justify-between rounded-lg border border-[#1e1b4b]/20 px-3 py-2"
+                  className="flex items-center justify-between rounded-lg border border-[#293452]/20 px-3 py-2"
                 >
                   <div className="flex items-center gap-2">
                     {g.photo && (
@@ -763,7 +763,7 @@ export default function AdminPortal() {
                       store.deleteGalleryItem(g.id);
                       toast.success('Photo deleted');
                     }}
-                    className="text-indigo-400/40 hover:text-red-400"
+                    className="text-[#7a8aaa]/40 hover:text-red-400"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
@@ -771,9 +771,9 @@ export default function AdminPortal() {
               ))}
             </div>
           )}
-          <p className="text-xs text-indigo-400/40">
+          <p className="text-xs text-[#7a8aaa]/40">
             To upload new photos, go to the{' '}
-            <Link to="/gallery" className="text-indigo-400 hover:underline" onClick={close}>
+            <Link to="/gallery" className="text-[#7a8aaa] hover:underline" onClick={close}>
               Gallery page
             </Link>.
           </p>

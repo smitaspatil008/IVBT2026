@@ -40,21 +40,21 @@ export default function Login() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-sm"
       >
-        <div className="rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-8 shadow-xl">
-          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#1e1b4b]/40">
-            <Lock className="h-8 w-8 text-indigo-400" />
+        <div className="rounded-2xl border border-[#293452]/30 bg-[#111a35] p-8 shadow-xl">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#293452]/40">
+            <Lock className="h-8 w-8 text-[#7a8aaa]" />
           </div>
 
           <h1 className="mb-1 text-center text-xl font-bold text-white">
             Login
           </h1>
-          <p className="mb-6 text-center text-sm text-indigo-300/50">
+          <p className="mb-6 text-center text-sm text-[#aab4cc]/50">
             Enter the tournament PIN to access controls
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-indigo-200/70">
+              <label className="mb-1.5 block text-sm font-medium text-[#aab4cc]/70">
                 Tournament PIN
               </label>
               <div className="relative">
@@ -72,13 +72,13 @@ export default function Login() {
                   className={`w-full rounded-lg border px-4 py-3 text-center text-lg font-mono tracking-[0.5em] transition-colors placeholder:tracking-normal placeholder:text-sm bg-indigo-950/50 text-white focus:outline-none focus:ring-2 ${
                     error
                       ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                      : 'border-indigo-700/40 focus:border-indigo-500 focus:ring-indigo-500/20'
+                      : 'border-indigo-700/40 focus:border-[#293452] focus:ring-indigo-500/20'
                   }`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPin(!showPin)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-indigo-400/40 hover:text-indigo-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7a8aaa]/40 hover:text-[#aab4cc]"
                 >
                   {showPin ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
@@ -95,7 +95,7 @@ export default function Login() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-indigo-200/70">
+              <label className="mb-2 block text-sm font-medium text-[#aab4cc]/70">
                 Login as
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -104,8 +104,8 @@ export default function Login() {
                   onClick={() => setRole('admin')}
                   className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     role === 'admin'
-                      ? 'border-pink-500/60 bg-pink-500/10 text-pink-500'
-                      : 'border-indigo-700/30 text-indigo-300/50 hover:border-[#1e1b4b]/40'
+                      ? 'border-[#ff167a]/60 bg-[#ff167a]/10 text-[#ff167a]'
+                      : 'border-indigo-700/30 text-[#aab4cc]/50 hover:border-[#293452]/40'
                   }`}
                 >
                   <ShieldCheck className="h-4 w-4" />
@@ -116,8 +116,8 @@ export default function Login() {
                   onClick={() => setRole('umpire')}
                   className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     role === 'umpire'
-                      ? 'border-pink-500/60 bg-pink-500/10 text-pink-500'
-                      : 'border-indigo-700/30 text-indigo-300/50 hover:border-[#1e1b4b]/40'
+                      ? 'border-[#ff167a]/60 bg-[#ff167a]/10 text-[#ff167a]'
+                      : 'border-indigo-700/30 text-[#aab4cc]/50 hover:border-[#293452]/40'
                   }`}
                 >
                   <Eye className="h-4 w-4" />
@@ -129,7 +129,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={pin.length < 6}
-              className="w-full rounded-lg bg-[#1e1b4b] px-4 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-lg bg-[#293452] px-4 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-[#293452] disabled:cursor-not-allowed disabled:opacity-50"
             >
               Login
             </button>

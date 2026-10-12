@@ -19,7 +19,7 @@ const CATEGORY_LABELS: Record<Category, string> = {
 
 const CATEGORY_COLORS: Record<string, string> = {
   match: 'bg-blue-900/30 text-blue-400',
-  celebration: 'bg-yellow-900/30 text-yellow-400',
+  celebration: 'bg-yellow-900/30 text-[#ffc857]',
   team: 'bg-emerald-900/30 text-emerald-400',
   player: 'bg-purple-900/30 text-purple-400',
 };
@@ -126,7 +126,7 @@ export default function Gallery() {
       {/* Header */}
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Camera className="h-7 w-7 text-indigo-400" />
+          <Camera className="h-7 w-7 text-[#7a8aaa]" />
           <h1 className="text-2xl font-bold text-white sm:text-3xl">
             Gallery
           </h1>
@@ -134,7 +134,7 @@ export default function Gallery() {
         {auth.isLoggedIn && (
           <button
             onClick={() => setShowUpload(true)}
-            className="flex items-center gap-1.5 rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 transition-colors"
+            className="flex items-center gap-1.5 rounded-lg bg-[#293452] px-4 py-2 text-sm font-medium text-white shadow hover:bg-[#293452] transition-colors"
           >
             <Plus className="h-4 w-4" />
             Upload
@@ -150,8 +150,8 @@ export default function Gallery() {
             onClick={() => setActiveCategory(cat)}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
               activeCategory === cat
-                ? 'bg-[#1e1b4b] text-white shadow'
-                : 'bg-[#1e1b4b]/30 text-indigo-300/70 hover:bg-[#1e1b4b]/30 border border-[#1e1b4b]/20'
+                ? 'bg-[#293452] text-white shadow'
+                : 'bg-[#293452]/30 text-[#aab4cc]/70 hover:bg-[#293452]/30 border border-[#293452]/20'
             }`}
           >
             {CATEGORY_LABELS[cat]}
@@ -167,10 +167,10 @@ export default function Gallery() {
           className="py-20 text-center"
         >
           <ImageIcon className="mx-auto mb-3 h-16 w-16 text-indigo-700" />
-          <p className="text-lg font-medium text-indigo-300/50">
+          <p className="text-lg font-medium text-[#aab4cc]/50">
             No photos yet
           </p>
-          <p className="text-sm text-indigo-400/40">
+          <p className="text-sm text-[#7a8aaa]/40">
             {auth.isLoggedIn
               ? 'Upload photos to get the gallery started!'
               : 'Photos will appear here once uploaded.'}
@@ -186,7 +186,7 @@ export default function Gallery() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="group relative overflow-hidden rounded-xl border border-[#1e1b4b]/30 bg-[#12102a] shadow-sm"
+                className="group relative overflow-hidden rounded-xl border border-[#293452]/30 bg-[#111a35] shadow-sm"
               >
                 {/* Image */}
                 <div className="aspect-square overflow-hidden bg-indigo-950/50">
@@ -205,7 +205,7 @@ export default function Gallery() {
 
                 {/* Info */}
                 <div className="p-3">
-                  <span className={`mb-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${CATEGORY_COLORS[item.category] ?? 'bg-[#1e1b4b]/30 text-indigo-400'}`}>
+                  <span className={`mb-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${CATEGORY_COLORS[item.category] ?? 'bg-[#293452]/30 text-[#7a8aaa]'}`}>
                     {item.category}
                   </span>
                   <p className="text-sm font-medium text-indigo-100 line-clamp-2">
@@ -243,13 +243,13 @@ export default function Gallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-md rounded-2xl border border-[#1e1b4b]/30 bg-[#12102a] p-6 shadow-xl"
+              className="w-full max-w-md rounded-2xl border border-[#293452]/30 bg-[#111a35] p-6 shadow-xl"
             >
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-bold text-white">Upload Photo</h3>
                 <button
                   onClick={() => setShowUpload(false)}
-                  className="rounded-lg p-1 text-indigo-400/40 hover:bg-[#1e1b4b]/30"
+                  className="rounded-lg p-1 text-[#7a8aaa]/40 hover:bg-[#293452]/30"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -257,7 +257,7 @@ export default function Gallery() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-indigo-200/70">
+                  <label className="mb-1.5 block text-sm font-medium text-[#aab4cc]/70">
                     Photo
                   </label>
                   <input
@@ -265,7 +265,7 @@ export default function Gallery() {
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
-                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-indigo-200 file:mr-3 file:rounded file:border-0 file:bg-[#1e1b4b]/40 file:px-3 file:py-1 file:text-sm file:font-medium file:text-indigo-300"
+                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-[#aab4cc] file:mr-3 file:rounded file:border-0 file:bg-[#293452]/40 file:px-3 file:py-1 file:text-sm file:font-medium file:text-[#aab4cc]"
                   />
                   {preview && (
                     <img
@@ -277,7 +277,7 @@ export default function Gallery() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-indigo-200/70">
+                  <label className="mb-1.5 block text-sm font-medium text-[#aab4cc]/70">
                     Caption
                   </label>
                   <input
@@ -285,18 +285,18 @@ export default function Gallery() {
                     value={caption}
                     onChange={(e) => setCaption(e.target.value)}
                     placeholder="Describe the photo..."
-                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white placeholder-indigo-400/40 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white placeholder-indigo-400/40 focus:border-[#293452] focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-indigo-200/70">
+                  <label className="mb-1.5 block text-sm font-medium text-[#aab4cc]/70">
                     Category
                   </label>
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value as GalleryItem['category'])}
-                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+                    className="w-full rounded-lg border border-indigo-700/40 bg-indigo-950/50 px-3 py-2 text-sm text-white focus:border-[#293452] focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                   >
                     <option value="match">Match</option>
                     <option value="celebration">Celebration</option>
@@ -308,14 +308,14 @@ export default function Gallery() {
                 <div className="flex gap-3 pt-2">
                   <button
                     onClick={() => setShowUpload(false)}
-                    className="flex-1 rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-indigo-200/70 hover:bg-[#1e1b4b]/30"
+                    className="flex-1 rounded-lg border border-indigo-700/40 px-4 py-2 text-sm font-medium text-[#aab4cc]/70 hover:bg-[#293452]/30"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleUpload}
                     disabled={uploading || !preview}
-                    className="flex-1 rounded-lg bg-[#1e1b4b] px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 disabled:opacity-50"
+                    className="flex-1 rounded-lg bg-[#293452] px-4 py-2 text-sm font-medium text-white shadow hover:bg-[#293452] disabled:opacity-50"
                   >
                     {uploading ? 'Uploading...' : 'Upload'}
                   </button>

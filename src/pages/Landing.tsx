@@ -65,14 +65,14 @@ export default function Landing() {
       desc: '24 athletes competing',
       icon: Users,
       to: '/players',
-      gradient: 'from-[#1e1b4b] to-[#312e81]',
+      gradient: 'from-[#293452] to-[#312e81]',
     },
     {
       label: 'Bracket',
       desc: 'Knockout stage',
       icon: Trophy,
       to: '/bracket',
-      gradient: 'from-pink-500 to-pink-700',
+      gradient: 'from-[#ff167a] to-pink-700',
     },
     {
       label: 'Teams',
@@ -102,12 +102,12 @@ export default function Landing() {
         variants={item}
         className="relative overflow-hidden rounded-2xl px-6 py-16 text-white shadow-2xl md:px-12 md:py-24"
         style={{
-          background: 'linear-gradient(135deg, #0a0820 0%, #1e1b4b 40%, #312e81 70%, #1e1b4b 100%)',
+          background: 'linear-gradient(135deg, #080d24 0%, #293452 40%, #312e81 70%, #293452 100%)',
         }}
       >
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-pink-500/10 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#1e1b4b]/40 blur-3xl" />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#ff167a]/10 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#293452]/40 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-pink-400/5 blur-2xl" />
         </div>
 
@@ -121,7 +121,7 @@ export default function Landing() {
             <img
               src="/logo.png"
               alt="IVBT 2026"
-              className="h-32 w-32 rounded-full border-2 border-pink-500/30 shadow-xl shadow-pink-500/10 md:h-40 md:w-40"
+              className="h-32 w-32 rounded-full border-2 border-[#ff167a]/30 shadow-xl shadow-[#ff167a]/10 md:h-40 md:w-40"
             />
           </motion.div>
 
@@ -129,7 +129,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-1.5 text-sm font-medium text-pink-300"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#ff167a]/30 bg-[#ff167a]/10 px-4 py-1.5 text-sm font-medium text-pink-300"
           >
             <span className="text-lg">🏸</span>
             Women's Doubles 2026
@@ -145,7 +145,7 @@ export default function Landing() {
               Inspirit Vision
             </span>
             <br />
-            <span className="text-2xl font-bold text-indigo-200 md:text-3xl">
+            <span className="text-2xl font-bold text-[#aab4cc] md:text-3xl">
               Badminton Tournament
             </span>
           </motion.h1>
@@ -154,7 +154,7 @@ export default function Landing() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="mt-4 text-lg text-indigo-200/80 md:text-xl"
+            className="mt-4 text-lg text-[#aab4cc]/80 md:text-xl"
           >
             12 Teams &bull; 24 Players &bull; 2 Days of Glory
           </motion.p>
@@ -163,7 +163,7 @@ export default function Landing() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="mt-3 flex flex-wrap justify-center gap-3 text-sm text-indigo-300/70"
+            className="mt-3 flex flex-wrap justify-center gap-3 text-sm text-[#aab4cc]/70"
           >
             <span className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
@@ -183,7 +183,7 @@ export default function Landing() {
           >
             <Link
               to="/live"
-              className="inline-flex items-center gap-2 rounded-full bg-pink-500 px-6 py-3 font-semibold text-white shadow-lg shadow-pink-500/20 transition hover:bg-pink-400 hover:shadow-xl hover:shadow-pink-500/30"
+              className="inline-flex items-center gap-2 rounded-full bg-[#ff167a] px-6 py-3 font-semibold text-white shadow-lg shadow-[#ff167a]/20 transition hover:bg-pink-400 hover:shadow-xl hover:shadow-[#ff167a]/30"
             >
               <Zap className="h-5 w-5" />
               View Live
@@ -240,7 +240,7 @@ export default function Landing() {
             </h2>
             <Link
               to="/live"
-              className="flex items-center gap-1 text-sm font-medium text-pink-500 hover:text-pink-400"
+              className="flex items-center gap-1 text-sm font-medium text-[#ff167a] hover:text-[#ff167a]"
             >
               View All <ChevronRight className="h-4 w-4" />
             </Link>
@@ -295,9 +295,9 @@ export default function Landing() {
               return (
                 <div
                   key={ann.id}
-                  className="flex items-start gap-4 rounded-xl border border-[#1e1b4b]/40 bg-[#12102a] p-4 shadow-sm"
+                  className="flex items-start gap-4 rounded-xl border border-[#293452]/40 bg-[#111a35] p-4 shadow-sm"
                 >
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1e1b4b]/40 text-indigo-400">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#293452]/40 text-[#7a8aaa]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -305,14 +305,14 @@ export default function Landing() {
                       <h3 className="font-semibold text-white">
                         {ann.title}
                       </h3>
-                      <span className="rounded-full bg-pink-500/10 px-2 py-0.5 text-xs font-medium text-pink-500">
+                      <span className="rounded-full bg-[#ff167a]/10 px-2 py-0.5 text-xs font-medium text-[#ff167a]">
                         {ann.type}
                       </span>
                     </div>
-                    <p className="mt-1 text-sm text-indigo-200/60">
+                    <p className="mt-1 text-sm text-[#aab4cc]/60">
                       {ann.body}
                     </p>
-                    <p className="mt-1 text-xs text-indigo-400/40">
+                    <p className="mt-1 text-xs text-[#7a8aaa]/40">
                       {new Date(ann.createdAt).toLocaleDateString('en-IN', {
                         day: 'numeric',
                         month: 'short',
@@ -337,7 +337,7 @@ export default function Landing() {
             {updates.map((update) => (
               <div
                 key={update.id}
-                className="min-w-[280px] max-w-[320px] shrink-0 rounded-xl border border-[#1e1b4b]/40 bg-[#12102a] p-4 shadow-sm"
+                className="min-w-[280px] max-w-[320px] shrink-0 rounded-xl border border-[#293452]/40 bg-[#111a35] p-4 shadow-sm"
               >
                 {update.image && (
                   <img
@@ -346,10 +346,10 @@ export default function Landing() {
                     className="mb-3 h-40 w-full rounded-lg object-cover"
                   />
                 )}
-                <p className="text-sm text-indigo-200/70">
+                <p className="text-sm text-[#aab4cc]/70">
                   {update.text}
                 </p>
-                <p className="mt-2 text-xs text-indigo-400/40">
+                <p className="mt-2 text-xs text-[#7a8aaa]/40">
                   {new Date(update.createdAt).toLocaleDateString('en-IN', {
                     day: 'numeric',
                     month: 'short',
