@@ -408,7 +408,7 @@ export const useTournamentStore = create<TournamentState>((set, get) => {
 
     incrementScore: (matchId, team) => {
       set((s) => {
-        const matches = s.matches.map((m) => {
+        let matches = s.matches.map((m) => {
           if (m.id !== matchId || m.status !== 'live') return m;
 
           const games: GameScore[] = [...(m.games || [])];
