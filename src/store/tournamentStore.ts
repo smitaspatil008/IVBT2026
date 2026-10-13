@@ -236,6 +236,33 @@ export const useTournamentStore = create<TournamentState>((set, get) => {
           });
         }
 
+        // Auto-advance: populate semifinals if all group matches are done
+        const currentState = get();
+        const groupMatches = currentState.matches.filter((m) => m.group);
+        const sfMatches = currentState.matches.filter((m) => m.id === 'sf1' || m.id === 'sf2');
+        const allGroupsDone = groupMatches.length > 0 && groupMatches.every((m) => m.status === 'completed');
+        const sfsEmpty = sfMatches.some((m) => !m.teamAId || !m.teamBId);
+
+        if (allGroupsDone && sfsEmpty) {
+          const groupIds = currentState.groups.map((g) => g.id).sort();
+          const qualifiers: Record<string, string> = {};
+          for (const gid of groupIds) {
+            const standings = currentState.getGroupStandings(gid);
+            qualifiers[gid] = standings[0]?.teamId ?? '';
+          }
+          const sfAssignments: Record<string, { teamAId: string; teamBId: string }> = {
+            sf1: { teamAId: qualifiers[groupIds[0]] ?? '', teamBId: qualifiers[groupIds[1]] ?? '' },
+            sf2: { teamAId: qualifiers[groupIds[2]] ?? '', teamBId: qualifiers[groupIds[3]] ?? '' },
+          };
+          set({
+            matches: currentState.matches.map((m) => {
+              const assign = sfAssignments[m.id];
+              if (assign) return { ...m, teamAId: assign.teamAId, teamBId: assign.teamBId };
+              return m;
+            }),
+          });
+        }
+
         skipSync = false;
       }, (error) => {
         console.warn('Firebase connection error — using default data', error);
@@ -439,6 +466,58 @@ export const useTournamentStore = create<TournamentState>((set, get) => {
 
           return { ...m, games };
         });
+
+        // After updating matches, handle bracket advancement
+        const justCompleted = matches.find(
+          (m) => m.id === matchId && m.status === 'completed' && m.winner,
+        );
+        if (justCompleted) {
+          // Advance winner in knockout bracket (sf → final)
+          const bracket = KNOCKOUT_BRACKET[matchId];
+          if (bracket) {
+            matches = matches.map((m) =>
+              m.id === bracket.nextMatchId
+                ? { ...m, [bracket.slot]: justCompleted.winner }
+                : m,
+            );
+          }
+
+          // Auto-advance to knockouts when all group matches are done
+          if (justCompleted.group) {
+            const allGroupsDone = matches
+              .filter((m) => m.group)
+              .every((m) => m.status === 'completed');
+
+            if (allGroupsDone) {
+              const state = get();
+              const groupIds = state.groups.map((g) => g.id).sort();
+              const qualifiers: Record<string, string> = {};
+
+              for (const gid of groupIds) {
+                const standings = state.getGroupStandings(gid);
+                qualifiers[gid] = standings[0]?.teamId ?? '';
+              }
+
+              const gAWinner = qualifiers[groupIds[0]] ?? '';
+              const gBWinner = qualifiers[groupIds[1]] ?? '';
+              const gCWinner = qualifiers[groupIds[2]] ?? '';
+              const gDWinner = qualifiers[groupIds[3]] ?? '';
+
+              const sfAssignments: Record<string, { teamAId: string; teamBId: string }> = {
+                sf1: { teamAId: gAWinner, teamBId: gBWinner },
+                sf2: { teamAId: gCWinner, teamBId: gDWinner },
+              };
+
+              matches = matches.map((m) => {
+                const assign = sfAssignments[m.id];
+                if (assign && !m.teamAId && !m.teamBId) {
+                  return { ...m, teamAId: assign.teamAId, teamBId: assign.teamBId };
+                }
+                return m;
+              });
+            }
+          }
+        }
 
         return { matches };
       });
