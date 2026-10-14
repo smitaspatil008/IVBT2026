@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Target, RotateCcw, Users, AlertTriangle, Trophy, Shuffle, Clock } from 'lucide-react';
+import { BookOpen, Target, RotateCcw, Users, AlertTriangle, Trophy, Shuffle, Gavel } from 'lucide-react';
 
 const container = {
   hidden: { opacity: 0 },
@@ -10,140 +10,6 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-interface RuleCardProps {
-  number: number;
-  title: string;
-  description: string;
-  icon: React.ElementType;
-  color: string;
-}
-
-function RuleCard({ number, title, description, icon: Icon, color }: RuleCardProps) {
-  return (
-    <motion.div
-      variants={item}
-      className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 sm:p-5 hover:border-[#ff167a]/30 transition-colors"
-    >
-      <div className="flex items-start gap-3 sm:gap-4">
-        <div
-          className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl text-white shadow-lg"
-          style={{ background: color }}
-        >
-          <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-bold text-[#7a8aaa]/40 bg-[#293452]/10 px-2 py-0.5 rounded-full">
-              #{number}
-            </span>
-            <h3 className="font-bold text-sm sm:text-base text-white">{title}</h3>
-          </div>
-          <p className="text-xs sm:text-sm text-[#aab4cc]/60 leading-relaxed">{description}</p>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-const rules: Omit<RuleCardProps, 'number'>[] = [
-  {
-    title: 'Toss',
-    description: 'A toss shall be conducted before a match begins. The winning side gets to choose whether to serve, receive, or pick a side of the court first.',
-    icon: Shuffle,
-    color: '#6366f1',
-  },
-  {
-    title: 'Scoring System',
-    description: 'A match consists of the best of three games of 11 points each. The pair scoring 11 points first wins the game.',
-    icon: Target,
-    color: '#ff167a',
-  },
-  {
-    title: 'Deuce Rule',
-    description: 'At 10-all, the pair which first gains a 2-point lead wins that game. At 14-all, the side scoring the 15th point wins that game.',
-    icon: Target,
-    color: '#ffc857',
-  },
-  {
-    title: 'Change of Ends',
-    description: 'Players change ends after each game. In the third game, players change ends when the leading score reaches 6 points.',
-    icon: RotateCcw,
-    color: '#10b981',
-  },
-  {
-    title: 'Serving Rules',
-    description: 'A serve must be hit below the waist, with the racket head pointing downward. The shuttle must land within the diagonally opposite service court.',
-    icon: Target,
-    color: '#8b5cf6',
-  },
-  {
-    title: 'Service Courts',
-    description: 'In doubles, the server serves from the right service court when the serving side\'s score is even, and from the left court when it is odd.',
-    icon: Users,
-    color: '#0891b2',
-  },
-  {
-    title: 'Doubles Receiving',
-    description: 'Only the receiver may return the serve. If the shuttle is touched or hit by the receiver\'s partner, it is a fault and the serving side scores a point.',
-    icon: Users,
-    color: '#ea580c',
-  },
-  {
-    title: 'Faults',
-    description: 'A fault is called if the shuttle lands outside the boundary, passes through or under the net, fails to cross the net, or touches the ceiling/walls.',
-    icon: AlertTriangle,
-    color: '#dc2626',
-  },
-  {
-    title: 'Lets',
-    description: 'A "let" is called if the shuttle gets stuck on the net after passing over during a serve, or if both server and receiver commit a fault simultaneously.',
-    icon: Clock,
-    color: '#ca8a04',
-  },
-  {
-    title: 'Continuous Play',
-    description: 'Play shall be continuous from the first serve until the match is concluded. Intervals of 60 seconds are allowed between each game.',
-    icon: Clock,
-    color: '#059669',
-  },
-  {
-    title: 'Shuttle Not in Play',
-    description: 'A shuttle is not in play when it hits the net and remains on the same side, or when it hits the net or post and falls towards the surface on the striker\'s side.',
-    icon: AlertTriangle,
-    color: '#7c3aed',
-  },
-  {
-    title: 'Net Play',
-    description: 'A player shall not touch the net or its supports with racket, body, or clothing during play. A player must not invade the opponent\'s court.',
-    icon: AlertTriangle,
-    color: '#e11d48',
-  },
-  {
-    title: 'Double Hit',
-    description: 'The shuttle may only be hit once on each side of the net before it crosses over. In doubles, both partners may not hit the shuttle consecutively.',
-    icon: Target,
-    color: '#2563eb',
-  },
-  {
-    title: 'Misconduct',
-    description: 'Players shall not deliberately delay the game, modify the shuttle, behave in an offensive manner, or use any form of coaching during play.',
-    icon: AlertTriangle,
-    color: '#db2777',
-  },
-  {
-    title: 'Tiebreaker Rule',
-    description: 'In case of a tie in the group stage, 1 extra match of 1 set up to 11 points will be played between the tied teams to decide qualification.',
-    icon: Trophy,
-    color: '#ffc857',
-  },
-  {
-    title: 'Fair Play',
-    description: 'All players must uphold the spirit of sportsmanship. The umpire\'s decision is final. Any disputes should be resolved respectfully.',
-    icon: Trophy,
-    color: '#10b981',
-  },
-];
-
 export default function Rules() {
   return (
     <motion.div variants={container} initial="hidden" animate="show" className="space-y-6 pb-12">
@@ -151,12 +17,66 @@ export default function Rules() {
       <motion.div variants={item}>
         <h1 className="flex items-center gap-3 text-2xl font-bold text-white md:text-3xl">
           <BookOpen className="h-7 w-7 text-[#ff167a]" />
-          Game Rules
+          Official Rulebook
         </h1>
         <p className="mt-1 text-sm text-[#aab4cc]/50">
-          Official rules for IVBT 2026 — Women's Doubles Badminton
+          IVBT 2026 — Women's Doubles Badminton Tournament
+        </p>
+        <p className="mt-3 text-xs sm:text-sm text-[#aab4cc]/60 leading-relaxed">
+          This rulebook sets the rules every IVBT 2026 match is played and officiated by.
+          Players, umpires and volunteers should read it before the first match; where a
+          situation is not covered here, the referee's decision is final.
         </p>
       </motion.div>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 1. Tournament Format at a Glance                               */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={1} title="Tournament Format at a Glance" icon={Trophy} color="#6366f1">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-4">
+          Every IVBT 2026 match is a doubles match, best of three games, each game to 11 points.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-[#293452]/40">
+                <th className="text-left py-2 pr-4 text-[#aab4cc]/80 font-semibold">Item</th>
+                <th className="text-left py-2 text-[#aab4cc]/80 font-semibold">Rule</th>
+              </tr>
+            </thead>
+            <tbody className="text-[#aab4cc]/60">
+              <tr className="border-b border-[#293452]/20">
+                <td className="py-2.5 pr-4 font-medium text-white/80">Match type</td>
+                <td className="py-2.5">Doubles (two players per side, four on court)</td>
+              </tr>
+              <tr className="border-b border-[#293452]/20">
+                <td className="py-2.5 pr-4 font-medium text-white/80">Match length</td>
+                <td className="py-2.5">Best of three games</td>
+              </tr>
+              <tr className="border-b border-[#293452]/20">
+                <td className="py-2.5 pr-4 font-medium text-white/80">Game target</td>
+                <td className="py-2.5">11 points, rally-point scoring</td>
+              </tr>
+              <tr className="border-b border-[#293452]/20">
+                <td className="py-2.5 pr-4 font-medium text-white/80">Extended play</td>
+                <td className="py-2.5">From 10-10, win by two; at 19-19, the 20th point wins</td>
+              </tr>
+              <tr className="border-b border-[#293452]/20">
+                <td className="py-2.5 pr-4 font-medium text-white/80">Venue</td>
+                <td className="py-2.5">Indoors, on an official-dimension court</td>
+              </tr>
+              <tr className="border-b border-[#293452]/20">
+                <td className="py-2.5 pr-4 font-medium text-white/80">Rest</td>
+                <td className="py-2.5">Two rest periods per game</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 pr-4 font-medium text-white/80">In charge</td>
+                <td className="py-2.5">The referee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </Section>
 
       {/* Quick Summary Cards */}
       <motion.div variants={item} className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -169,7 +89,7 @@ export default function Rules() {
           <div className="text-[10px] text-[#aab4cc]/50 uppercase tracking-wider mt-1">Best of Games</div>
         </div>
         <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
-          <div className="text-2xl font-bold text-emerald-400">15</div>
+          <div className="text-2xl font-bold text-emerald-400">20</div>
           <div className="text-[10px] text-[#aab4cc]/50 uppercase tracking-wider mt-1">Max Points Cap</div>
         </div>
         <div className="rounded-xl border border-[#293452]/20 bg-[#293452]/5 p-4 text-center">
@@ -178,16 +98,43 @@ export default function Rules() {
         </div>
       </motion.div>
 
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 2. Scoring Rules                                                */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={2} title="Scoring Rules" icon={Target} color="#ff167a">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-3">
+          The first side to 11 points wins the game; the first side to win two games wins the match.
+        </p>
+        <ul className="space-y-2 text-xs sm:text-sm text-[#aab4cc]/60">
+          <li className="flex gap-2">
+            <span className="text-[#ff167a] mt-1 shrink-0">&#9679;</span>
+            All matches are best of three games.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ff167a] mt-1 shrink-0">&#9679;</span>
+            A point is scored on every rally, whoever served. The side that wins the rally scores the point and serves next.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ff167a] mt-1 shrink-0">&#9679;</span>
+            At 10-10, a side must lead by two clear points to win the game.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ff167a] mt-1 shrink-0">&#9679;</span>
+            If the score reaches 19-19, the side that scores the 20th point wins the game.
+          </li>
+        </ul>
+      </Section>
+
       {/* Scoring Flow Diagram */}
       <motion.div variants={item} className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 sm:p-6">
-        <h2 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Scoring Flow</h2>
+        <h2 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">How a Game Ends</h2>
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-0 justify-center">
           {[
-            { label: 'Game Start', sub: '0 - 0', color: '#6366f1' },
-            { label: 'First to 11', sub: 'Wins game', color: '#ff167a' },
-            { label: '10-all Deuce', sub: '2-point lead needed', color: '#ffc857' },
-            { label: '14-all Cap', sub: '15th point wins', color: '#dc2626' },
-            { label: 'Best of 3', sub: 'Win 2 games', color: '#10b981' },
+            { label: 'Play to 11', sub: 'a point every rally', color: '#6366f1' },
+            { label: '10-10 Reached?', sub: 'deuce begins', color: '#ffc857' },
+            { label: 'Win by 2', sub: 'e.g. 12-10, 15-13', color: '#ff167a' },
+            { label: '19-19 Cap', sub: '20th point wins', color: '#dc2626' },
+            { label: 'Best of 3', sub: 'win 2 games', color: '#10b981' },
           ].map((step, i) => (
             <div key={i} className="flex items-center gap-2 sm:gap-0">
               <div className="flex flex-col items-center">
@@ -210,7 +157,233 @@ export default function Rules() {
         </div>
       </motion.div>
 
-      {/* Tournament Format Diagram */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 3. Point Rules                                                  */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={3} title="Point Rules" icon={Target} color="#ffc857">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-3">
+          A side wins the point when the shuttle lands in the opponents' half of the court, lines included.
+        </p>
+        <div className="rounded-lg bg-[#293452]/20 p-3 mb-3">
+          <p className="text-xs font-semibold text-white/80 mb-1">On the line is in; only a shuttle landing fully outside is out</p>
+          <div className="flex gap-4 mt-2 text-[10px] sm:text-xs text-[#aab4cc]/60">
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" /> In: lands inside or on a line
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-red-400 inline-block" /> Out: lands fully outside the lines
+            </span>
+          </div>
+        </div>
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-2 font-medium text-white/70">A side loses the point when a player:</p>
+        <ul className="space-y-1.5 text-xs sm:text-sm text-[#aab4cc]/60">
+          <li className="flex gap-2">
+            <span className="text-[#ffc857] mt-1 shrink-0">&#9679;</span>
+            Hits the shuttle outside the court boundaries.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ffc857] mt-1 shrink-0">&#9679;</span>
+            Hits the shuttle into the net, or through or under it.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ffc857] mt-1 shrink-0">&#9679;</span>
+            Strikes the shuttle twice with the racket.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ffc857] mt-1 shrink-0">&#9679;</span>
+            Plays the shuttle before it has crossed the net to their side.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-[#ffc857] mt-1 shrink-0">&#9679;</span>
+            Touches the net with the body or racket. A follow-through over the net is allowed, as long as the net is not touched.
+          </li>
+        </ul>
+      </Section>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 4. Service Rules                                                */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={4} title="Service Rules" icon={Shuffle} color="#8b5cf6">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-3">
+          The server serves diagonally into the opponent's service court, from the right when their
+          side's score is even and from the left when it is odd.
+        </p>
+
+        <div className="rounded-lg bg-[#293452]/20 p-3 mb-3">
+          <p className="text-xs font-semibold text-white/80 mb-2">Even score: serve from the right. Odd score: from the left.</p>
+          <div className="flex gap-4 text-[10px] sm:text-xs text-[#aab4cc]/60">
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-blue-500 inline-block" /> Even score (0, 2, 4 …) — right court
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-orange-400 inline-block" /> Odd score (1, 3, 5 …) — left court
+            </span>
+          </div>
+        </div>
+
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-2 font-medium text-white/70">A serve is legal only when every check below holds:</p>
+        <ol className="space-y-1.5 text-xs sm:text-sm text-[#aab4cc]/60 list-decimal list-inside">
+          <li>The shuttle is struck below the server's waist.</li>
+          <li>The serve travels diagonally into the opponent's service court.</li>
+          <li>Server and receiver stay stationary until the serve is made.</li>
+          <li>Both of the server's feet are in contact with the floor when striking the shuttle.</li>
+          <li>The server's feet do not touch any court line.</li>
+          <li>The racket strikes the cork (base) of the shuttle first, not the feathers.</li>
+        </ol>
+        <p className="mt-3 text-xs sm:text-sm text-[#aab4cc]/60">
+          The serving side keeps the serve for as long as it keeps winning points.
+        </p>
+      </Section>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 5. Doubles Service Rotation                                     */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={5} title="Doubles Service Rotation" icon={RotateCcw} color="#0891b2">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-3">
+          In doubles, the serving pair swaps courts each time it wins a point on its own serve; the receiving pair never moves.
+        </p>
+        <ul className="space-y-1.5 text-xs sm:text-sm text-[#aab4cc]/60 mb-4">
+          <li className="flex gap-2">
+            <span className="text-cyan-400 mt-1 shrink-0">&#9679;</span>
+            The first server of the game starts from the right service court and keeps serving, switching sides with the partner, for as long as their side wins points.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-cyan-400 mt-1 shrink-0">&#9679;</span>
+            When the receiving side wins a rally, it scores the point and takes the serve. The new server is whichever of the pair stands in the correct court for their score: right if even, left if odd.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-cyan-400 mt-1 shrink-0">&#9679;</span>
+            So the partner who did not serve first gets to serve only after their side has won a point as the receiving side.
+          </li>
+        </ul>
+
+        <p className="text-xs font-semibold text-white/80 mb-2">
+          Worked example — Pair A & B vs Pair C & D (A serves first, C receives first):
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-[10px] sm:text-xs">
+            <thead>
+              <tr className="border-b border-[#293452]/40">
+                <th className="text-left py-2 pr-2 text-[#aab4cc]/80 font-semibold">Rally</th>
+                <th className="text-left py-2 pr-2 text-[#aab4cc]/80 font-semibold">Won by</th>
+                <th className="text-left py-2 pr-2 text-[#aab4cc]/80 font-semibold">Score</th>
+                <th className="text-left py-2 pr-2 text-[#aab4cc]/80 font-semibold">Server</th>
+                <th className="text-left py-2 pr-2 text-[#aab4cc]/80 font-semibold">Court</th>
+                <th className="text-left py-2 text-[#aab4cc]/80 font-semibold">What changes</th>
+              </tr>
+            </thead>
+            <tbody className="text-[#aab4cc]/60">
+              {[
+                ['Start', '—', '0 – 0', 'A', 'Right', 'A serves to C'],
+                ['1', 'A & B', '1 – 0', 'A', 'Left', 'A and B swap courts'],
+                ['2', 'C & D', '1 – 1', 'D', 'Left', 'Serve passes; nobody moves'],
+                ['3', 'C & D', '1 – 2', 'D', 'Right', 'C and D swap courts'],
+                ['4', 'A & B', '2 – 2', 'B', 'Right', 'Serve passes; B is in the right court'],
+              ].map(([rally, won, score, server, court, change], i) => (
+                <tr key={i} className="border-b border-[#293452]/20">
+                  <td className="py-2 pr-2 font-medium text-white/80">{rally}</td>
+                  <td className="py-2 pr-2">{won}</td>
+                  <td className="py-2 pr-2 font-mono">{score}</td>
+                  <td className="py-2 pr-2 font-medium text-white/80">{server}</td>
+                  <td className="py-2 pr-2">{court}</td>
+                  <td className="py-2">{change}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 6. Play and Conduct                                             */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={6} title="Play and Conduct" icon={Users} color="#10b981">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-3">
+          Matches are doubles, played indoors on a court of official dimensions, and every player is expected to play fairly.
+        </p>
+        <ul className="space-y-1.5 text-xs sm:text-sm text-[#aab4cc]/60">
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            A match is played by four players, two per side.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            During a rally, a player may return the shuttle from inside or outside the court.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            No player may touch the net with any part of the body or racket.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            No player may hit the shuttle twice.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            No player may deliberately distract an opponent.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            The referee may call a let for an unforeseen or accidental incident; the rally is then replayed with no point scored.
+          </li>
+          <li className="flex gap-2">
+            <span className="text-emerald-400 mt-1 shrink-0">&#9679;</span>
+            Each game includes two rest periods.
+          </li>
+        </ul>
+      </Section>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 7. Officials                                                    */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={7} title="Officials" icon={Gavel} color="#ea580c">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60">
+          The referee is in overall charge of the IVBT 2026 tournament, and the referee's decision on any question of the rules is final.
+        </p>
+      </Section>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* 8. Quick Reference: Faults                                      */}
+      {/* ──────────────────────────────────────────────────────────────── */}
+      <Section number={8} title="Quick Reference: Faults" icon={AlertTriangle} color="#dc2626">
+        <p className="text-xs sm:text-sm text-[#aab4cc]/60 mb-3">
+          Any of these faults gives the point, and the next serve, to the other side.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-[#293452]/40">
+                <th className="text-left py-2 pr-4 text-[#aab4cc]/80 font-semibold w-24">When</th>
+                <th className="text-left py-2 text-[#aab4cc]/80 font-semibold">Fault</th>
+              </tr>
+            </thead>
+            <tbody className="text-[#aab4cc]/60">
+              {[
+                ['Serving', 'Shuttle struck above the waist'],
+                ['Serving', 'Serve not diagonal, or lands outside the service court'],
+                ['Serving', 'Server or receiver moves before the serve is made'],
+                ['Serving', 'A foot off the floor, or touching a line, at contact'],
+                ['Serving', 'Feathers hit before the cork'],
+                ['Rally', 'Shuttle lands outside the boundary lines'],
+                ['Rally', 'Shuttle hits the net, or goes through or under it'],
+                ['Rally', 'Shuttle hit twice by the same side\'s stroke'],
+                ['Rally', 'Shuttle played before it crosses the net'],
+                ['Any time', 'Body or racket touches the net'],
+                ['Any time', 'Deliberately distracting an opponent'],
+              ].map(([when, fault], i) => (
+                <tr key={i} className="border-b border-[#293452]/20">
+                  <td className="py-2.5 pr-4 font-medium text-white/80">{when}</td>
+                  <td className="py-2.5">{fault}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      {/* ──────────────────────────────────────────────────────────────── */}
+      {/* Tournament Format                                               */}
+      {/* ──────────────────────────────────────────────────────────────── */}
       <motion.div variants={item} className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 sm:p-6">
         <h2 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Tournament Format</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -254,7 +427,7 @@ export default function Rules() {
         </div>
       </motion.div>
 
-      {/* Court Diagram */}
+      {/* Doubles Court Layout */}
       <motion.div variants={item} className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 sm:p-6">
         <h2 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Doubles Court Layout</h2>
         <div className="flex justify-center">
@@ -349,24 +522,53 @@ export default function Rules() {
         </div>
       </motion.div>
 
-      {/* All Rules */}
-      <motion.div variants={item}>
-        <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-          <BookOpen className="h-5 w-5 text-[#7a8aaa]" />
-          Complete Rules
-        </h2>
+      {/* Tiebreaker note */}
+      <motion.div variants={item} className="rounded-lg border border-[#ffc857]/20 bg-[#ffc857]/5 px-4 py-3 text-xs sm:text-sm text-[#aab4cc]/60">
+        <span className="font-semibold text-[#ffc857]">Tiebreaker rule:</span>{' '}
+        In case of a tie in the group stage, 1 extra match of 1 set up to 11 points will be played between the tied teams to decide qualification.
       </motion.div>
-
-      <div className="grid gap-3 sm:grid-cols-2">
-        {rules.map((rule, i) => (
-          <RuleCard key={i} number={i + 1} {...rule} />
-        ))}
-      </div>
 
       <motion.div variants={item} className="rounded-lg border border-[#293452]/20 bg-[#293452]/5 px-4 py-2.5 text-xs text-[#aab4cc]/60">
-        <span className="font-semibold text-[#aab4cc]/80">Note:</span> These rules are specific to IVBT 2026.
-        The umpire's decision is final in all matters of play.
+        <span className="font-semibold text-[#aab4cc]/80">Note:</span> These are the official rules for IVBT 2026.
+        The referee's decision is final in all matters of play.
       </motion.div>
+    </motion.div>
+  );
+}
+
+function Section({
+  number,
+  title,
+  icon: Icon,
+  color,
+  children,
+}: {
+  number: number;
+  title: string;
+  icon: React.ElementType;
+  color: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      variants={item}
+      className="rounded-xl border border-[#293452]/30 bg-[#111a35] p-4 sm:p-6"
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <div
+          className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-lg"
+          style={{ background: color }}
+        >
+          <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-bold text-[#7a8aaa]/40 bg-[#293452]/30 px-2 py-0.5 rounded-full">
+            #{number}
+          </span>
+          <h2 className="font-bold text-sm sm:text-base text-white">{title}</h2>
+        </div>
+      </div>
+      {children}
     </motion.div>
   );
 }
